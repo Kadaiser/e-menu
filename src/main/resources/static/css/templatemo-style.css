@@ -331,6 +331,12 @@ hr { border-top: 1px solid #111010; }
 	font-size: 36px;
 	font-weight: 300;
 }
+.tm-section-title1 {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: 250;
+}
 .tm-home-box-2 {
 	background-color: white;
 	max-width: 254px;
@@ -863,7 +869,7 @@ hr { border-top: 1px solid #111010; }
 	}
 	.tm-what-we-do-right { text-align: center; }
 	.section-margin-top.about-section {	margin-top: 120px; }
-	.tm-section-header { margin-bottom: 40px; }
+	.tm-section-header { margin-bottom: 35px; }
 	.tm-about-box-1 {
 		width: 100%;
 		max-width: 300px;
