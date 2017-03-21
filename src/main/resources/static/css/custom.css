@@ -14,7 +14,9 @@
     =============================================*/
 body {
     font-family: 'Open Sans', sans-serif;
-    line-height:30px;
+    
+     overflow-x: hidden;
+
 }
 
  #wrapper {
@@ -33,7 +35,7 @@ body {
     margin:10px 20px 10px 0px;
     background-color:#fff!important;
     padding:10px;
-    min-height:1050px;
+    min-height:900px;
 }
 .pad-top {
     padding-top:15px;
@@ -41,6 +43,10 @@ body {
 /*==============================================
     MENU STYLES    
     =============================================*/
+.tm-home-section-111 {
+    position: relative;
+    
+}
 
 .sidebar-collapse .nav {
 	padding:0;
