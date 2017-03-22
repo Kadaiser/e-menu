@@ -2,63 +2,99 @@ package es.ucm.fdi.iw.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller	
 public class RootController {
 
-	@GetMapping({"/", "/home"})
+	@RequestMapping({"/","/index"})
 	String root() {
+		return "index";
+	}
+	@RequestMapping({"/home"})
+	String homeView() {
 		return "home";
 	}
 	
-	@GetMapping({"/about"})
+	@RequestMapping({"/about"})
 	String aboutView() {
 		return "about";
 	}
 	
-	@GetMapping({"/add"})
+	@RequestMapping({"/add"})
 	String addView() {
 		return "add";
 	}
 	
-	@GetMapping({"/admin"})
+	@RequestMapping({"/admin"})
 	String adminView() {
 		return "admin";
 	}
 	
-	@GetMapping({"/all"})
+	@RequestMapping({"/all"})
 	String allView() {
 		return "all";
 	}
 	
-	@GetMapping({"/blank"})
+	@RequestMapping({"/blank"})
 	String blankView() {
 		return "blank";
 	}
 	
-	@GetMapping({"/contact"})
+	@RequestMapping({"/contact"})
 	String contactView() {
 		return "contact";
 	}
 	
-	@GetMapping({"/index"})
-	String indexView() {
-		return "index";
-	}
-	
-	@GetMapping({"/reg-rest"})
+	@RequestMapping({"/reg-rest"})
 	String regRestView() {
 		return "reg-rest";
 	}
 	
-	@GetMapping({"/tours"})
+	@RequestMapping({"/reg"})
+	String regView() {
+		return "reg";
+	}
+	
+	@RequestMapping({"/tours"})
 	String toursView() {
 		return "tours";
 	}
 	
-	@GetMapping({"/ui"})
+	@RequestMapping({"/ui"})
 	String uiView() {
 		return "ui";
+	}
+	
+	@RequestMapping({"/user"})
+	String userView() {
+		return "user";
+	}
+	
+	@RequestMapping({"/carta-restaurante"})
+	String cartaView() {
+		return "carta-restaurante";
+	}
+	@RequestMapping({"/mis-reserv"})
+	String reservView() {
+		return "mis-reserv";
+	}
+	@RequestMapping({"/mis-rest"})
+	String restView() {
+		return "mis-rest";
+	}
+	
+	@RequestMapping({"/reservas-restaurante"})
+	String reservasResView() {
+		return "reservas-restaurante";
+	}
+	@RequestMapping({"/restaurante"})
+	String restauranteView() {
+		return "restaurante";
+	}
+	@RequestMapping({"/user-restaurant"})
+	String userRestView() {
+		return "user-restaurant";
 	}
 	
 }
