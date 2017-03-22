@@ -27,7 +27,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img src="/style/img/logo.png" />
+                        <img src="/static/img/logo.png" />
                     </a>
                 </div>
 
@@ -358,25 +358,18 @@
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
-    <div class="footer">
-
-
-             <div class="row">
-                <div class="col-lg-12" >
-                    &copy;  2014 yourdomain.com | Design by: <a href="http://binarytheme.com" style="color:#fff;"  target="_blank">www.binarytheme.com</a>
-                </div>
-        </div>
-        </div>
+        
+    <%@ include file="../jspf/footer.jspf" %>
 
 
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="/style/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="/style/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="/style/js/custom.js"></script>
+    <script src="/static/js/custom.js"></script>
 
 
 </body>
