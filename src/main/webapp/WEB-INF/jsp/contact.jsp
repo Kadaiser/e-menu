@@ -1,25 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Holiday - Contact</title>
-	<title>Insert title here</title>
-
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-	<link href="/static/css/font-awesome.min.css" rel="stylesheet">
-	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/static/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-	<link href="/static/css/flexslider.css" rel="stylesheet">
-	<link href="/static/css/templatemo-style.css" rel="stylesheet">
-
-</head>
-<body>
 	<!-- Header -->
 		<%@ include file="../jspf/header.jspf" %>
+		
 	<!-- white bg -->
 	<section class="section-padding-bottom">
 		<div class="container">
@@ -67,10 +48,10 @@
 	
 	<%@ include file="../jspf/footer.jspf" %>
 	
-	<script type="text/javascript" src="/static/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-	<script type="text/javascript" src="/static/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
-	<script type="text/javascript" src="/static/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script type="text/javascript" src="${prefix}resources/fragments/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+	<script type="text/javascript" src="${prefix}resources/fragments/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="${prefix}resources/fragments/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
+	<script type="text/javascript" src="${prefix}resources/fragments/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	
 	<%@ include file="../jspf/googleMap.jspf" %>
 </body>

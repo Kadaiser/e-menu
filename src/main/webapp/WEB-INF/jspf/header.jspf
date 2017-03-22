@@ -1,8 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>${pageTitle}</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+	<link href="${prefix}resources/fragments/font-awesome.min.css" rel="stylesheet">
+	<link href="${prefix}resources/fragments/bootstrap.min.css" rel="stylesheet">
+	<link href="${prefix}resources/fragments/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link href="${prefix}resources/fragments/flexslider.css" rel="stylesheet">
+	<link href="${prefix}resources/fragments/templatemo-style.css" rel="stylesheet">
+	
+	<script src="${prefix}resources/fragments/js/jquery-1.10.2.js"></script>
+	
+</head>
+<body class="tm-gray-bg">
+
 <div class="tm-header">
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-6 col-md-4 col-sm-3 ">
-  					<img class="profile-img-card" src="/static/img//logo.png">
+  					<img class="profile-img-card" src="${prefix}resources/fragments/img/logo.png">
   				</div>
 	  			<div class="col-lg-6 col-md-8 col-sm-9">
 	  				<div class="mobile-menu-icon">
@@ -10,17 +36,17 @@
 		            </div>
 	  				<nav class="tm-nav">
 						<ul>
-							<li><a href="/static/home.html" class="active">Home</a></li>
-							<li><a href="/static/about.html">About</a></li>
-							<li><a href="/static/contact.html">Contact</a></li>
+							<li><a href="home" class="active">Home</a></li>
+							<li><a href="about">About</a></li>
+							<li><a href="contact">Contact</a></li>
 							<li class="dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuario <span class="caret"></span></a>
 								<ul class="dropdown-menu">
-      								<li><a href="#">Perfil</a></li>
-      								<li><a href="#">Mis restaurantes</a></li>
-      								<li><a href="#">Mis reservas</a></li>
+      								<li><a href="user">Perfil</a></li>
+      								<li><a href="mis-rest">Mis restaurantes</a></li>
+      								<li><a href="mis-reserv">Mis reservas</a></li>
       								<li class="divider"></li>
-      								<li><a href="#">Cerrar Sesión</a></li>
+      								<li><a href="index">Cerrar Sesión</a></li>
     							</ul>
 
 							</li>

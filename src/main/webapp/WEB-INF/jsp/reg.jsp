@@ -1,26 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>e-Menú</title>
-    <!-- BOOTSTRAP STYLES-->
-
-    <!-- BOOTSTRAP STYLES-->
-    <link href="/style/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="/style/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="/style/css/custom.css" rel="stylesheet" />
-    <link href="/style/css/index.css" rel="stylesheet" />
-
-
-          <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
-</head>
+	<!-- Header -->
+  	<%@ include file="../jspf/header-index.jspf" %>
 <body>
 
 
@@ -72,8 +51,6 @@
         </div>
     </div>
 
-
-	<%@ include file="../jspf/footer.jspf" %>
 
 </body>
 </html>
