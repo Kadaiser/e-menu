@@ -11,22 +11,22 @@
 	<title>eMenu - Home</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-	<link href="css/flexslider.css" rel="stylesheet">
-	<link href="css/templatemo-style.css" rel="stylesheet">
+	<link href="/static/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link href="/static/css/flexslider.css" rel="stylesheet">
+	<link href="/static/css/templatemo-style.css" rel="stylesheet">
 	
 </head>
 <body class="tm-gray-bg">
-	<%@ include file="../jspf/header.jspf" %>
+	<!--   <%@ include file="../jspf/header.jspf" %> -->
 	<body class="tm-gray-bg">
   	<!-- Header -->
   	<div class="tm-header">
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-6 col-md-4 col-sm-3 ">
-  					<img class="profile-img-card" src="img/logo.png">
+  					<img class="profile-img-card" src="/static/img//logo.png">
   				</div>
 	  			<div class="col-lg-6 col-md-8 col-sm-9">
 	  				<div class="mobile-menu-icon">
@@ -34,9 +34,9 @@
 		            </div>
 	  				<nav class="tm-nav">
 						<ul>
-							<li><a href="home.html" class="active">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="/static/home.html" class="active">Home</a></li>
+							<li><a href="/static/about.html">About</a></li>
+							<li><a href="/static/contact.html">Contact</a></li>
 							<li class="dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuario <span class="caret"></span>
 </a>
@@ -133,7 +133,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="/static/img//index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -144,7 +144,7 @@
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-3">
 				<div class="tm-home-box-2">
-					<img src="img/index-02.jpg" alt="image" class="img-responsive">
+					<img src="/static/img/index-02.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-red-gradient-bg tm-city-price-container">
 							<span>Paris</span>
@@ -156,7 +156,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="/static/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -179,7 +179,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="/static/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -191,7 +191,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="/static/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -202,7 +202,7 @@
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="/static/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -225,7 +225,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">
-						<img src="img/index-03.jpg" alt="image" class="img-responsive">
+						<img src="/static/img/index-03.jpg" alt="image" class="img-responsive">
 						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
 						<p class="tm-date">28 March 2016</p>
 						<div class="tm-home-box-2-container">
@@ -237,7 +237,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">
-					    <img src="img/index-04.jpg" alt="image" class="img-responsive">
+					    <img src="/static/img/index-04.jpg" alt="image" class="img-responsive">
 						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
 						<p class="tm-date">26 March 2016</p>
 						<div class="tm-home-box-2-container">
@@ -249,7 +249,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">
-					    <img src="img/index-05.jpg" alt="image" class="img-responsive">
+					    <img src="/static/img/index-05.jpg" alt="image" class="img-responsive">
 						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
 						<p class="tm-date">24 March 2016</p>
 						<div class="tm-home-box-2-container">
@@ -261,7 +261,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2 tm-home-box-2-right">
-					    <img src="img/index-06.jpg" alt="image" class="img-responsive">
+					    <img src="/static/img/index-06.jpg" alt="image" class="img-responsive">
 						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
 						<p class="tm-date">22 March 2016</p>
 						<div class="tm-home-box-2-container">
@@ -292,7 +292,7 @@
 				<div class="col-lg-6">
 					<div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="img/index-07.jpg" alt="image" class="img-responsive">
+							<img src="/static/img/index-07.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
@@ -307,7 +307,7 @@
 			     <div class="col-lg-6">
 			        <div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="img/index-08.jpg" alt="image" class="img-responsive">
+							<img src="/static/img/index-08.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
@@ -322,7 +322,7 @@
 				<div class="col-lg-6">
 				    <div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="img/index-09.jpg" alt="image" class="img-responsive">
+							<img src="/static/img/index-09.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
@@ -337,7 +337,7 @@
 			    <div class="col-lg-6">
 			        <div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="img/index-10.jpg" alt="image" class="img-responsive">
+							<img src="/static/img/index-10.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
