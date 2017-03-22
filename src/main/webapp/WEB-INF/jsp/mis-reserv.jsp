@@ -1,6 +1,3 @@
-	<!-- Header -->
-		<%@ include file="../jspf/header.jspf" %>
-		
           		<!-- Nav Top -->
   	<%@ include file="../jspf/navUser.jspf" %>
 
@@ -41,7 +38,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
-                                            <img src="img/rest1.jpg">
+                                            <img src="${prefix}resources/fragments/img/rest1.jpg">
 
                                         </div>
 
@@ -63,7 +60,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                        <div class= "imag-rest">
-                                            <img src="img/rest1.jpg">
+                                            <img src="${prefix}resources/fragments/img/rest1.jpg">
 
                                         </div>
 
@@ -85,7 +82,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                        <div class= "imag-rest">
-                                            <img src="img/rest1.jpg">
+                                            <img src="${prefix}resources/fragments/img/rest1.jpg">
 
                                         </div>
 

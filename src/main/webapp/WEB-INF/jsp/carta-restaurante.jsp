@@ -1,7 +1,4 @@
-	<!-- Header -->
-  	<%@ include file="../jspf/header.jspf" %>
-  	
-         <!-- /. NAV TOP  -->
+
        <%@ include file="../jspf/navRest.jspf" %>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >

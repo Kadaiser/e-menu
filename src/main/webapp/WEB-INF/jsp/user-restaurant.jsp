@@ -1,8 +1,4 @@
-	<!-- Header -->
-		<%@ include file="../jspf/header.jspf" %>
-	
-         <!-- /. NAV TOP  -->
-                 <!-- /. NAV TOP  -->
+
        <%@ include file="../jspf/navRest.jspf" %>
        
         <!-- /. NAV SIDE  -->
