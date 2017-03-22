@@ -1,21 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <title>eMenu - About</title>
-
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-  <link href="/static/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-  <link href="/static/css/flexslider.css" rel="stylesheet">
-  <link href="/static/css/templatemo-style.css" rel="stylesheet">
-</head>
-<body class="tm-gray-bg">
 		<!-- Header -->
   		<%@ include file="../jspf/header.jspf" %>
 	<!-- gray bg -->
@@ -32,7 +14,7 @@
 
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="/static/img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}resources/fragments//img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Adrián Díaz</h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -45,7 +27,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="/static/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}resources/fragments/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Adrián Navazo </h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -58,7 +40,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="/static/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}resources/fragments/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Jesús Vélez</span></h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -71,7 +53,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="/static/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}resources/fragments/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Diego Valbuena</h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -88,10 +70,10 @@
 
 	<%@ include file="../jspf/footer.jspf" %>
 	
-	<script type="text/javascript" src="/static/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-  	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-  	<script type="text/javascript" src="/static/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
-  	<script type="text/javascript" src="/static/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script type="text/javascript" src="${prefix}resources/fragments/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="${prefix}resources/fragments/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+  	<script type="text/javascript" src="${prefix}resources/fragments/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
+  	<script type="text/javascript" src="${prefix}resources/fragments/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	<script>
 		$(function() {
 
