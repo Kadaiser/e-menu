@@ -38,7 +38,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
-                                            <img src="${prefix}resources/fragments/img/rest1.jpg">
+                                            <img src="${prefix}static/img/rest1.jpg">
                                             <div>
                                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
                                             </div>
@@ -60,7 +60,7 @@
                                  <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                      <div class="panel-body">
                                          <div class= "imag-rest">
-                                             <img src="${prefix}resources/fragments/img/rest1.jpg">
+                                             <img src="${prefix}static/img/rest1.jpg">
                                              <div>
                                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
                                              </div>
@@ -80,7 +80,7 @@
                                   <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                       <div class="panel-body">
                                           <div class= "imag-rest">
-                                              <img src="${prefix}resources/fragments/img/rest1.jpg">
+                                              <img src="${prefix}static/img/rest1.jpg">
                                               <div>
                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
                                               </div>
@@ -104,11 +104,11 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="${prefix}resources/fragments/js/jquery-1.10.2.js"></script>
+    <script src="${prefix}static/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="${prefix}resources/fragments/js/bootstrap.min.js"></script>
+    <script src="${prefix}static/js/bootstrap.min.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="${prefix}resources/fragments/js/custom.js"></script>
+    <script src="${prefix}static/js/custom.js"></script>
 
 
 </body>

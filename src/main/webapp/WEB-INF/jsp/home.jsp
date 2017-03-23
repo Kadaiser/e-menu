@@ -295,16 +295,16 @@
 	
 	<%@ include file="../jspf/footer.jspf" %>
 	
-	<script type="text/javascript" src="${prefix}resources/fragments/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-  	<script type="text/javascript" src="${prefix}resources/fragments/js/moment.js"></script>							<!-- moment.js -->
-	<script type="text/javascript" src="${prefix}resources/fragments/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-	<script type="text/javascript" src="${prefix}resources/fragments/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-	<script type="text/javascript" src="${prefix}resources/fragments/js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="${prefix}static/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="${prefix}static/js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="${prefix}static/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="${prefix}static/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="${prefix}static/js/jquery.flexslider-min.js"></script>
 <!--
 	<script src="js/froogaloop.js"></script>
 	<script src="js/jquery.fitvid.js"></script>
 -->
-   	<script type="text/javascript" src="${prefix}resources/fragments/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+   	<script type="text/javascript" src="${prefix}static/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	<script>
 		// HTML document is loaded. DOM is ready.
 		$(function() {

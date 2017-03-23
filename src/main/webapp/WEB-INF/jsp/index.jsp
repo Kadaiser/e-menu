@@ -9,7 +9,7 @@
     <div class="container">
         <div class="card card-container">
 
-            <img id="profile-img" class="profile-img-card" src="${prefix}resources/fragments/img/logo.png" />
+            <img id="profile-img" class="profile-img-card" src="${prefix}static/img/logo.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" action="home.html">
                 <span id="reauth-email" class="reauth-email"></span>

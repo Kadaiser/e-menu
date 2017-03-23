@@ -13,13 +13,13 @@
 	<title>${pageTitle}</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-	<link href="${prefix}resources/fragments/font-awesome.min.css" rel="stylesheet">
-	<link href="${prefix}resources/fragments/bootstrap.min.css" rel="stylesheet">
-	<link href="${prefix}resources/fragments/bootstrap-datetimepicker.min.css" rel="stylesheet">
-	<link href="${prefix}resources/fragments/flexslider.css" rel="stylesheet">
-	<link href="${prefix}resources/fragments/templatemo-style.css" rel="stylesheet">
+	<link href="${prefix}static/cssfont-awesome.min.css" rel="stylesheet">
+	<link href="${prefix}static/cssbootstrap.min.css" rel="stylesheet">
+	<link href="${prefix}static/cssbootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link href="${prefix}static/cssflexslider.css" rel="stylesheet">
+	<link href="${prefix}static/csstemplatemo-style.css" rel="stylesheet">
 	
-	<script src="${prefix}resources/fragments/js/jquery-1.10.2.js"></script>
+	<script src="${prefix}static/js/jquery-1.10.2.js"></script>
 	
 </head>
 <body class="tm-gray-bg">
@@ -28,7 +28,7 @@
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-6 col-md-4 col-sm-3 ">
-  					<img class="profile-img-card" src="${prefix}resources/fragments/img/logo.png">
+  					<img class="profile-img-card" src="${prefix}static/img/logo.png">
   				</div>
 	  			<div class="col-lg-6 col-md-8 col-sm-9">
 	  				<div class="mobile-menu-icon">

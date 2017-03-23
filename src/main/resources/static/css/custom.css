@@ -7,15 +7,29 @@
 
     100% To use For Personal And Commercial Use.
     IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
-   
+
     ========================================================  */
 /*==============================================
-    GENERAL  STYLES    
+    GENERAL  STYLES
     =============================================*/
 body {
     font-family: 'Open Sans', sans-serif;
-    
+
      overflow-x: hidden;
+
+}
+
+.filtro{
+    background-color: #f5f5f5;
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: #ddd;
+    padding: 10px;
+    margin: 0.5%;
+    color: blue;
+    font-weight: 900;
+    font-size: 16px;
+
 
 }
 
@@ -28,7 +42,7 @@ body {
     padding: 15px 15px;
     min-height: 600px;
     background:#F3F3F3;
-   
+
 }
 #page-inner {
     width:100%;
@@ -41,11 +55,11 @@ body {
     padding-top:15px;
 }
 /*==============================================
-    MENU STYLES    
+    MENU STYLES
     =============================================*/
 .tm-home-section-111 {
     position: relative;
-    
+
 }
 
 .sidebar-collapse .nav {
@@ -64,7 +78,7 @@ font-size: 16px;
 }
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
-	
+
 	background:#F3F3F3;
 	outline:0;
 }
@@ -72,7 +86,7 @@ font-size: 16px;
 .navbar-side {
 	border:none;
 	background-color: #fff;
-	
+
 }
 .navbar-inverse {
 
@@ -99,9 +113,9 @@ min-height: 80px;
 .active-link {
     background-color:#f3f3f3;
 }
-    
+
 /*==============================================
-    DASHBOARD STYLES    
+    DASHBOARD STYLES
     =============================================*/
 .div-square {
     padding:5px;
@@ -119,7 +133,7 @@ min-height: 80px;
 }
 
 /*==============================================
-    FOOTER STYLES     
+    FOOTER STYLES
     =============================================*/
 .footer {
     background-color:#214761;
@@ -131,37 +145,37 @@ min-height: 80px;
 
 
     .footer > a, .footer>a:hover {
-       
+
         color:#fff;
     }
 
 /*==============================================
-    MEDIA QUERIES     
+    MEDIA QUERIES
     =============================================*/
- 
+
  @media(min-width:768px) {
      #page-wrapper{
                margin: 0 0 0 260px;
         padding: 15px 30px;
         min-height: 1050px;
-		
+
     }
-	
-	
+
+
     .navbar-side {
         z-index: 1;
         position: absolute;
         width: 260px;
-       
+
     }
 
- 
+
 }
 
 /*==============================================
 Propias
  =============================================*/
- 
+
  #titulos-admin{
     margin:0px;
     padding-bottom: 0px;
@@ -169,3 +183,6 @@ Propias
     border-bottom: 3px double #e1e1e1;
 }
 
+.tm-site-name-container {
+    padding-top: 15px !important;
+}

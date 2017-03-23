@@ -14,7 +14,7 @@
                  <div class="row">
                     <div class="col-md-6">
                       <div class="tm-home-box-2">
-                          <img src="${prefix}resources/fragments/img/perfil.jpg" alt="image" class="img-responsive">
+                          <img src="${prefix}static/img/perfil.jpg" alt="image" class="img-responsive">
                           <a href="#">
                             <div class="tm-green-gradient-bg tm-city-price-container">
                               <span>Edita tu perfil</span>
@@ -97,7 +97,7 @@
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
           <div class="tm-tours-box-2">
-            <img src="${prefix}resources/fragments/img/index-03.jpg" alt="image" class="img-responsive">
+            <img src="${prefix}static/img/index-03.jpg" alt="image" class="img-responsive">
             <div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Datos Reserva</h3>
               <p>Datos</p>
@@ -107,7 +107,7 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
           <div class="tm-tours-box-2">
-            <img src="${prefix}resources/fragments/img/index-04.jpg" alt="image" class="img-responsive">
+            <img src="${prefix}static/img/index-04.jpg" alt="image" class="img-responsive">
             <div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Datos Reserva</h3>
               <p>Datos</p>
@@ -117,7 +117,7 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
           <div class="tm-tours-box-2">
-            <img src="${prefix}resources/fragments/img/index-05.jpg" alt="image" class="img-responsive">
+            <img src="${prefix}static/img/index-05.jpg" alt="image" class="img-responsive">
             <div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Datos Reserva</h3>
               <p>Datos</p>
@@ -127,7 +127,7 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
           <div class="tm-tours-box-2">
-            <img src="${prefix}resources/fragments/img/index-06.jpg" alt="image" class="img-responsive">
+            <img src="${prefix}static/img/index-06.jpg" alt="image" class="img-responsive">
             <div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Datos Reserva</h3>
               <p>Datos</p>
@@ -157,7 +157,7 @@
      <div class="row">
        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
          <div class="tm-tours-box-2">
-           <img src="${prefix}resources/fragments/img/index-03.jpg" alt="image" class="img-responsive">
+           <img src="${prefix}static/img/index-03.jpg" alt="image" class="img-responsive">
            <div class="tm-tours-box-2-info">
              <h3 class="margin-bottom-15">Menu Ejecutivo</h3>
              <div class="panel-group" id="accordion">
@@ -211,7 +211,7 @@
        </div>
        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
          <div class="tm-tours-box-2">
-           <img src="${prefix}resources/fragments/img/index-04.jpg" alt="image" class="img-responsive">
+           <img src="${prefix}static/img/index-04.jpg" alt="image" class="img-responsive">
            <div class="tm-tours-box-2-info">
              <h3 class="margin-bottom-15">Menu Estudiante</h3>
              <div class="panel-group" id="accordion">
@@ -269,7 +269,7 @@
        </div>
        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
          <div class="tm-tours-box-2">
-           <img src="${prefix}resources/fragments/img/index-05.jpg" alt="image" class="img-responsive">
+           <img src="${prefix}static/img/index-05.jpg" alt="image" class="img-responsive">
            <div class="tm-tours-box-2-info">
              <h3 class="margin-bottom-15">Menu Ejecutivo</h3>
              <div class="panel-group" id="accordion">
@@ -327,7 +327,7 @@
        </div>
        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
          <div class="tm-tours-box-2">
-           <img src="${prefix}resources/fragments/img/index-06.jpg" alt="image" class="img-responsive">
+           <img src="${prefix}static/img/index-06.jpg" alt="image" class="img-responsive">
            <div class="tm-tours-box-2-info">
              <h3 class="margin-bottom-15">Menu Ejecutivo</h3>
              <div class="panel-group" id="accordion">
@@ -396,11 +396,11 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="${prefix}resources/fragments/js/jquery-1.10.2.js"></script>
+    <script src="${prefix}static/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="${prefix}resources/fragments/js/bootstrap.min.js"></script>
+    <script src="${prefix}static/js/bootstrap.min.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="${prefix}resources/fragments/js/custom.js"></script>
+    <script src="${prefix}static/js/custom.js"></script>
 
 
 </body>

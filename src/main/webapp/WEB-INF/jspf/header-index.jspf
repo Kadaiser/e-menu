@@ -10,12 +10,12 @@
     <!-- BOOTSTRAP STYLES-->
 
     <!-- BOOTSTRAP STYLES-->
-    <link href="${prefix}resources/fragments/bootstrap.css" rel="stylesheet" />
+    <link href="${prefix}static/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
-    <link href="${prefix}resources/fragments/font-awesome.css" rel="stylesheet" />
+    <link href="${prefix}static/css/font-awesome.css" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
-    <link href="${prefix}resources/fragments/custom.css" rel="stylesheet" />
-    <link href="${prefix}resources/fragments/index.css" rel="stylesheet" />
+    <link href="${prefix}static/css/custom.css" rel="stylesheet" />
+    <link href="${prefix}static/css/index.css" rel="stylesheet" />
 
 
           <!-- GOOGLE FONTS-->

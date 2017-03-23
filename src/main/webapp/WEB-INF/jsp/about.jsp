@@ -14,7 +14,7 @@
 
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}resources/fragments//img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}static/img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Adrián Díaz</h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -27,7 +27,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}resources/fragments/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}static/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Adrián Navazo </h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -40,7 +40,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}resources/fragments/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}static/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Jesús Vélez</span></h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}resources/fragments/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}static/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Diego Valbuena</h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -70,10 +70,10 @@
 
 	<%@ include file="../jspf/footer.jspf" %>
 	
-	<script type="text/javascript" src="${prefix}resources/fragments/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-  	<script type="text/javascript" src="${prefix}resources/fragments/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-  	<script type="text/javascript" src="${prefix}resources/fragments/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
-  	<script type="text/javascript" src="${prefix}resources/fragments/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script type="text/javascript" src="${prefix}static/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="${prefix}static/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+  	<script type="text/javascript" src="${prefix}static/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
+  	<script type="text/javascript" src="${prefix}static/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	<script>
 		$(function() {
 
