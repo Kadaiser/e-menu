@@ -389,7 +389,6 @@
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
-        </div>
      	<%@ include file="../jspf/footer.jspf" %>
 
 

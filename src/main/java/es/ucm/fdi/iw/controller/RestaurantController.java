@@ -12,14 +12,14 @@ public class RestaurantController {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	@RequestMapping(value = "/restaurante", method = RequestMethod.GET)
+	@RequestMapping(value = "/restaurant", method = RequestMethod.GET)
 	public String restaurante(Model model, HttpSession session){
 		
 		
-		model.addAttribute("pageTitle", "Restaurante");	
+		model.addAttribute("pageTitle", "Restaurant");	
 		model.addAttribute("prefix", "../");
 		
-		return "restaurante";
+		return "restaurant";
 	}
 
 }
