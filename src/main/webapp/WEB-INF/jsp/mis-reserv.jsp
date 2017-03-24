@@ -1,3 +1,4 @@
+  <%@ page pageEncoding="UTF-8"%>
           		<!-- Nav Top -->
   	<%@ include file="../jspf/navUser.jspf" %>
 
@@ -17,8 +18,8 @@
                       <div class="form-group">
                              <select class="form-control">
                               <option value="">-- Selecciona reservas -- </option>
-                              <option value="5 últimos">5 últimos</option>
-                        <option value="15 últimos">15 últimos</option>
+                              <option value="5 Ãºltimos">5 Ãºltimos</option>
+                        <option value="15 Ãºltimos">15 Ãºltimos</option>
                         <option value="Todos">Todos</option>
 
                       </select>
@@ -38,7 +39,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
-                                            <img src="${prefix}static/img/rest1.jpg">
+                                            <img src="${prefix}/img/rest1.jpg">
 
                                         </div>
 
@@ -60,7 +61,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                        <div class= "imag-rest">
-                                            <img src="${prefix}static/img/rest1.jpg">
+                                            <img src="${prefix}/img/rest1.jpg">
 
                                         </div>
 
@@ -82,7 +83,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                        <div class= "imag-rest">
-                                            <img src="${prefix}static/img/rest1.jpg">
+                                            <img src="${prefix}/img/rest1.jpg">
 
                                         </div>
 
@@ -105,11 +106,11 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="${prefix}static/js/jquery-1.10.2.js"></script>
+    <script src="${prefix}/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="${prefix}static/js/bootstrap.min.js"></script>
+    <script src="${prefix}/js/bootstrap.min.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="${prefix}static/js/custom.js"></script>
+    <script src="${prefix}/js/custom.js"></script>
 
 
 </body>

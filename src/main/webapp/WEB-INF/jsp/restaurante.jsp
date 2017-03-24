@@ -1,3 +1,5 @@
+
+<%@ page pageEncoding="UTF-8"%>
 	<!-- Header -->
 		<%@ include file="../jspf/header.jspf" %>
 		
@@ -12,7 +14,7 @@
 					<p class="tm-banner-subtitle">subtitle</p>
 					<a href="#more" class="tm-banner-link">Reservar</a>
 				</div>
-		      <img src="${prefix}static/img/banner-2.jpg" />
+		      <img src="${prefix}/img/banner-2.jpg" />
 		    </li>
 		  </ul>
 		</div>
@@ -70,8 +72,8 @@
 				            </div>
 
                     <div class="form-group">
-                      <input class="form-control" placeholder="A�ada alg�n comentario sobre la reserva" />
-                      <p class="help-block">Puede a�adir alg�n comentario sobre la reserva.</p>
+                      <input class="form-control" placeholder="Añada algún comentario sobre la reserva" />
+                      <p class="help-block">Puede añadir algún comentario sobre la reserva.</p>
                     </div>
 									</div>
 						      <div class="form-group tm-yellow-gradient-bg text-center">
@@ -88,10 +90,10 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 
         <div class="tm-tours-box-1">
-          <img src="${prefix}static/img/tours-03.jpg" alt="image" class="img-responsive">
+          <img src="${prefix}/img/tours-03.jpg" alt="image" class="img-responsive">
           <div class="tm-tours-box-1-info">
             <div class="tm-tours-box-1-info-left">
-              <p class="text-uppercase margin-bottom-20">T�tulo Comida-Menu</p>
+              <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
               <p class="gray-text">Tipo-Categoria</p>
             </div>
             <div class="tm-tours-box-1-info-right">
@@ -121,10 +123,10 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="${prefix}static/img/tours-03.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/tours-03.jpg" alt="image" class="img-responsive">
             <div class="tm-tours-box-1-info">
               <div class="tm-tours-box-1-info-left">
-                <p class="text-uppercase margin-bottom-20">T�tulo Comida-Menu</p>
+                <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
                 <p class="gray-text">Tipo-Categoria</p>
               </div>
               <div class="tm-tours-box-1-info-right">
@@ -144,10 +146,10 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="${prefix}static/img/tours-04.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/tours-04.jpg" alt="image" class="img-responsive">
             <div class="tm-tours-box-1-info">
               <div class="tm-tours-box-1-info-left">
-                <p class="text-uppercase margin-bottom-20">T�tulo Comida-Menu</p>
+                <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
                 <p class="gray-text">Tipo-Categoria</p>
               </div>
               <div class="tm-tours-box-1-info-right">
@@ -166,10 +168,10 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="${prefix}static/img/tours-05.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/tours-05.jpg" alt="image" class="img-responsive">
             <div class="tm-tours-box-1-info">
               <div class="tm-tours-box-1-info-left">
-                <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
+                <p class="text-uppercase margin-bottom-20">TÃ­tulo Comida-Menu</p>
                 <p class="gray-text">Tipo-Categoria</p>
               </div>
               <div class="tm-tours-box-1-info-right">
@@ -178,7 +180,7 @@
             </div>
             <div class="tm-tours-box-1-link">
               <div class="tm-tours-box-1-link-left">
-              Precio 20€
+              Precio 20â¬
               </div>
               <a href="#" class="tm-tours-box-1-link-right">
                 *****
@@ -188,10 +190,10 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="${prefix}static/img/tours-06.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/tours-06.jpg" alt="image" class="img-responsive">
             <div class="tm-tours-box-1-info">
               <div class="tm-tours-box-1-info-left">
-                <p class="text-uppercase margin-bottom-20">T�tulo Comida-Menu</p>
+                <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
                 <p class="gray-text">Tipo-Categoria</p>
               </div>
               <div class="tm-tours-box-1-info-right">
@@ -225,7 +227,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-tours-box-2">
-						<img src="${prefix}static/img/index-03.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/index-03.jpg" alt="image" class="img-responsive">
 						<div class="tm-tours-box-2-info">
 							<h3 class="margin-bottom-15">Menu Ejecutivo</h3>
               <div class="panel-group" id="accordion">
@@ -273,7 +275,7 @@
                   </div>
               </div>
 
-							<img src="${prefix}static/img/rating.png" alt="image" class="margin-bottom-5">
+							<img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
 							<p>50</p>
 						</div>
 						<a href="#" class="tm-tours-box-2-link">Haz tu reserva</a>
@@ -281,7 +283,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-tours-box-2">
-						<img src="${prefix}static/img/index-04.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/index-04.jpg" alt="image" class="img-responsive">
 						<div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Menu Estudiante</h3>
               <div class="panel-group" id="accordion">
@@ -332,7 +334,7 @@
                       </div>
                   </div>
               </div>
-							<img src="${prefix}static/img/rating.png" alt="image" class="margin-bottom-5">
+							<img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
 							<p>26</p>
 						</div>
 						<a href="#" class="tm-tours-box-2-link">Haz tu reserva</a>
@@ -340,7 +342,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-tours-box-2">
-						<img src="${prefix}static/img/index-05.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/index-05.jpg" alt="image" class="img-responsive">
 						<div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Menu Ejecutivo</h3>
               <div class="panel-group" id="accordion">
@@ -391,7 +393,7 @@
                       </div>
                   </div>
               </div>
-							<img src="${prefix}static/img/rating.png" alt="image" class="margin-bottom-5">
+							<img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
 							<p>24</p>
 						</div>
 						<a href="#" class="tm-tours-box-2-link">Haz tu reserva</a>
@@ -399,7 +401,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-tours-box-2">
-						<img src="${prefix}static/img/index-06.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/index-06.jpg" alt="image" class="img-responsive">
 						<div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Menu Ejecutivo</h3>
               <div class="panel-group" id="accordion">
@@ -450,7 +452,7 @@
                       </div>
                   </div>
               </div>
-							<img src="${prefix}static/img/rating.png" alt="image" class="margin-bottom-5">
+							<img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
 							<p>30</p>
 						</div>
 						<a href="#" class="tm-tours-box-2-link">Haz tu reserva</a>
@@ -469,7 +471,7 @@
             </div>
              <div class="col-lg-4 col-md-4 col-lg-offset-1 col-md-offset-1">
 
-                  <a href="#" target="_blank" class="btn btn-danger btn-lg btn-block">Puntúa nuestro restaurante  *****</a>
+                  <a href="#" target="_blank" class="btn btn-danger btn-lg btn-block">PuntÃºa nuestro restaurante  *****</a>
               </div>
           </div>
 				</div>
@@ -484,12 +486,12 @@
 		</div>
 	</section>
 		<%@ include file="../jspf/footer.jspf" %>
-	<script type="text/javascript" src="${prefix}static/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-  	<script type="text/javascript" src="${prefix}static/js/moment.js"></script>							<!-- moment.js -->
-	<script type="text/javascript" src="${prefix}static/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-	<script type="text/javascript" src="${prefix}static/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-	<script type="text/javascript" src="${prefix}static/js/jquery.flexslider-min.js"></script>
-   	<script type="text/javascript" src="${prefix}static/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script type="text/javascript" src="${prefix}/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="${prefix}/js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="${prefix}/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="${prefix}/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="${prefix}/js/jquery.flexslider-min.js"></script>
+   	<script type="text/javascript" src="${prefix}/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	<script>
 		// HTML document is loaded. DOM is ready.
 		$(function() {

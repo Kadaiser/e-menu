@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8"%>
 	<!-- Header -->
   	<%@ include file="../jspf/header-index.jspf" %>
 <body>
@@ -32,12 +33,12 @@
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Contraseña">
+                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="ContraseÃ±a">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirme contraseña">
+                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirme contraseÃ±a">
                                     </div>
                                 </div>
                             </div>

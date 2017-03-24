@@ -1,3 +1,4 @@
+	<%@ page pageEncoding="UTF-8"%>
 	<!-- Header -->
   	<%@ include file="../jspf/header-index.jspf" %>
 <body>
@@ -9,27 +10,27 @@
     <div class="container">
         <div class="card card-container">
 
-            <img id="profile-img" class="profile-img-card" src="${prefix}static/img/logo.png" />
+            <img id="profile-img" class="profile-img-card" src="${prefix}/img/logo.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action="home.html">
+            <form class="form-signin" action="home">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrÃ³nico" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="ContraseÃ±a" required>
                 <div id="remember" class="checkbox">
                     <label>
-                        <input type="checkbox" value="remember-me"> Recuérdame
+                        <input type="checkbox" value="remember-me"> RecuÃ©rdame
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar sesión</button>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar sesiÃ³n</button>
             </form><!-- /form -->
             <a href="#" class="forgot-password">
-                Olvidó la contraseña?
+                OlvidÃ³ la contraseÃ±a?
             </a>
         </div><!-- /card-container -->
 
         <div class="create-account">
                 <a href="reg.html"> Crear cuenta </a>
-                <p>¿Su negocio no está anunciado? <a href="reg-rest.html">Anúnciese ahora mismo</a></p>
+                <p>Â¿Su negocio no estÃ¡ anunciado? <a href="reg-rest.html">AnÃºnciese ahora mismo</a></p>
 
         </div> <!--create-account-->
     </div><!-- /container -->

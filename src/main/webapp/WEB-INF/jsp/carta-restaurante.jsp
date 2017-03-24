@@ -1,4 +1,4 @@
-
+<%@ page pageEncoding="UTF-8"%>
        <%@ include file="../jspf/navRest.jspf" %>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
@@ -44,7 +44,7 @@
                                                         <option value="ninguno">Ninguno</option>
                                                         <option value="ejecutivo">Menu Ejecutivo</option>
                                                         <option value="estudiante">Menu Estudiante</option>
-                                                        <option value="dia">Menu del día</option>
+                                                        <option value="dia">Menu del dÃ­a</option>
                                                       </select>
                                                     </div>
                                                     <div class="form-group">
@@ -103,7 +103,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
-                                            <img src="${prefix}static/img/rest1.jpg">
+                                            <img src="${prefix}/img/rest1.jpg">
                                             <p>Datos plato</p>
                                         </div>
                                         </br>
@@ -123,7 +123,7 @@
                                  <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                      <div class="panel-body">
                                          <div class= "imag-rest">
-                                             <img src="${prefix}static/img/rest1.jpg">
+                                             <img src="${prefix}/img/rest1.jpg">
                                              <p>Datos plato</p>
                                          </div>
                                          </br>
@@ -142,7 +142,7 @@
                                   <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                       <div class="panel-body">
                                           <div class= "imag-rest">
-                                              <img src="${prefix}static/img/rest1.jpg">
+                                              <img src="${prefix}/img/rest1.jpg">
                                               <p>Datos plato</p>
                                           </div>
                                           </br>
@@ -164,7 +164,7 @@
                               <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                   <div class="panel-body">
                                       <div class= "imag-rest">
-                                          <img src="${prefix}static/img/rest1.jpg">
+                                          <img src="${prefix}/img/rest1.jpg">
                                           <p>Datos plato</p>
                                       </div>
                                       </br>
@@ -184,7 +184,7 @@
                                <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                    <div class="panel-body">
                                        <div class= "imag-rest">
-                                           <img src="${prefix}static/img/rest1.jpg">
+                                           <img src="${prefix}/img/rest1.jpg">
                                            <p>Datos plato</p>
                                        </div>
                                        </br>
@@ -203,7 +203,7 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
-                                            <img src="${prefix}static/img/rest1.jpg">
+                                            <img src="${prefix}/img/rest1.jpg">
                                             <p>Datos plato</p>
                                         </div>
                                         </br>
@@ -225,11 +225,11 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="${prefix}static/js/jquery-1.10.2.js"></script>
+    <script src="${prefix}/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="${prefix}static/js/bootstrap.min.js"></script>
+    <script src="${prefix}/js/bootstrap.min.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="${prefix}static/js/custom.js"></script>
+    <script src="${prefix}/js/custom.js"></script>
 
 
 </body>

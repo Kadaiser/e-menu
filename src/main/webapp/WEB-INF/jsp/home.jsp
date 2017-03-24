@@ -1,5 +1,6 @@
-  	<!-- Header -->
-  	<%@ include file="../jspf/header.jspf" %>
+	<%@ page pageEncoding="UTF-8"%>
+		<!-- Header -->
+  		<%@ include file="../jspf/header.jspf" %>
   		
   		
   	<!-- gray bg -->
@@ -42,7 +43,7 @@
 							          	</div>
 							          	<div class="form-group">
 							                <div class='input-group date' id='datetimepicker1'>
-							                    <input type='text' class="form-control" placeholder="Día de asistencia" />
+							                    <input type='text' class="form-control" placeholder="DÃ­a de asistencia" />
 							                    <span class="input-group-addon">
 							                        <span class="fa fa-calendar"></span>
 							                    </span>
@@ -73,7 +74,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="${prefix}static/img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -84,7 +85,7 @@
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-3">
 				<div class="tm-home-box-2">
-					<img src="${prefix}static/img/index-02.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/index-02.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-red-gradient-bg tm-city-price-container">
 							<span>Paris</span>
@@ -96,7 +97,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="${prefix}static/img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -119,7 +120,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="${prefix}static/img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -131,7 +132,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="${prefix}static/img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -142,7 +143,7 @@
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="${prefix}static/img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
@@ -165,7 +166,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">
-						<img src="${prefix}static/img/index-03.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/index-03.jpg" alt="image" class="img-responsive">
 						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
 						<p class="tm-date">28 March 2016</p>
 						<div class="tm-home-box-2-container">
@@ -177,7 +178,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">
-					    <img src="${prefix}static/img/index-04.jpg" alt="image" class="img-responsive">
+					    <img src="${prefix}/img/index-04.jpg" alt="image" class="img-responsive">
 						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
 						<p class="tm-date">26 March 2016</p>
 						<div class="tm-home-box-2-container">
@@ -189,7 +190,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">
-					    <img src="${prefix}static/img/index-05.jpg" alt="image" class="img-responsive">
+					    <img src="${prefix}/img/index-05.jpg" alt="image" class="img-responsive">
 						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
 						<p class="tm-date">24 March 2016</p>
 						<div class="tm-home-box-2-container">
@@ -201,7 +202,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2 tm-home-box-2-right">
-					    <img src="${prefix}static/img/index-06.jpg" alt="image" class="img-responsive">
+					    <img src="${prefix}/img/index-06.jpg" alt="image" class="img-responsive">
 						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
 						<p class="tm-date">22 March 2016</p>
 						<div class="tm-home-box-2-container">
@@ -232,7 +233,7 @@
 				<div class="col-lg-6">
 					<div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}static/img/index-07.jpg" alt="image" class="img-responsive">
+							<img src="${prefix}/img/index-07.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
@@ -247,7 +248,7 @@
 			     <div class="col-lg-6">
 			        <div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}static/img/index-08.jpg" alt="image" class="img-responsive">
+							<img src="${prefix}/img/index-08.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
@@ -262,7 +263,7 @@
 				<div class="col-lg-6">
 				    <div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}static/img/index-09.jpg" alt="image" class="img-responsive">
+							<img src="${prefix}/img/index-09.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
@@ -277,7 +278,7 @@
 			    <div class="col-lg-6">
 			        <div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}static/img/index-10.jpg" alt="image" class="img-responsive">
+							<img src="${prefix}/img/index-10.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
@@ -295,16 +296,16 @@
 	
 	<%@ include file="../jspf/footer.jspf" %>
 	
-	<script type="text/javascript" src="${prefix}static/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-  	<script type="text/javascript" src="${prefix}static/js/moment.js"></script>							<!-- moment.js -->
-	<script type="text/javascript" src="${prefix}static/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-	<script type="text/javascript" src="${prefix}static/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
-	<script type="text/javascript" src="${prefix}static/js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="${prefix}/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="${prefix}/js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="${prefix}/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="${prefix}/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="${prefix}/js/jquery.flexslider-min.js"></script>
 <!--
 	<script src="js/froogaloop.js"></script>
 	<script src="js/jquery.fitvid.js"></script>
 -->
-   	<script type="text/javascript" src="${prefix}static/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+   	<script type="text/javascript" src="${prefix}/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	<script>
 		// HTML document is loaded. DOM is ready.
 		$(function() {

@@ -1,4 +1,5 @@
-	<!-- Header -->
+
+<%@ page pageEncoding="UTF-8"%>	<!-- Header -->
   	<%@ include file="../jspf/header-index.jspf" %>
 <body>
 
@@ -34,7 +35,7 @@
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Teléfono">
+                                        <input type="text" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="TelÃ©fono">
                                     </div>
                                 </div>
                             </div>

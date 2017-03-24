@@ -1,4 +1,5 @@
-		<!-- Header -->
+	<%@ page pageEncoding="UTF-8"%>	
+	<!-- Header -->
   		<%@ include file="../jspf/header.jspf" %>
 	<!-- gray bg -->
 
@@ -14,8 +15,8 @@
 
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}static/img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
-						<h3 class="tm-about-box-1-title">Adri·n DÌaz</h3>
+						<a href="#"><img src="${prefix}/img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<h3 class="tm-about-box-1-title">Adri√°n D√≠az</h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
 							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
@@ -27,8 +28,8 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}static/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
-						<h3 class="tm-about-box-1-title">Adri·n Navazo </h3>
+						<a href="#"><img src="${prefix}/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<h3 class="tm-about-box-1-title">Adri√°n Navazo </h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
 							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
@@ -40,8 +41,8 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}static/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
-						<h3 class="tm-about-box-1-title">Jes˙s VÈlez</span></h3>
+						<a href="#"><img src="${prefix}/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<h3 class="tm-about-box-1-title">Jes√∫s V√©lez</span></h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
 							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
@@ -53,7 +54,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}static/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
+						<a href="#"><img src="${prefix}/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
 						<h3 class="tm-about-box-1-title">Diego Valbuena</h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
@@ -70,10 +71,10 @@
 
 	<%@ include file="../jspf/footer.jspf" %>
 	
-	<script type="text/javascript" src="${prefix}static/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
-  	<script type="text/javascript" src="${prefix}static/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
-  	<script type="text/javascript" src="${prefix}static/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
-  	<script type="text/javascript" src="${prefix}static/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script type="text/javascript" src="${prefix}/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="${prefix}/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+  	<script type="text/javascript" src="${prefix}/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
+  	<script type="text/javascript" src="${prefix}/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
 	<script>
 		$(function() {
 
