@@ -17,7 +17,6 @@ public class AddController {
 		
 		
 		model.addAttribute("pageTitle", "Add");	
-		model.addAttribute("prefix", "../");
 		
 		return "add";
 	}

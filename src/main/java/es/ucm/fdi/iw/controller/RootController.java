@@ -1,12 +1,20 @@
 package es.ucm.fdi.iw.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller	
 public class RootController {
 
+	
+	  @ModelAttribute
+	  public void addAttributes(Model m){
+	  	m.addAttribute("prefix","static");
+	 }
+	 
 	@RequestMapping({"/","/index"})
 	String root() {
 		return "index";
@@ -15,6 +23,8 @@ public class RootController {
 	String homeView() {
 		return "home";
 	}
+	
+	
 	
 	@RequestMapping({"/about"})
 	String aboutView() {

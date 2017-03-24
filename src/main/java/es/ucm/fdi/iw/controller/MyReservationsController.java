@@ -17,7 +17,6 @@ public class MyReservationsController {
 		
 		
 		model.addAttribute("pageTitle", "Mis Reservas");	
-		model.addAttribute("prefix", "../");
 		
 		return "reservas";
 	}

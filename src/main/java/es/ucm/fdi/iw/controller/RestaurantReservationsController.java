@@ -17,7 +17,6 @@ public class RestaurantReservationsController {
 		
 		
 		model.addAttribute("pageTitle", "Reservas");	
-		model.addAttribute("prefix", "../");
 		
 		return "reservRes";
 	}

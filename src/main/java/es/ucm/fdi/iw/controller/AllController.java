@@ -17,7 +17,7 @@ public class AllController {
 		
 		
 		model.addAttribute("pageTitle", "All");	
-		model.addAttribute("prefix", "../");
+
 		
 		return "all";
 	}

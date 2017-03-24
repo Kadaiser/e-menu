@@ -17,7 +17,7 @@ public class IndexController {
 		
 		
 		model.addAttribute("pageTitle", "eMenu");	
-		model.addAttribute("prefix", "../");
+
 		
 		return "index";
 	}

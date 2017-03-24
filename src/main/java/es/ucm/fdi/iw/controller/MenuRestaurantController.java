@@ -17,7 +17,6 @@ public class MenuRestaurantController {
 		
 		
 		model.addAttribute("pageTitle", "Carta");	
-		model.addAttribute("prefix", "../");
 		
 		return "carta";
 	}

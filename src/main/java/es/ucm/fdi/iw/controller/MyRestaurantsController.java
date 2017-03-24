@@ -17,7 +17,6 @@ public class MyRestaurantsController {
 		
 		
 		model.addAttribute("pageTitle", "Mis Restaurantes");	
-		model.addAttribute("prefix", "../");
 		
 		return "misrest";
 	}

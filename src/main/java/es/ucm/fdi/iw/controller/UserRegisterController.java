@@ -17,7 +17,6 @@ public class UserRegisterController {
 		
 		
 		model.addAttribute("pageTitle", "Registro");	
-		model.addAttribute("prefix", "../");
 		
 		return "reg";
 	}

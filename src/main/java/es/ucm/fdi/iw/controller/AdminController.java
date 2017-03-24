@@ -17,7 +17,6 @@ public class AdminController {
 		
 		
 		model.addAttribute("pageTitle", "Admin");	
-		model.addAttribute("prefix", "../");
 		
 		return "admin";
 	}

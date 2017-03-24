@@ -17,7 +17,6 @@ public class RestaurantRegisterController {
 		
 		
 		model.addAttribute("pageTitle", "Registro");	
-		model.addAttribute("prefix", "../");
 		
 		return "regrest";
 	}

@@ -17,7 +17,6 @@ public class UserController {
 		
 		
 		model.addAttribute("pageTitle", "User");	
-		model.addAttribute("prefix", "../");
 		
 		return "user";
 	}

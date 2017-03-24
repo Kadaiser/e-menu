@@ -17,7 +17,7 @@ public class AboutController {
 		
 		
 		model.addAttribute("pageTitle", "about");	
-		model.addAttribute("prefix", "../");
+		
 		
 		return "about";
 	}

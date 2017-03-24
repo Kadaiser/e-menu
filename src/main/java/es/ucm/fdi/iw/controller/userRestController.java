@@ -17,7 +17,6 @@ public class userRestController {
 		
 		
 		model.addAttribute("pageTitle", "User");	
-		model.addAttribute("prefix", "../");
 		
 		return "userRest";
 	}
