@@ -42,7 +42,7 @@
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 					<div class="tm-about-box-1">
 						<a href="#"><img src="${prefix}/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
-						<h3 class="tm-about-box-1-title">Jesús Vélez</span></h3>
+						<h3 class="tm-about-box-1-title">Jesús Vélez</h3>
 						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
 						<div class="gray-text">
 							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
