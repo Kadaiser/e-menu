@@ -106,5 +106,10 @@
 		  	});
 		});
 	</script>
+	<script>
+		$(document).ready(function(){
+		    $('a[href^="about"]').addClass('active');
+		});
+	</script>
 </body>
 </html>

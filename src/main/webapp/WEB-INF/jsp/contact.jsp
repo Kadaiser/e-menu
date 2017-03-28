@@ -52,7 +52,11 @@
 	<script type="text/javascript" src="${prefix}/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
 	<script type="text/javascript" src="${prefix}/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
 	<script type="text/javascript" src="${prefix}/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
-	
+	<script>
+		$(document).ready(function(){
+		    $('a[href^="contact"]').addClass('active');
+		});
+	</script>
 	<%@ include file="../jspf/googleMap.jspf" %>
 </body>
 </html>

@@ -362,8 +362,6 @@
 			  }
 */
 
-
-
 			  // Call fitVid before FlexSlider initializes, so the proper initial height can be retrieved.
 /*
 
@@ -381,16 +379,17 @@
 			  });
 */
 
-
-
-
 //	For images only
 		    $('.flexslider').flexslider({
 			    controlNav: false
 		    });
 
-
 	  	});
+	</script>
+	<script>
+		$(document).ready(function(){
+		    $('a[href^="home"]').addClass('active');
+		});
 	</script>
  </body>
 </body>
