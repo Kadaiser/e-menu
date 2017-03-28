@@ -2,7 +2,6 @@
 	<!-- Header -->
 		<%@ include file="../jspf/header.jspf" %>
 		
-	<!-- white bg -->
 	<section class="section-padding-bottom">
 		<div class="container">
 			<div class="row">

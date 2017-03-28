@@ -2,72 +2,74 @@
 	<!-- Header -->
   		<%@ include file="../jspf/header.jspf" %>
 	<!-- gray bg -->
-
-		<div class=" about-section">
-			<div class="row">
-				<div class="tm-section-header">
-					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
-					<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Quienes Somos</h2></div>
-					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+        <section class="section-padding-bottom">
+			<div class="container">
+				<div class="about-section">
+					<div class="row">
+						<div class="tm-section-header section-margin-top">
+							<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+							<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Quienes Somos</h2></div>
+							<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+						</div>
+					</div>
+					<div class="row">
+		
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<div class="tm-about-box-1">
+								<a href="#"><img src="${prefix}/img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
+								<h3 class="tm-about-box-1-title">Adrián Díaz</h3>
+								<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
+								<div class="gray-text">
+									<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<div class="tm-about-box-1">
+								<a href="#"><img src="${prefix}/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
+								<h3 class="tm-about-box-1-title">Adrián Navazo </h3>
+								<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
+								<div class="gray-text">
+									<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<div class="tm-about-box-1">
+								<a href="#"><img src="${prefix}/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
+								<h3 class="tm-about-box-1-title">Jesús Vélez</h3>
+								<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
+								<div class="gray-text">
+									<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+							<div class="tm-about-box-1">
+								<a href="#"><img src="${prefix}/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
+								<h3 class="tm-about-box-1-title">Diego Valbuena</h3>
+								<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
+								<div class="gray-text">
+									<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
+									<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}/img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
-						<h3 class="tm-about-box-1-title">Adrián Díaz</h3>
-						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
-						<div class="gray-text">
-							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
-						<h3 class="tm-about-box-1-title">Adrián Navazo </h3>
-						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
-						<div class="gray-text">
-							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
-						<h3 class="tm-about-box-1-title">Jesús Vélez</h3>
-						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
-						<div class="gray-text">
-							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-					<div class="tm-about-box-1">
-						<a href="#"><img src="${prefix}/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
-						<h3 class="tm-about-box-1-title">Diego Valbuena</h3>
-						<p class="margin-bottom-15 gray-text">Proin gravida nibhvell aliquet. Aenean sollicitudin bibum auctor nisi elit.</p>
-						<div class="gray-text">
-							<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
-							<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
+		</section>
 
 	<%@ include file="../jspf/footer.jspf" %>
 	
