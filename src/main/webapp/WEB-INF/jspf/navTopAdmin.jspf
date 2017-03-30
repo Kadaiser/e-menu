@@ -35,18 +35,18 @@
                 </div>
             <nav class="tm-nav">
             <ul>
-              <li><a href="home.html" >Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html" >Contact</a></li>
+              <li><a href="home" >Home</a></li>
+              <li><a href="about">About</a></li>
+              <li><a href="contact" >Contact</a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle active" data-toggle="dropdown" href="#" >Usuario <span class="caret"></span>
 </a>
                 <ul class="dropdown-menu">
-                      <li><a href="user.html">Perfil</a></li>
-                      <li><a href="#">Mis restaurantes</a></li>
-                      <li><a href="#">Mis reservas</a></li>
+                      <li><a href="user">Perfil</a></li>
+                      <li><a href="mis-rest">Mis restaurantes</a></li>
+                      <li><a href="mis-reserv">Mis reservas</a></li>
                       <li class="divider"></li>
-                      <li><a href="#">Cerrar Sesión</a></li>
+                      <li><a href="index">Cerrar Sesión</a></li>
                   </ul>
 
               </li>
@@ -71,17 +71,17 @@
 
 
                     <li class="active-link">
-                        <a href="admin.html" ><i class="fa fa-desktop "></i>Panel Admin </a>
+                        <a href="admin" ><i class="fa fa-desktop "></i>Panel Admin </a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i>Estadísticas</a>
                     </li>
 
                     <li>
-                        <a href="ui.html"><i class="fa fa-table "></i>UI Elements </a>
+                        <a href="ui"><i class="fa fa-table "></i>UI Elements </a>
                     </li>
                     <li>
-                        <a href="blank.html"><i class="fa fa-edit "></i>Blank Page  </a>
+                        <a href="blank"><i class="fa fa-edit "></i>Blank Page  </a>
                     </li>
 
 

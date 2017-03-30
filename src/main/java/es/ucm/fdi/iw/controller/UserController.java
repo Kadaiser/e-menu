@@ -12,7 +12,7 @@ public class UserController {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/user", method = RequestMethod.GET) //añadir "/user/"???
 	public String user(Model model, HttpSession session){
 		
 		

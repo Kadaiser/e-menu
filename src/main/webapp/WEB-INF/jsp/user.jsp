@@ -202,6 +202,11 @@
       <!-- CUSTOM SCRIPTS -->
     <script src="${prefix}/js/custom.js"></script>
 
+	<script>
+		$(document).ready(function(){
+		    $('a[href^="user"]').addClass('active-link');
+		});
+	</script>
 
 </body>
 </html>
