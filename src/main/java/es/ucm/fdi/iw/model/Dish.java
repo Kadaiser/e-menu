@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.ucm.fdi.iw.controller.model;
+package es.ucm.fdi.iw.model;
 import java.util.List;
 
 import javax.persistence.GeneratedValue;
@@ -16,13 +16,13 @@ import javax.persistence.Id;
  * caracteristicas propias del mismo.
  */
 
-public class Plate {
+public class Dish {
 	private long id;
 	private String name;
-	private int Kcal;
-	private int Prot;
-	private int Fats;
-	private int HC;
+	private int kcal;
+	private int prot;
+	private int fats;
+	private int carbs;
 	private List<Allergen> allergens;
 	//private List<Ingredients> ingredients;
 	
@@ -45,35 +45,35 @@ public class Plate {
 	}
 	
 	public int getKcal() {
-		return Kcal;
+		return kcal;
 	}
 	
 	public void setKcal(int kcal) {
-		Kcal = kcal;
+		this.kcal = kcal;
 	}
 	
 	public int getProt() {
-		return Prot;
+		return prot;
 	}
 	
 	public void setProt(int prot) {
-		Prot = prot;
+		this.prot = prot;
 	}
 	
 	public int getFats() {
-		return Fats;
+		return fats;
 	}
 	
 	public void setFats(int fats) {
-		Fats = fats;
+		this.fats = fats;
 	}
 	
-	public int getHC() {
-		return HC;
+	public int getCarbs() {
+		return carbs;
 	}
 	
-	public void setHC(int hC) {
-		HC = hC;
+	public void setCarbs(int carbs) {
+		this.carbs = carbs;
 	}
 	
 	public List<Allergen> getAllergens() {

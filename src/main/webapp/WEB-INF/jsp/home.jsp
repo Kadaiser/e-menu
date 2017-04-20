@@ -120,7 +120,7 @@
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/index-Allergen01.jpg" alt="image" class="img-responsive">
 					<a href="#">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>New York</span>
