@@ -13,9 +13,9 @@ import java.util.Random;
  * @author usuario_local
  *
  */
-public class Profile {
+public abstract class Profile {
 	private
-		 long id;
+		 long idProfile;
 		 String name;
 		 String mail;
 		 String salt;
@@ -114,16 +114,17 @@ public class Profile {
 		return encryptPass(pass, this.salt).equals(this.encryptedPass);
 	}
 	
-	//=====================RELATED TO ID ATRIBUTES============================//
+	//=====================RELATED TO ID ATTRIBUTES============================//
 
 	public long getId() {
-		return id;
+		return idProfile;
 	}
 	public void setId(long id) {
-		this.id = id;
+		this.idProfile = id;
 	}
 	
-	//=====================RELATED TO NAME ATRIBUTES==========================//
+	//=====================RELATED TO NAME ATTRIBUTES==========================//
+	
 	public String getName() {
 		return name;
 	}
@@ -133,7 +134,7 @@ public class Profile {
 	}
 	
 	
-	//=================RELATED TO MAIL ATRIBUTES===============================//
+	//=================RELATED TO MAIL ATTRIBUTES===============================//
 	
 	public String getMail() {
 		return mail;
