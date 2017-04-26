@@ -22,10 +22,10 @@
      
             <img id="profile-img" class="profile-img-card" src="${prefix}/img/logo.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action="home">
+            <form class="form-signin" action="LoginServlet" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                <input type="email" name="user" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
+                <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Contraseña" required>
                 <div id="remember" class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Recuérdame
