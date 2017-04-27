@@ -9,20 +9,10 @@
     -->
     <div class="container">
         <div class="card card-container">
-
-
-     <h1>Tu rol actual es ${role}</h1>
-     
-     <ul>
-     <li> click para acceder como <a href="../login/admin>admin"></a>
-     </li>
-     <li> click para volver a login <a href="../login>login"></a>
-     </li>
-     </ul>
-     
+  
             <img id="profile-img" class="profile-img-card" src="${prefix}/img/logo.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action="LoginServlet" method="post">
+            <form class="form-signin" action="login" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="email" name="user" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
                 <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Contraseña" required>

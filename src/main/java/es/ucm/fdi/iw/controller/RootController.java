@@ -1,13 +1,21 @@
 package es.ucm.fdi.iw.controller;
 
+import java.util.UUID;
+
+import javax.persistence.NoResultException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller	
@@ -111,7 +119,7 @@ public class RootController {
 		return "user-restaurant";
 	}
 	
-	@GetMapping
+	/*@GetMapping
 	String login() {return "login"; }
 			
 	@GetMapping("/login/{role}")
@@ -124,5 +132,72 @@ public class RootController {
 		String login (HttpSession s){
 		s.invalidate();
 		return "login";
+	}*/
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "index";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(
+			@RequestParam("user") String formLogin,
+			@RequestParam("pwd") String formPass,
+			HttpServletRequest request, HttpServletResponse response, 
+			Model model, HttpSession session) {
+
+			String formSource = "index";		
+			
+			try {
+				if(formLogin.equals("user@iw.com") && formPass.equals("iw2017")){
+					getTokenForSession(session);
+					session.setAttribute("rol", "user");
+					formSource="redirect:/home";
+					
+				}else if(formLogin.equals("admin@iw.com") && formPass.equals("iw2017")){
+					getTokenForSession(session);
+					session.setAttribute("rol", "admin");
+					formSource="redirect:/admin";
+					
+				}else if(formLogin.equals("rest@iw.com") && formPass.equals("iw2017")){
+					getTokenForSession(session);
+					session.setAttribute("rol", "rest");
+					formSource="redirect:/user-restaurant";
+					
+				}
+				
+			} catch (NoResultException nre) {
+				
+				model.addAttribute("errorLogin", "No estás registrado");
+			}
+		
+
+		// redirects to view from which login was requested
+		return formSource;
+	}
+	/**
+	 * Logout (also returns to home view).
+	 */
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:index";
+	}
+	
+	
+	static boolean isTokenValid(HttpSession session, String token) {
+	    Object t=session.getAttribute("csrf_token");
+	    return (t != null) && t.equals(token);
+	}
+	
+	/**
+	 * Returns an anti-csrf token for a session, and stores it in the session
+	 * @param session
+	 * @return
+	 */
+	static String getTokenForSession (HttpSession session) {
+	    String token=UUID.randomUUID().toString();
+	    session.setAttribute("csrf_token", token);
+	    return token;
 	}
 }
