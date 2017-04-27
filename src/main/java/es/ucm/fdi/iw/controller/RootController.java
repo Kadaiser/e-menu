@@ -117,7 +117,7 @@ public class RootController {
 	
 	@RequestMapping({"/carta-restaurante"})
 	String cartaView(HttpSession s) {
-		if(!isAdmin(s)){
+		if(!isRest(s)){
 			return "home";
 		}else{
 		return "carta-restaurante";
@@ -142,7 +142,7 @@ public class RootController {
 	
 	@RequestMapping({"/reservas-restaurante"})
 	String reservasResView(HttpSession s) {
-		if(!isUser(s)){
+		if(!isRest(s)){
 			return "home";
 		}else{
 		return "reservas-restaurante";
