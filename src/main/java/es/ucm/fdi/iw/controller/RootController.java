@@ -31,7 +31,7 @@ public class RootController {
 	String root() {
 		return "index";
 	}
-	@RequestMapping(value= "/home")
+		@RequestMapping(value= "/home")
 	String homeView(HttpSession s) {
 		
 		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
