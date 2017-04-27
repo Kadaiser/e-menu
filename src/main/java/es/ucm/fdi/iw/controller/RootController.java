@@ -31,9 +31,14 @@ public class RootController {
 	String root() {
 		return "index";
 	}
-	@RequestMapping({"/home"})
-	String homeView(HttpSession session) {
-		return "home";
+	@RequestMapping(value= "/home")
+	String homeView(HttpSession s) {
+		
+		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
+			return "home";
+	}else{ 
+			return "redirect:index";
+		}
 	}
 	
 	
@@ -44,8 +49,13 @@ public class RootController {
 	}
 	
 	@RequestMapping({"/add"})
-	String addView() {
-		return "add";
+	String addView(HttpSession s) {
+		
+		if(isAdmin(s)){
+			return "add";
+		}else{
+			return "home";
+		}
 	}
 	
 	@RequestMapping({"/admin"})
@@ -199,5 +209,26 @@ public class RootController {
 	    String token=UUID.randomUUID().toString();
 	    session.setAttribute("csrf_token", token);
 	    return token;
+	}
+	static boolean isAdmin(HttpSession session) {
+		if (session != null){
+		return session.getAttribute("rol").equals("admin");
+		}
+		return false;
+		}
+	static boolean isRest(HttpSession session) {
+		if (session != null){
+			return session.getAttribute("rol").equals("rest");
+		}else{
+			return false;
+		}
+	}
+	static boolean isUser(HttpSession session) {
+		if(session != null){
+			return session.getAttribute("rol").equals("user");
+		}else{
+			return false;
+		}
+		
 	}
 }

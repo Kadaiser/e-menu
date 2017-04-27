@@ -28,7 +28,7 @@
                        <!-- Users -->
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="all.html" >
+                           <a href="all" >
                               <i class="fa fa-users fa-5x"></i>
                               <h4>See Users</h4>
                             </a>
@@ -39,7 +39,7 @@
                     <!-- Add-User -->
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="add.html" >
+                           <a href="add" >
                               <i class="fa fa-user-plus fa-5x"></i>
                               <h4>Add User</h4>
                             </a>
@@ -50,7 +50,7 @@
                     <!-- Ban-user -->
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="blank.html" >
+                           <a href="blank" >
                               <i class="fa fa-user-times fa-5x"></i>
                               <h4>Ban</h4>
                             </a>
@@ -61,7 +61,7 @@
 
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blank.html" >
+                           <a href="blank" >
                               <i class="fa fa-comments-o fa-5x"></i>
                               <h4>Support</h4>
                             </a>
@@ -79,7 +79,7 @@
 
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="all.html" >
+                           <a href="all" >
                               <i class="fa fa-cutlery fa-5x"></i>
                               <h4>Restaurants</h4>
                           </a>
@@ -89,7 +89,7 @@
 
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="add.html" >
+                           <a href="add" >
                               <i class="fa fa-plus fa-5x"></i>
                               <h4>Add Rest</h4>
                             </a>
@@ -104,7 +104,7 @@
           <div class="row text-center pad-top">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blank.html" >
+                           <a href="blank" >
  <i class="fa fa-bar-chart fa-5x"></i>
                       <h4>Statistics</h4>
                       </a>
