@@ -59,28 +59,43 @@ public class RootController {
 	}
 	
 	@RequestMapping({"/admin"})
-	String adminView() {
-		return "admin";
+	String adminView(HttpSession s) {
+		
+		if(isAdmin(s)){
+			return "admin";
+		}else{
+			return "home";
+		}
 	}
 	
 	@RequestMapping({"/all"})
-	String allView() {
-		return "all";
+	String allView(HttpSession s) {
+		if(!isAdmin(s)){
+			return "home";
+		}else{
+			return "all";
+		}
+		
 	}
-	
-	@RequestMapping({"/blank"})
-	String blankView() {
-		return "blank";
-	}
-	
+		
 	@RequestMapping({"/contact"})
-	String contactView() {
-		return "contact";
+	String contactView(HttpSession s) {
+		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
+			return "contact";
+		}else{ 
+			
+		return "index";
+		}
 	}
 	
 	@RequestMapping({"/reg-rest"})
-	String regRestView() {
+	String regRestView(HttpSession s) {
+		if(!isAdmin(s)){
+			return "home";
+		}else{
+			
 		return "reg-rest";
+	}
 	}
 	
 	@RequestMapping({"/reg"})
@@ -88,41 +103,58 @@ public class RootController {
 		return "reg";
 	}
 	
-	@RequestMapping({"/tours"})
-	String toursView() {
-		return "tours";
-	}
-	
-	@RequestMapping({"/ui"})
-	String uiView() {
-		return "ui";
-	}
 	
 	@RequestMapping({"/user"})
-	String userView() {
-		return "user";
+	String userView(HttpSession s) {
+		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
+			
+			return "user";
+			
+		}else{
+		return "index";
+		}
 	}
 	
 	@RequestMapping({"/carta-restaurante"})
-	String cartaView() {
+	String cartaView(HttpSession s) {
+		if(!isAdmin(s)){
+			return "home";
+		}else{
 		return "carta-restaurante";
+		}
 	}
 	@RequestMapping({"/mis-reserv"})
-	String reservView() {
+	String reservView(HttpSession s) {
+		if(!isUser(s)){
+			return "home";
+		}else{
 		return "mis-reserv";
+		}
 	}
 	@RequestMapping({"/mis-rest"})
-	String restView() {
+	String restView(HttpSession s) {
+		if(!isUser(s)){
+			return "home";
+		}else{
 		return "mis-rest";
+		}
 	}
 	
 	@RequestMapping({"/reservas-restaurante"})
-	String reservasResView() {
+	String reservasResView(HttpSession s) {
+		if(!isUser(s)){
+			return "home";
+		}else{
 		return "reservas-restaurante";
+		}
 	}
 	@RequestMapping({"/restaurante"})
-	String restauranteView() {
+	String restauranteView(HttpSession s) {
+		if(isAdmin(s)){
+			return "home";
+		}else{
 		return "restaurante";
+		}
 	}
 	@RequestMapping({"/user-restaurant"})
 	String userRestView() {
