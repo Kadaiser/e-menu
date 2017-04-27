@@ -150,10 +150,10 @@ public class RootController {
 	}
 	@RequestMapping({"/restaurante"})
 	String restauranteView(HttpSession s) {
-		if(isAdmin(s)){
-			return "home";
+		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
+			return "restaurante";
 		}else{
-		return "restaurante";
+		return "index";
 		}
 	}
 	@RequestMapping({"/user-restaurant"})
