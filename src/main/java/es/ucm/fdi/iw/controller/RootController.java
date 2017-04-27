@@ -32,7 +32,7 @@ public class RootController {
 		return "index";
 	}
 	@RequestMapping({"/home"})
-	String homeView() {
+	String homeView(HttpSession session) {
 		return "home";
 	}
 	

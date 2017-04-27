@@ -1,8 +1,14 @@
 
 <%@ page pageEncoding="UTF-8"%>
   	  		<!-- Nav Top -->
-  	<%@ include file="../jspf/navUser.jspf" %>
-
+  	
+  	<% if (session.getAttribute("rol").equals("user")) { %>
+  	<%@ 	include file="../jspf/navUser.jspf" %>
+  	<%}else if (session.getAttribute("rol").equals("admin")) { %>
+  	<%@ 	include file="../jspf/navTopAdmin.jspf" %>
+  	<% }else if (session.getAttribute("rol").equals("rest")) { %>
+  	<%@ include file="../jspf/navRest.jspf" %>
+  	<%} %>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">

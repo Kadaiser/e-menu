@@ -3,10 +3,10 @@
 	<%@ include file="../jspf/navTopAdmin.jspf" %>	
 
         <!-- /. NAV SIDE  -->
-        <div class="tm-home-section-111" id="page-wrapper" >
+        <div  id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                      <h2>PANEL ADMINISTRADOR</h2>
                     </div>
                 </div>
@@ -15,11 +15,11 @@
                 <div class="row">
                     <div class="col-lg-12 ">
                         <div class="alert alert-info">
-                             <strong>Bienvenido NOMBRE ! </strong>
+                             <strong>Bienvenido  ${rol} </strong>
                         </div>
 
                     </div>
-                    </div>
+                </div>
                   <!-- /. ROW  USUARIOS -->
                   <div id="titulos-admin">Usuarios</div>
 
@@ -97,7 +97,7 @@
 
                     </div>
 
-                    </div>
+                </div>
 
            <!-- /. ROW  GENERAL-->
              <div id="titulos-admin">General</div>
@@ -124,7 +124,7 @@
                         </div>
 
                     </div>
-          </div>
+          		</div>
                   <!-- /. ROW  -->
                  <!-- /. PAGE INNER  -->
             </div>

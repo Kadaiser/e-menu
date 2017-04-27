@@ -9,7 +9,12 @@
     -->
     <div class="container">
         <div class="card card-container">
-  
+        <p>Para usar los logueos:	</p>
+        <p>user@iw.com</p>
+  		<p>admin@iw.com</p>
+  		<p>rest@iw.com</p>
+  		<p>Pass para todos:  iw2017	</p>
+  		
             <img id="profile-img" class="profile-img-card" src="${prefix}/img/logo.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" action="login" method="post">
