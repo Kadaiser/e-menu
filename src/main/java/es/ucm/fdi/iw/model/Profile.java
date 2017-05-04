@@ -7,6 +7,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 
 
 
@@ -14,6 +18,7 @@ import java.util.Random;
  * @author usuario_local
  *
  */
+@Entity
 public abstract class Profile {
 	private long idProfile;
 	private String name;
@@ -112,6 +117,8 @@ public abstract class Profile {
 		return encryptPass(pass, this.salt).equals(this.encryptedPass);
 	}
 
+	@Id
+	@GeneratedValue
 	public long getId() {
 		return idProfile;
 	}

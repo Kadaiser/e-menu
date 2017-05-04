@@ -2,46 +2,45 @@
  * 
  */
 package es.ucm.fdi.iw.model;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 
 
-/**
- * @author Kadaiser
- * Objeto definido para representar un plato en la carta de restaurante,
- * Un plato se refleja mediante un Identificador, su nombre, y las 
- * caracteristicas propias del mismo.
- */
 @Entity
 public class Dish {
 	
-	private long idDish;
-	private long idRestaurant;
+	private long id;
+	private Restaurant location;
+	
 	private String name;
 	private int kcal;
 	private int prot;
 	private int fats;
 	private int carbs;
 	
-	@OneToMany(targetEntity=Allergen.class)
-	@JoinColumn(name="idAllerg")
-	private List<Allergen> allergens;
-	
 	@Id
 	@GeneratedValue
 	public long getId() {
-		return idDish;
+		return id;
 	}
+	
 	public void setId(long id) {
-		this.idDish = id;
+		this.id = id;
 	}
-
+	
+	@ManyToOne(targetEntity=Restaurant.class)	
+	public Restaurant getLocation() {
+		return location;
+	}
+	
+	public void setLocation(Restaurant location) {
+		this.location = location;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -69,7 +68,6 @@ public class Dish {
 	public int getFats() {
 		return fats;
 	}
-	
 	public void setFats(int fats) {
 		this.fats = fats;
 	}
@@ -82,18 +80,5 @@ public class Dish {
 		this.carbs = carbs;
 	}
 	
-	public List<Allergen> getAllergens() {
-		return allergens;
-	}
 	
-	public void setAllergens(List<Allergen> allergens) {
-		this.allergens = allergens;
-	}
-	/**
-	 * @return the idRestaurant
-	 */
-	public long getIdRestaurant() {
-		return idRestaurant;
-	}
-
 }

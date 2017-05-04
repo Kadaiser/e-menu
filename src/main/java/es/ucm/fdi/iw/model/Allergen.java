@@ -1,35 +1,32 @@
 package es.ucm.fdi.iw.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Allergen {
 	
-	private long idAllerg;
+	private long id;
 	private	String name;
 	
-	/**
-	 * @return the idAllerg
-	 */
-	public long getIdAllerg() {
-		return idAllerg;
+	public Allergen() {
+		// TODO Auto-generated constructor stub
 	}
-	/**
-	 * @param idAllerg the idAllerg to set
-	 */
-	public void setIdAllerg(long idAllerg) {
-		this.idAllerg = idAllerg;
+	
+	@Id
+	@GeneratedValue
+	public long getId() {
+		return id;
 	}
-	/**
-	 * @return the name
-	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
-	/**
-	 * @param name the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 }

@@ -4,9 +4,8 @@
 package es.ucm.fdi.iw.model;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
-
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
@@ -14,42 +13,34 @@ import javax.persistence.OneToMany;
  * @author usuario_local
  *
  */
+@Entity
 public class User extends Profile {
+
+	public User(String pass, String nickName, String mail) {
+		super(pass, nickName, mail);
+		// TODO Auto-generated constructor stub
+	}
 
 	private	Date bornDate;
 	private	int age;
-	
-	@OneToMany(targetEntity=Allergen.class)
-	@JoinColumn(name="idAllerg")
 	private	List<Allergen> knownAllergens;
-	
-	@OneToMany(targetEntity=Restaurant.class)
-	@JoinColumn(name="idRestaurant")
 	private	List<Restaurant> favoriteRestaurants;
-	
-	@OneToMany(targetEntity=Booking.class)
-	@JoinColumn(name="idBooking")
 	private List<Booking> bookings;
-	
-	@OneToMany(targetEntity=Comment.class)
-	@JoinColumn(name="idComment")
 	private	List<Comment> comments;
-	
 	private	float karma;
 
 
-	public User(String pass, String nickName, String mail, Date bornDate){
-		super(pass, nickName, mail);	
-		this.setBornDate(bornDate);
-		this.age = processAge(bornDate);
-		this.knownAllergens = new ArrayList<Allergen>();
-		this.comments = new ArrayList<Comment>();
-		this.bookings = new ArrayList<Booking>();
-		this.setFavoriteRestaurants(new ArrayList<Restaurant>());
-		this.karma = 0;
+
+
+
+	public Date getBornDate() {
+		return bornDate;
 	}
 	
-
+	public void setBornDate(Date bornDate) {
+		this.bornDate = bornDate;
+	}
+	
 	public int getAge() {
 		return age;
 	}
@@ -58,32 +49,51 @@ public class User extends Profile {
 		this.age = age;
 	}
 	
-	public static int processAge(Date bornDate) {
-		// TODO Auto-generated method stub
-		return 0;
+	@OneToMany(targetEntity=Allergen.class)	
+	@JoinColumn(name="id")
+	public List<Allergen> getKnownAllergens() {
+		return knownAllergens;
 	}
 	
-	/**
-	 * @return the bornDate
-	 */
-	 Date getBornDate() {
-		return bornDate;
+	public void setKnownAllergens(List<Allergen> knownAllergens) {
+		this.knownAllergens = knownAllergens;
 	}
-
-	/**
-	 * @param bornDate the bornDate to set
-	 */
-	 public void setBornDate(Date bornDate) {
-		this.bornDate = bornDate;
+	
+	@OneToMany(targetEntity=Restaurant.class)	
+	@JoinColumn(name="id")
+	public List<Restaurant> getFavoriteRestaurants() {
+		return favoriteRestaurants;
 	}
-
+	
+	public void setFavoriteRestaurants(List<Restaurant> favoriteRestaurants) {
+		this.favoriteRestaurants = favoriteRestaurants;
+	}
+	
+	@OneToMany(targetEntity=Booking.class)	
+	@JoinColumn(name="id")
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+	
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
+	
+	@OneToMany(targetEntity=Comment.class)	
+	@JoinColumn(name="id")
+	public List<Comment> getComments() {
+		return comments;
+	}
+	
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 	/**
 	 * @return the karma
 	 */
 	public float getKarma() {
 		return karma;
 	}
-
 	/**
 	 * @param karma the karma to set
 	 */
@@ -102,41 +112,5 @@ public class User extends Profile {
 	public boolean validKarma(){
 		return (this.karma < 0) ? false :  true;
 	}
-
-	 List<Allergen> getKnownAllergens() {
-		return knownAllergens;
-	}
-	 void setKnownsAllergens(List<Allergen> knownAllergens) {
-		this.knownAllergens = knownAllergens;
-	}
-
-	/**
-	 * @param knownAllergens the knownAllergens to set
-	 */
-	public void setKnownAllergens(List<Allergen> knownAllergens) {
-		this.knownAllergens = knownAllergens;
-	}
-		
-	 List<Comment> getComments() {
-		return comments;
-	}
-	 void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
-	/**
-	 * @return the favoriteRestaurants
-	 */
-	 List<Restaurant> getFavoriteRestaurants() {
-		return favoriteRestaurants;
-	}
-
-	/**
-	 * @param favoriteRestaurants the favoriteRestaurants to set
-	 */
-	 void setFavoriteRestaurants(List<Restaurant> favoriteRestaurants) {
-		this.favoriteRestaurants = favoriteRestaurants;
-	}
-
 
 }

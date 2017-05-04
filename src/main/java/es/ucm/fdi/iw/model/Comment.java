@@ -2,111 +2,82 @@ package es.ucm.fdi.iw.model;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Comment {
-	private long idProfile;
-	private long idRest;
-	private long idComment;
+	private long id;
+	private Restaurant location;
+	private User owner;
+	
 	private String content;
 	private Date date;
 	private int rateUp;
 	private int rateDown;
 
-	public Comment(long idProfile, long idRest, long idComment, String content, Date date) {
-		super();
-		this.idProfile = idProfile;
-		this.idRest = idRest;
-		this.idComment = idComment;
-		this.content = content;
-		this.date = date;
-		this.rateUp = 0;
-		this.rateDown = 0;
+
+	@Id
+	@GeneratedValue
+	public long getId() {
+		return id;
 	}
 
-	/**
-	 * @return the rateUp
-	 */
-	public int getRateUp() {
-		return rateUp;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	/**
-	 * @param rateUp
-	 *            the rateUp to set
-	 */
-	public void setRateUp(int rateUp) {
-		this.rateUp += rateUp;
+	@ManyToOne(targetEntity=Restaurant.class)	
+	public Restaurant getLocation() {
+		return location;
 	}
 
-	/**
-	 * @return the rateDown
-	 */
-	public int getRateDown() {
-		return rateDown;
+	public void setLocation(Restaurant location) {
+		this.location = location;
 	}
 
-	/**
-	 * @param rateDown
-	 *            the rateDown to set
-	 */
-	public void setRateDown(int rateDown) {
-		this.rateDown -= rateDown;
+	@ManyToOne(targetEntity=User.class)
+	public User getOwner() {
+		return owner;
 	}
 
-	public long getIdProfile() {
-		return idProfile;
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 
-	/**
-	 * @return the idRest
-	 */
-	public long getIdRest() {
-		return idRest;
-	}
-
-
-	/**
-	 * @return the idComment
-	 */
-	public long getIdComment() {
-		return idComment;
-	}
-
-	/**
-	 * @param idComment
-	 *            the idComment to set
-	 */
-	public void setIdComment(long idComment) {
-		this.idComment = idComment;
-	}
-
-	/**
-	 * @return the content
-	 */
 	public String getContent() {
 		return content;
 	}
 
-	/**
-	 * @param content
-	 *            the content to set
-	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 
-	/**
-	 * @return the date
-	 */
 	public Date getDate() {
 		return date;
 	}
 
-	/**
-	 * @param date
-	 *            the date to set
-	 */
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public int getRateUp() {
+		return rateUp;
+	}
+
+	public void setRateUp(int rateUp) {
+		this.rateUp += rateUp;
+	}
+
+	public int getRateDown() {
+		return rateDown;
+	}
+
+
+	public void setRateDown(int rateDown) {
+		this.rateDown -= rateDown;
 	}
 
 }

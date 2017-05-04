@@ -2,33 +2,26 @@
  * 
  */
 package es.ucm.fdi.iw.model;
-
 import java.sql.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * @author usuario_local
  *
  */
+@Entity
 public class Booking {
 
-	private long idProfile;
-	private long idBooking;
-	private long idRest;
+	private long id;
+	private User owner;
+	private Restaurant location;
 	private Date date;
 	private int assistants;
 	private String Observations;
-
-	public Booking(long id, long idRest, Date date, int assistans, String observations) {
-		super();
-		this.idProfile = id;
-		this.idRest = idRest;
-		this.date = date;
-		this.assistants = assistans;
-		Observations = observations;
-	}
 
 	/**
 	 * 
@@ -37,79 +30,56 @@ public class Booking {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @return the id
-	 */
 	@Id
 	@GeneratedValue
 	public long getId() {
-		return idProfile;
+		return id;
 	}
 
-	/**
-	 * @return the idRest
-	 */
-	public long getIdRest() {
-		return idRest;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	/**
-	 * @return the date
-	 */
+	@ManyToOne(targetEntity=User.class)	
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
+	@ManyToOne(targetEntity=Restaurant.class)	
+	public Restaurant getLocation() {
+		return location;
+	}
+
+	public void setLocation(Restaurant location) {
+		this.location = location;
+	}
+
 	public Date getDate() {
 		return date;
 	}
 
-	/**
-	 * @param date
-	 *            the date to set
-	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
-	/**
-	 * @return the assistants
-	 */
-	public int getAssistans() {
+	public int getAssistants() {
 		return assistants;
 	}
 
-	/**
-	 * @param assistants
-	 *            the assistants to set
-	 */
-	public void setAssistans(int assistans) {
-		this.assistants = assistans;
+	public void setAssistants(int assistants) {
+		this.assistants = assistants;
 	}
 
-	/**
-	 * @return the observations
-	 */
 	public String getObservations() {
 		return Observations;
 	}
 
-	/**
-	 * @param observations
-	 *            the observations to set
-	 */
 	public void setObservations(String observations) {
 		Observations = observations;
-	}
-
-	/**
-	 * @return the idBooking
-	 */
-	public long getIdBooking() {
-		return idBooking;
-	}
-
-	/**
-	 * @param idBooking the idBooking to set
-	 */
-	public void setIdBooking(long idBooking) {
-		this.idBooking = idBooking;
 	}
 
 }

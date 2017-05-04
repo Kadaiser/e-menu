@@ -3,11 +3,13 @@
  */
 package es.ucm.fdi.iw.model;
 
+import javax.persistence.Entity;
+
 /**
  * @author usuario_local
  *
  */
-
+@Entity
 public class Admin extends Profile {
 
 	/**
