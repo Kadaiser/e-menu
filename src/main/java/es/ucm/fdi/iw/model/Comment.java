@@ -4,12 +4,12 @@ import java.sql.Date;
 
 public class Comment {
 	private long idProfile;
-	long idRest;
-	long idComment;
-	String content;
-	Date date;
-	int rateUp;
-	int rateDown;
+	private long idRest;
+	private long idComment;
+	private String content;
+	private Date date;
+	private int rateUp;
+	private int rateDown;
 
 	public Comment(long idProfile, long idRest, long idComment, String content, Date date) {
 		super();
@@ -57,32 +57,17 @@ public class Comment {
 	}
 
 	/**
-	 * @param idProfile
-	 *            the idProfile to set
-	 */
-	void setIdProfile(long idProfile) {
-		this.idProfile = idProfile;
-	}
-
-	/**
 	 * @return the idRest
 	 */
-	long getIdRest() {
+	public long getIdRest() {
 		return idRest;
 	}
 
-	/**
-	 * @param idRest
-	 *            the idRest to set
-	 */
-	void setIdRest(long idRest) {
-		this.idRest = idRest;
-	}
 
 	/**
 	 * @return the idComment
 	 */
-	long getIdComment() {
+	public long getIdComment() {
 		return idComment;
 	}
 
@@ -90,14 +75,14 @@ public class Comment {
 	 * @param idComment
 	 *            the idComment to set
 	 */
-	void setIdComment(long idComment) {
+	public void setIdComment(long idComment) {
 		this.idComment = idComment;
 	}
 
 	/**
 	 * @return the content
 	 */
-	String getContent() {
+	public String getContent() {
 		return content;
 	}
 
@@ -105,14 +90,14 @@ public class Comment {
 	 * @param content
 	 *            the content to set
 	 */
-	void setContent(String content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 
 	/**
 	 * @return the date
 	 */
-	Date getDate() {
+	public Date getDate() {
 		return date;
 	}
 
@@ -120,7 +105,7 @@ public class Comment {
 	 * @param date
 	 *            the date to set
 	 */
-	void setDate(Date date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

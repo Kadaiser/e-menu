@@ -6,25 +6,36 @@ package es.ucm.fdi.iw.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 /**
  * @author usuario_local
  *
  */
+@Entity
 class Restaurant extends Profile {
-	private 
-	String phone;
-	String address;
-	int capacity;
-	List<Dish> menu;
-	List<Comment> comments;
+	private long idRestaurant;
+	private String phone;
+	private String address;
+	private int capacity;
+	
+	@OneToMany(targetEntity=Dish.class)
+	@JoinColumn(name="idDish")
+	private List<Dish> menu;
+	
+	@OneToMany(targetEntity=Comment.class)
+	@JoinColumn(name="idComment")
+	private List<Comment> comments;
 
-	public
 	/**
 	 * @param pass
 	 * @param nickName
 	 * @param mail
 	 */
-	Restaurant(String pass, String nickName, String mail) {
+	public Restaurant(String pass, String nickName, String mail) {
 		super(pass, nickName, mail);
 		this.menu = new ArrayList<Dish>();
 		this.comments = new ArrayList<Comment>();
@@ -34,14 +45,14 @@ class Restaurant extends Profile {
 	 * @param phone
 	 *            the phone to set
 	 */
-	void setPhone(String phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
 	/**
 	 * @return the address
 	 */
-	String getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
@@ -49,14 +60,14 @@ class Restaurant extends Profile {
 	 * @param address
 	 *            the address to set
 	 */
-	void setAddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
 	/**
 	 * @return the capacity
 	 */
-	int getCapacity() {
+	public int getCapacity() {
 		return capacity;
 	}
 
@@ -64,14 +75,14 @@ class Restaurant extends Profile {
 	 * @param capacity
 	 *            the capacity to set
 	 */
-	void setCapacity(int capacity) {
+	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
 
 	/**
 	 * @return the menu
 	 */
-	List<Dish> getMenu() {
+	public List<Dish> getMenu() {
 		return menu;
 	}
 
@@ -79,7 +90,7 @@ class Restaurant extends Profile {
 	 * @param menu
 	 *            the menu to set
 	 */
-	void setMenu(List<Dish> menu) {
+	public void setMenu(List<Dish> menu) {
 		this.menu = menu;
 	}
 
@@ -103,6 +114,20 @@ class Restaurant extends Profile {
 	 */
 	String getPhone() {
 		return phone;
+	}
+
+	/**
+	 * @return the idRestaurant
+	 */
+	public long getIdRestaurant() {
+		return idRestaurant;
+	}
+
+	/**
+	 * @param idRestaurant the idRestaurant to set
+	 */
+	public void setIdRestaurant(long idRestaurant) {
+		this.idRestaurant = idRestaurant;
 	}
 
 }

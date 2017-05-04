@@ -5,6 +5,9 @@ package es.ucm.fdi.iw.model;
 
 import java.sql.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * @author usuario_local
  *
@@ -13,10 +16,10 @@ public class Booking {
 
 	private long idProfile;
 	private long idBooking;
-	long idRest;
-	Date date;
-	int assistants;
-	String Observations;
+	private long idRest;
+	private Date date;
+	private int assistants;
+	private String Observations;
 
 	public Booking(long id, long idRest, Date date, int assistans, String observations) {
 		super();
@@ -37,16 +40,10 @@ public class Booking {
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue
 	public long getId() {
 		return idProfile;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(long id) {
-		this.idProfile = id;
 	}
 
 	/**
@@ -54,14 +51,6 @@ public class Booking {
 	 */
 	public long getIdRest() {
 		return idRest;
-	}
-
-	/**
-	 * @param idRest
-	 *            the idRest to set
-	 */
-	public void setIdRest(long idRest) {
-		this.idRest = idRest;
 	}
 
 	/**
@@ -107,6 +96,20 @@ public class Booking {
 	 */
 	public void setObservations(String observations) {
 		Observations = observations;
+	}
+
+	/**
+	 * @return the idBooking
+	 */
+	public long getIdBooking() {
+		return idBooking;
+	}
+
+	/**
+	 * @param idBooking the idBooking to set
+	 */
+	public void setIdBooking(long idBooking) {
+		this.idBooking = idBooking;
 	}
 
 }

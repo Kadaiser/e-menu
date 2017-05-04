@@ -9,17 +9,17 @@ import java.util.Random;
 
 
 
+
 /**
  * @author usuario_local
  *
  */
 public abstract class Profile {
-	private
-		 long idProfile;
-		 String name;
-		 String mail;
-		 String salt;
-		 String encryptedPass;
+	private long idProfile;
+	private String name;
+	private String mail;
+	private String salt;
+	private String encryptedPass;
 		//private String userFrom;
 	
 	
@@ -41,9 +41,7 @@ public abstract class Profile {
 		//store pass encrypted by salt + SHA-1 algorithm, as a second security layer
 		this.encryptedPass = encryptPass(pass, this.salt);
 	}
-	
-	//=================PASS ENCRYPTION METHODS===========================//
-	
+
 	/**
 	 * Translate a byte array to a hexadecimal string
 	 * @param bytes bytes array to translate.
@@ -113,17 +111,14 @@ public abstract class Profile {
 	public boolean validPassword(String pass){
 		return encryptPass(pass, this.salt).equals(this.encryptedPass);
 	}
-	
-	//=====================RELATED TO ID ATTRIBUTES============================//
 
 	public long getId() {
 		return idProfile;
 	}
+	
 	public void setId(long id) {
 		this.idProfile = id;
 	}
-	
-	//=====================RELATED TO NAME ATTRIBUTES==========================//
 	
 	public String getName() {
 		return name;
@@ -133,18 +128,18 @@ public abstract class Profile {
 		this.name = name;
 	}
 	
-	
-	//=================RELATED TO MAIL ATTRIBUTES===============================//
-	
 	public String getMail() {
 		return mail;
 	}
+	
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+	
 	public String getHashedAndSalted() {
 		return encryptedPass;
 	}
+	
 	public void setHashedAndSalted(String hashedAndSalted) {
 		this.encryptedPass = hashedAndSalted;
 	}

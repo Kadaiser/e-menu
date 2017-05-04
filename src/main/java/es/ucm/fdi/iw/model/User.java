@@ -7,6 +7,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
 /**
  * @author usuario_local
  *
@@ -15,10 +18,23 @@ public class User extends Profile {
 
 	private	Date bornDate;
 	private	int age;
+	
+	@OneToMany(targetEntity=Allergen.class)
+	@JoinColumn(name="idAllerg")
 	private	List<Allergen> knownAllergens;
+	
+	@OneToMany(targetEntity=Restaurant.class)
+	@JoinColumn(name="idRestaurant")
 	private	List<Restaurant> favoriteRestaurants;
-	private	List<Booking> myBookings;
+	
+	@OneToMany(targetEntity=Booking.class)
+	@JoinColumn(name="idBooking")
+	private List<Booking> bookings;
+	
+	@OneToMany(targetEntity=Comment.class)
+	@JoinColumn(name="idComment")
 	private	List<Comment> comments;
+	
 	private	float karma;
 
 
@@ -28,21 +44,21 @@ public class User extends Profile {
 		this.age = processAge(bornDate);
 		this.knownAllergens = new ArrayList<Allergen>();
 		this.comments = new ArrayList<Comment>();
-		this.myBookings = new ArrayList<Booking>();
+		this.bookings = new ArrayList<Booking>();
 		this.setFavoriteRestaurants(new ArrayList<Restaurant>());
 		this.karma = 0;
 	}
 	
-	//=================RELATED TO AGE ATTRIBUTES===============================//
-	int getAge() {
+
+	public int getAge() {
 		return age;
 	}
 	
-	void setAge(int age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	
-	static int processAge(Date bornDate) {
+	public static int processAge(Date bornDate) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -57,47 +73,43 @@ public class User extends Profile {
 	/**
 	 * @param bornDate the bornDate to set
 	 */
-	 void setBornDate(Date bornDate) {
+	 public void setBornDate(Date bornDate) {
 		this.bornDate = bornDate;
 	}
 
-	//=================RELATED TO KARMA ATTRIBUTES===============================//
 	/**
-		 * @return the karma
-		 */
-		public float getKarma() {
-			return karma;
-		}
+	 * @return the karma
+	 */
+	public float getKarma() {
+		return karma;
+	}
 
-		/**
-		 * @param karma the karma to set
-		 */
-		public void setKarma(float karma) {
-			this.karma = karma;
-		}
-		
-		public void karmaUp(){
-			this.karma += 0.1;
-		}
-		
-		public void karmaDown(){
-			this.karma -= 0.1;
-		}
-		
-		public boolean validKarma(){
-			return (this.karma < 0) ? false :  true;
-		}
-	 
-	//=================RELATED TO ALLERGENS ATTRIBUTES===============================//
+	/**
+	 * @param karma the karma to set
+	 */
+	public void setKarma(float karma) {
+		this.karma = karma;
+	}
 	
+	public void karmaUp(){
+		this.karma += 0.1;
+	}
+	
+	public void karmaDown(){
+		this.karma -= 0.1;
+	}
+	
+	public boolean validKarma(){
+		return (this.karma < 0) ? false :  true;
+	}
+
 	 List<Allergen> getKnownAllergens() {
 		return knownAllergens;
 	}
 	 void setKnownsAllergens(List<Allergen> knownAllergens) {
 		this.knownAllergens = knownAllergens;
 	}
-	
-	//=================RELATED TO COMMENTS ATTRIBUTES===============================//
+
 	/**
 	 * @param knownAllergens the knownAllergens to set
 	 */
@@ -111,8 +123,6 @@ public class User extends Profile {
 	 void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-	
-	//=================RELATED TO FAVORITE RESTAURANT ATTRIBUTES====================//
 
 	/**
 	 * @return the favoriteRestaurants
@@ -124,9 +134,9 @@ public class User extends Profile {
 	/**
 	 * @param favoriteRestaurants the favoriteRestaurants to set
 	 */
-		 void setFavoriteRestaurants(List<Restaurant> favoriteRestaurants) {
-			this.favoriteRestaurants = favoriteRestaurants;
-		}
-	
+	 void setFavoriteRestaurants(List<Restaurant> favoriteRestaurants) {
+		this.favoriteRestaurants = favoriteRestaurants;
+	}
+
 
 }

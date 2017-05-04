@@ -4,8 +4,11 @@
 package es.ucm.fdi.iw.model;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 
 
@@ -15,25 +18,28 @@ import javax.persistence.Id;
  * Un plato se refleja mediante un Identificador, su nombre, y las 
  * caracteristicas propias del mismo.
  */
-
+@Entity
 public class Dish {
-	private long id;
+	
+	private long idDish;
+	private long idRestaurant;
 	private String name;
 	private int kcal;
 	private int prot;
 	private int fats;
 	private int carbs;
-	private List<Allergen> allergens;
-	//private List<Ingredients> ingredients;
 	
+	@OneToMany(targetEntity=Allergen.class)
+	@JoinColumn(name="idAllerg")
+	private List<Allergen> allergens;
 	
 	@Id
 	@GeneratedValue
 	public long getId() {
-		return id;
+		return idDish;
 	}
 	public void setId(long id) {
-		this.id = id;
+		this.idDish = id;
 	}
 
 	public String getName() {
@@ -83,6 +89,11 @@ public class Dish {
 	public void setAllergens(List<Allergen> allergens) {
 		this.allergens = allergens;
 	}
+	/**
+	 * @return the idRestaurant
+	 */
+	public long getIdRestaurant() {
+		return idRestaurant;
+	}
 
-	
 }

@@ -7,6 +7,7 @@ package es.ucm.fdi.iw.model;
  * @author usuario_local
  *
  */
+
 public class Admin extends Profile {
 
 	/**

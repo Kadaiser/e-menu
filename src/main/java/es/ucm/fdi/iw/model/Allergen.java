@@ -1,9 +1,10 @@
 package es.ucm.fdi.iw.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Allergen {
 	
-	//enum AllergenList {APIO, GLUTEN, CRUSTACEOS, HUEVOS, PESCADO, ALTRAMUCES, LECHE, MOLUSCOS, MOSTAZA, FRUTOSSECOS, CACAHUETES, SESAMO, SOJA, SULFITOS};
-		
 	private long idAllerg;
 	private	String name;
 	
