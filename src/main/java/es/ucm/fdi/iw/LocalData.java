@@ -9,7 +9,7 @@ import org.apache.commons.logging.LogFactory;
  * Uses constructor parameter as base for file-writing operations.
  * Can create missing intermediate directories. 
  *  
- * @author mfreire
+ * @author 
  */
 public class LocalData {    	    
 	private static Log log = LogFactory.getLog(LocalData.class);

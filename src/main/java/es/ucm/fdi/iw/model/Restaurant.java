@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package es.ucm.fdi.iw.model;
 
 import java.util.List;
@@ -10,10 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-/**
- * @author usuario_local
- *
- */
+
 @Entity
 class Restaurant extends Profile {
 
@@ -81,6 +76,11 @@ class Restaurant extends Profile {
 	
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+
+	@Override
+	public String getRoles() {
+		return "Restaurant";
 	}
 
 

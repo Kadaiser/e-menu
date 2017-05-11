@@ -10,7 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import es.ucm.fdi.iw.model.User;
+import es.ucm.fdi.iw.model.Profile;
 
 public class IwUserDetailsService implements UserDetailsService {
 
@@ -25,17 +25,22 @@ public class IwUserDetailsService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(String username){
     	try {
-	        User u = entityManager.createQuery("from User where login = :login", User.class)
-	                            .setParameter("login", username)
+	        Profile u = entityManager.createQuery("from Profile where name = :name", Profile.class)
+	                            .setParameter("name", username)
 	                            .getSingleResult();
 	        // build UserDetails object
+	        
 	        ArrayList<SimpleGrantedAuthority> roles = new ArrayList<>();
-	        for (String r : u.getRoles().split("[,]")) {
+	        /*for (String r : u.getRoles().split("[,]")) {
 	        	roles.add(new SimpleGrantedAuthority("ROLE_" + r));
-		        log.info("Roles for " + username + " include " + roles.get(roles.size()-1));
-	        }
+	        	*/
+		        log.info("Roles for " + username + " include " + u.getRoles());// roles.get(roles.size()-1));
+	        //}
+		        roles.add(new SimpleGrantedAuthority("ROLE_" + u.getRoles()));
+		        
 	        return new org.springframework.security.core.userdetails.User(
-	        		u.getLogin(), u.getPassword(), roles); 
+	        		u.getName(), u.getPass(), roles);
+	        
 	    } catch (Exception e) {
     		log.info("No such user: " + username);
     		return null;

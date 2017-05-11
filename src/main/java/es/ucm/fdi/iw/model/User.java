@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package es.ucm.fdi.iw.model;
 
 import java.sql.Date;
@@ -9,10 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-/**
- * @author usuario_local
- *
- */
 @Entity
 public class User extends Profile {
 
@@ -111,6 +105,11 @@ public class User extends Profile {
 	
 	public boolean validKarma(){
 		return (this.karma < 0) ? false :  true;
+	}
+
+	@Override
+	public String getRoles() {
+		return "User";
 	}
 
 }

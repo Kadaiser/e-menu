@@ -9,6 +9,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -24,11 +26,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			.formLogin()
 				.permitAll()
-	            .loginPage("/login")
+	            .loginPage("/index")
 	            .and()
 			.logout()
 				.logoutUrl("/logout")
-				.logoutSuccessUrl("/login")
+				.logoutSuccessUrl("/index")
 	            .permitAll();
 	}
 	
@@ -37,6 +39,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new IwUserDetailsService();
 	}
 	
+	@Bean
+	public PasswordEncoder passEnconder(){
+		return new BCryptPasswordEncoder();
+	}
 /* 
 	Si eliminas el "Bean" anterior, esto funciona sin BD ni nada:
 

@@ -3,14 +3,18 @@
  */
 package es.ucm.fdi.iw.model;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Random;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
+
+
+@NamedQueries({
+	@NamedQuery(name="userByLogin",
+	query="select u from Profile u where u.name = :loginParam")
+	})
 
 
 
@@ -23,19 +27,18 @@ public abstract class Profile {
 	private long idProfile;
 	private String name;
 	private String mail;
-	private String salt;
-	private String encryptedPass;
-		//private String userFrom;
-	
+	private String pass;
 	
 	
 	public Profile (String pass, String nickName, String mail){
 		
-		this.name = nickName;
-		this.mail = mail;
-		//u.userFrom = userFrom;
+		this.setName(nickName);
+		this.setMail(mail);
+		this.setPass(pass);
+		
 
 		
+		/*
 		//Generate a random salt, as a first security layer
 		Random r = new Random();
 		byte[] saltBytes = new byte[16];
@@ -45,13 +48,14 @@ public abstract class Profile {
 		this.salt = byteToHex(saltBytes);
 		//store pass encrypted by salt + SHA-1 algorithm, as a second security layer
 		this.encryptedPass = encryptPass(pass, this.salt);
+		*/
 	}
 
 	/**
 	 * Translate a byte array to a hexadecimal string
 	 * @param bytes bytes array to translate.
 	 * @return translated hexadecimal String 	
-	 */
+	 
 	private static String byteToHex(byte[] bytes) {
 		StringBuilder str = new StringBuilder();
 		for(int i = 0; i < bytes.length; ++i)
@@ -63,7 +67,7 @@ public abstract class Profile {
 	 * Translate a hexadecimal string to a byte array
 	 * @param salt string to be translated
 	 * @return translated byte array
-	 */
+	 
 	private static byte[] hexToByte(String salt) {
 		int newSize = salt.length()/2;
 		byte[] array = new byte[newSize];
@@ -78,7 +82,7 @@ public abstract class Profile {
 	 * Generate the SHA-1 of a byte array
 	 * @param hash to encrypt
 	 * @return encrypted SHA-1 byte array
-	 */
+	 
 	private static byte[] hash(byte[] toHash) {
 		MessageDigest md = null;
 		try{
@@ -95,7 +99,7 @@ public abstract class Profile {
 	 * @param salt to shadow pass
 	 * @return a hexadecimal string, the one that will be stored on the BBDD,
 	 * gets another security layer. It´s use salt to defend from brute force.
-	 */
+	 
 	public static String encryptPass(String pass, String salt) {
 		byte[] saltBytes = hexToByte(salt);
 		byte[] passBytes = pass.getBytes();
@@ -112,10 +116,12 @@ public abstract class Profile {
 	 * validate password string method against storage salt of the user
 	 * @param pass to validate
 	 * @return true if encrypt respond as correct for the given pass
-	 */
+	 
 	public boolean validPassword(String pass){
 		return encryptPass(pass, this.salt).equals(this.encryptedPass);
 	}
+	
+	*/
 
 	@Id
 	@GeneratedValue
@@ -142,7 +148,18 @@ public abstract class Profile {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
 	
+	public abstract String getRoles(); 
+	
+	/*
 	public String getHashedAndSalted() {
 		return encryptedPass;
 	}
@@ -150,6 +167,7 @@ public abstract class Profile {
 	public void setHashedAndSalted(String hashedAndSalted) {
 		this.encryptedPass = hashedAndSalted;
 	}
+	*/
 
 }
 
