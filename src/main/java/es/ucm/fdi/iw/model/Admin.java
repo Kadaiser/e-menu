@@ -1,4 +1,4 @@
-
+ 
 package es.ucm.fdi.iw.model;
 
 import javax.persistence.Entity;
@@ -7,14 +7,7 @@ import javax.persistence.Entity;
 public class Admin extends Profile {
 
 	
-	public Admin(String pass, String nickName, String mail) {
-		super(pass, nickName, mail);
-		// TODO Auto-generated constructor stub
+	public Admin() {
+		setRoles("ADMIN");
 	}
-
-	@Override
-	public String getRoles() {
-		return "Admin";
-	}
-
 }

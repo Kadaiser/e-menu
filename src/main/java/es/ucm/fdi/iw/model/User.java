@@ -10,10 +10,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class User extends Profile {
 
-	public User(String pass, String nickName, String mail) {
-		super(pass, nickName, mail);
-		// TODO Auto-generated constructor stub
-	}
 
 	private	Date bornDate;
 	private	int age;
@@ -23,9 +19,10 @@ public class User extends Profile {
 	private	List<Comment> comments;
 	private	float karma;
 
-
-
-
+	
+	public User() {
+		setRoles("USER");
+	}
 
 	public Date getBornDate() {
 		return bornDate;
@@ -82,15 +79,11 @@ public class User extends Profile {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-	/**
-	 * @return the karma
-	 */
+	
 	public float getKarma() {
 		return karma;
 	}
-	/**
-	 * @param karma the karma to set
-	 */
+	
 	public void setKarma(float karma) {
 		this.karma = karma;
 	}

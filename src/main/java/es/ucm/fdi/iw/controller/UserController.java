@@ -6,8 +6,11 @@ import java.io.FileOutputStream;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,16 +20,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import es.ucm.fdi.iw.LocalData;
+import es.ucm.fdi.iw.model.User;
+
+
+@Controller
+@RequestMapping(value = "/user")
 
 public class UserController {
-	
-	@Autowired
-	private LocalData localData;
-	
 	@PersistenceContext
 	private EntityManager entityManager;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	private LocalData localData;
 	
-	@RequestMapping(value = "/user", method = RequestMethod.GET) //añadir "/user/"???
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String user(Model model, HttpSession session){
 		
 		
@@ -61,4 +68,15 @@ public class UserController {
             return "You failed to upload a photo for " + id + " because the file was empty.";
         }
 	}
+	
+	@Transactional
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String add(Model model, HttpSession session){
+		
+		User u = new User();
+		u.setName("Paco");
+		u.setPass(passwordEncoder.encode("arr"));
+		entityManager.persist(u);
+		return "user";
+	}	
 }

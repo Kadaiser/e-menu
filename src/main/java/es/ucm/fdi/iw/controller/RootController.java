@@ -163,21 +163,6 @@ public class RootController {
 		return "user-restaurant";
 	}
 	
-	/*@GetMapping
-	String login() {return "login"; }
-			
-	@GetMapping("/login/{role}")
-	String login(@PathVariable String role, HttpSession s){
-		s.setAttribute("role", role);
-		return "redirect:login";
-	}
-	
-	@GetMapping ("/logout")
-		String login (HttpSession s){
-		s.invalidate();
-		return "login";
-	}*/
-	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
 		return "index";
