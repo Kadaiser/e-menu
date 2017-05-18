@@ -34,8 +34,8 @@
         </div><!-- /card-container -->
 
         <div class="create-account">
-                <a href="reg.html"> Crear cuenta </a>
-                <p>¿Su negocio no está anunciado? <a href="reg-rest.html">Anúnciese ahora mismo</a></p>
+                <a href="reg"> Crear cuenta </a>
+                <p>¿Su negocio no está anunciado? <a href="reg-rest">Anúnciese ahora mismo</a></p>
 
         </div> <!--create-account-->
     </div><!-- /container -->

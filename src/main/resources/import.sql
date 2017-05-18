@@ -1,2 +1,1 @@
-INSERT INTO user(id,enabled,login,password,roles) VALUES (1, 1, 'a', 'aa', 'USER');
-INSERT INTO user VALUES (2, 1, 'b', 'bb', 'USER,ADMIN');
+/*INSERT INTO profile(id, name, mail, pass, roles) VALUES (1,'prueba','p@um.es','1234','USER')*/

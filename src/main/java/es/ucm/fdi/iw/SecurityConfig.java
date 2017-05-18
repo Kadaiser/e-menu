@@ -22,7 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         		.antMatchers("/static/**", "/logout", "/403").permitAll()
 				.mvcMatchers("/admin").hasRole("ADMIN")
         		.antMatchers("/admin/**").hasRole("ADMIN") //.permitAll() en pruebas para "admin/add"
-				.anyRequest().authenticated()
+				.antMatchers("/reg").permitAll()
+				.antMatchers("/home").hasRole("USER")
+				.antMatchers("/home").hasRole("ADMIN")
+				.antMatchers("/reg-rest").permitAll()
+        		.anyRequest().authenticated()
 				.and()
 			.formLogin()
 				.permitAll()
@@ -32,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logoutUrl("/logout")
 				.logoutSuccessUrl("/index")
 	            .permitAll();
+			
 	}
 	
 	@Bean
