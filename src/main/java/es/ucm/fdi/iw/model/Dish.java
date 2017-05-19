@@ -3,9 +3,12 @@
  */
 package es.ucm.fdi.iw.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 
@@ -21,6 +24,7 @@ public class Dish {
 	private int prot;
 	private int fats;
 	private int carbs;
+	private List<Allergen> allergens;
 	
 	@Id
 	@GeneratedValue
@@ -78,6 +82,15 @@ public class Dish {
 	
 	public void setCarbs(int carbs) {
 		this.carbs = carbs;
+	}
+
+	@ManyToMany(targetEntity=Allergen.class, mappedBy="allergen")
+	public List<Allergen> getAllergens() {
+		return allergens;
+	}
+
+	public void setAllergens(List<Allergen> allergens) {
+		this.allergens = allergens;
 	}
 	
 	

@@ -48,20 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passEnconder(){
 		return new BCryptPasswordEncoder();
 	}
-/* 
-	Si eliminas el "Bean" anterior, esto funciona sin BD ni nada:
-
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) 
-			throws Exception {
-		auth.inMemoryAuthentication()
-				.withUser("user").password("password").roles("USER")
-				.and()
-				.withUser("paco").password("password").roles("USER", "ADMIN")
-				.and()
-				.withUser("juan").password("password").roles("USER", "ADMIN");
-	}
-*/
 	
 	@Autowired
 	private Environment env;

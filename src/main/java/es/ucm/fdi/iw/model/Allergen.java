@@ -10,10 +10,6 @@ public class Allergen {
 	private long id;
 	private	String name;
 	
-	public Allergen() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	@Id
 	@GeneratedValue
 	public long getId() {
@@ -28,5 +24,4 @@ public class Allergen {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 }

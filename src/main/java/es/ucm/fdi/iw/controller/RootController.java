@@ -2,6 +2,9 @@ package es.ucm.fdi.iw.controller;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -27,6 +30,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import es.ucm.fdi.iw.LocalData;
 import es.ucm.fdi.iw.model.Admin;
+import es.ucm.fdi.iw.model.Allergen;
+import es.ucm.fdi.iw.model.Dish;
 import es.ucm.fdi.iw.model.Restaurant;
 import es.ucm.fdi.iw.model.User;
 
@@ -179,6 +184,10 @@ public class RootController {
 	
 	private static Logger log = Logger.getLogger(RootController.class.getName());
 	  
+	private Allergen getAllergen(int id) {
+		return entityManager.find(Allergen.class, id);
+	}
+	
 	@GetMapping("/test")
 	@Transactional
 	public String test() {
@@ -196,7 +205,20 @@ public class RootController {
 		r.setName("r");
 		entityManager.persist(r);
 		
-		log.info("deberia haber hecho 2 inserts...");
+		Dish d = new Dish();
+		d.setCarbs(10);
+		d.setFats(5);
+		d.setProt(18);
+		d.setKcal(1);
+		d.setName("Pato laqueado");
+		List<Allergen> allergens = new ArrayList<Allergen>();
+		allergens.addAll(Arrays.asList(getAllergen(1), getAllergen(8), getAllergen(4)));
+		d.setAllergens(allergens);
+		
+		entityManager.persist(r);
+		
+		
+		log.info("deberia haber hecho 3 inserts...");
 		
 		return "index";
 	}
@@ -265,20 +287,20 @@ public class RootController {
 	}
 	static boolean isAdmin(HttpSession session) {
 		if (session != null){
-		return session.getAttribute("rol").equals("admin");
+		return session.getAttribute("rol").equals("ADMIN");
 		}
 		return false;
 		}
 	static boolean isRest(HttpSession session) {
 		if (session != null){
-			return session.getAttribute("rol").equals("rest");
+			return session.getAttribute("rol").equals("RESTAURANT");
 		}else{
 			return false;
 		}
 	}
 	static boolean isUser(HttpSession session) {
 		if(session != null){
-			return session.getAttribute("rol").equals("user");
+			return session.getAttribute("rol").equals("USER");
 		}else{
 			return false;
 		}
