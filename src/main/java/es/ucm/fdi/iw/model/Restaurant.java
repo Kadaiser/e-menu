@@ -1,8 +1,10 @@
 package es.ucm.fdi.iw.model;
 
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 
@@ -15,6 +17,7 @@ public class Restaurant extends Profile {
 	private int capacity;
 	private List<Dish> menu;
 	private List<Comment> comments;
+	private List<User> fans;
 	
 	public Restaurant() {
 		setRoles("RESTAURANT");
@@ -62,6 +65,16 @@ public class Restaurant extends Profile {
 	
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+
+	@ManyToMany(targetEntity=User.class)
+	public List<User> getFans() {
+		return fans;
+	}
+
+	
+	public void setFans(List<User> fans) {
+		this.fans = fans;
 	}
 
 

@@ -16,12 +16,14 @@ INSERT INTO Allergen(id, name) VALUES (14,'Sulfitos')
 INSERT INTO Profile(id, name, mail, pass, roles) VALUES (1,'user1','user1@ucm.es','1234','USER')
 
 INSERT INTO Profile(id, name, mail, pass, roles) VALUES (2,'admin1','admin1@ucm.es','1234','ADMIN')
-
-
-
+ 
 INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (3, 'La Trapella', 'latrapella@restmail.com', '12345678', 'RESTAURANT', '913003033', 'c/ Sanchez Pacheco 22, Pozuelo de Alarcón, Madrid', 58, NULL, NULL)
 
 /*
+INSERT INTO Profile(id, name, mail, pass, roles) VALUES (4,'user2','user2@ucm.es','1234','USER')
+INSERT INTO Profile(id, name, mail, pass, roles) VALUES (5,'user3','user3@ucm.es','1234','USER')
+INSERT INTO Profile(id, name, mail, pass, roles) VALUES (6,'user4','user4@ucm.es','1234','USER')
+
 
 INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (1, 'location.id', 'Macarrones napolitana', 516, 70, 119, 247, )
 INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Judias verdes de pueblo', 192, 19, 52, 121, )
@@ -33,6 +35,7 @@ INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'lo
 INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Marrajo a la plancha', 340, 158, 173, 9, )
 INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Judias verdes de pueblo', 192, 19, 52, 121, )
 
-INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (3, 'El Mejíbar', 'mejibar@gmail.com', '12345678', 'RESTAURANT', '915402233','Av. de Europa 54, Madrid ', 40, NULL, NULL)
-
+INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (7, 'El Mejíbar', 'mejibar@gmail.com', '12345678', 'RESTAURANT', '915402233','Av. de Europa 54, Madrid ', 40, NULL, NULL)
+INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (8, 'Gandarío', 'gandario@gmail.com', '12345678', 'RESTAURANT', '915402233','Calle Gaztambide 28, Madrid', 30, NULL, NULL)
+INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (9, 'DiverXO', 'diverxo@gmail.com', '12345678', 'RESTAURANT', '915402233','Calle de Padre Damian 23 Madrid', 50, NULL, NULL)
 */

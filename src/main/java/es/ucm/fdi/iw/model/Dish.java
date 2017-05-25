@@ -12,7 +12,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 
-
 @Entity
 public class Dish {
 	
@@ -84,7 +83,7 @@ public class Dish {
 		this.carbs = carbs;
 	}
 
-	@ManyToMany(targetEntity=Allergen.class, mappedBy="allergen")
+	@ManyToMany(targetEntity=Allergen.class, mappedBy="dishes")
 	public List<Allergen> getAllergens() {
 		return allergens;
 	}

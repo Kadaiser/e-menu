@@ -3,8 +3,11 @@ package es.ucm.fdi.iw.model;
 
 import java.sql.Date;
 import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User extends Profile {
@@ -39,7 +42,7 @@ public class User extends Profile {
 		this.age = age;
 	}
 	
-	@ManyToMany(targetEntity=Allergen.class, mappedBy="allergens")	
+	@ManyToMany(targetEntity=Allergen.class, mappedBy="victims")	
 	public List<Allergen> getKnownAllergens() {
 		return knownAllergens;
 	}
@@ -48,7 +51,7 @@ public class User extends Profile {
 		this.knownAllergens = knownAllergens;
 	}
 	
-	@ManyToMany(targetEntity=Restaurant.class, mappedBy="restaurants")	
+	@ManyToMany(targetEntity=Restaurant.class, mappedBy="fans")	
 	public List<Restaurant> getFavoriteRestaurants() {
 		return favoriteRestaurants;
 	}
@@ -57,7 +60,8 @@ public class User extends Profile {
 		this.favoriteRestaurants = favoriteRestaurants;
 	}
 	
-	@ManyToMany(targetEntity=Booking.class, mappedBy="bookings")	
+	@OneToMany(targetEntity=Booking.class)
+	@JoinColumn(name="owner")
 	public List<Booking> getBookings() {
 		return bookings;
 	}
@@ -66,7 +70,8 @@ public class User extends Profile {
 		this.bookings = bookings;
 	}
 	
-	@ManyToMany(targetEntity=Comment.class, mappedBy="comments")	
+	@OneToMany(targetEntity=Comment.class)
+	@JoinColumn(name="owner")
 	public List<Comment> getComments() {
 		return comments;
 	}
