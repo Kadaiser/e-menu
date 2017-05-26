@@ -48,147 +48,18 @@ public class RootController {
 	  	m.addAttribute("prefix","static");
 	 }
 	 
-	/*@RequestMapping({"/","/index"})
-	String root() {
-		return "index";
-	}
-		@RequestMapping(value= "/home")
-	String homeView(HttpSession s) {
-		
-		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
-			return "home";
-	}else{ 
-			return "redirect:index";
-		}
-	}
 	
-	
-	
-	@RequestMapping({"/about"})
-	String aboutView() {
-		return "about";
-	}
-	
-	@RequestMapping({"/add"})
-	String addView(HttpSession s) {
-		
-		if(isAdmin(s)){
-			return "add";
-		}else{
-			return "home";
-		}
-	}
-	
-	@RequestMapping({"/admin"})
-	String adminView(HttpSession s) {
-		
-		if(isAdmin(s)){
-			return "admin";
-		}else{
-			return "home";
-		}
-	}
-	
-	@RequestMapping({"/all"})
-	String allView(HttpSession s) {
-		if(!isAdmin(s)){
-			return "home";
-		}else{
-			return "all";
-		}
-		
-	}
-		
-	@RequestMapping({"/contact"})
-	String contactView(HttpSession s) {
-		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
-			return "contact";
-		}else{ 
-			
-		return "index";
-		}
-	}
-	
-	/*@RequestMapping({"/reg-rest"})
-	String regRestView(HttpSession s) {
-		if(!isAdmin(s)){
-			return "home";
-		}else{
-			
-		return "reg-rest";
-	}
-	}*/
-	
-	/*@RequestMapping({"/reg"})
-	String regView() {
-		return "reg";
-	}
-	
-	
-	@RequestMapping({"/user"})
-	String userView(HttpSession s) {
-		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
-			
-			return "user";
-			
-		}else{
-		return "index";
-		}
-	}
-	
-	@RequestMapping({"/carta-restaurante"})
-	String cartaView(HttpSession s) {
-		if(!isRest(s)){
-			return "home";
-		}else{
-		return "carta-restaurante";
-		}
-	}
-	@RequestMapping({"/mis-reserv"})
-	String reservView(HttpSession s) {
-		if(!isUser(s)){
-			return "home";
-		}else{
-		return "mis-reserv";
-		}
-	}
-	@RequestMapping({"/mis-rest"})
-	String restView(HttpSession s) {
-		if(!isUser(s)){
-			return "home";
-		}else{
-		return "mis-rest";
-		}
-	}
-	
-	@RequestMapping({"/reservas-restaurante"})
-	String reservasResView(HttpSession s) {
-		if(!isRest(s)){
-			return "home";
-		}else{
-		return "reservas-restaurante";
-		}
-	}
-	@RequestMapping({"/restaurante"})
-	String restauranteView(HttpSession s) {
-		if(s!=null && (isAdmin(s) || isRest(s) || isUser(s))){
-			return "restaurante";
-		}else{
-		return "index";
-		}
-	}
-	@RequestMapping({"/user-restaurant"})
-	String userRestView() {
-		return "user-restaurant";
-	}*/
 	
 	private static Logger log = Logger.getLogger(RootController.class.getName());
 	  
-	private Allergen getAllergen(int id) {
-		return entityManager.find(Allergen.class, id);
+	private Allergen getAllergen(long id, Dish d) {
+		Allergen a = entityManager.find(Allergen.class, id);
+		a.getDishes().add(d);
+		entityManager.persist(d);
+		return a;
 	}
 	
-	@GetMapping("/test")
+	@RequestMapping(value="/test", method = RequestMethod.GET)
 	@Transactional
 	public String test() {
 		
@@ -211,16 +82,13 @@ public class RootController {
 		d.setProt(18);
 		d.setKcal(1);
 		d.setName("Pato laqueado");
-		List<Allergen> allergens = new ArrayList<Allergen>();
-		allergens.addAll(Arrays.asList(getAllergen(1), getAllergen(8), getAllergen(4)));
-		d.setAllergens(allergens);
-		
-		entityManager.persist(r);
-		
+		entityManager.persist(d);
+		getAllergen(1, d);
+		getAllergen(8, d);
+		getAllergen(4, d);
 		
 		log.info("deberia haber hecho 3 inserts...");
-		
-		return "index";
+		return "reg";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -231,9 +99,15 @@ public class RootController {
 			Model model, HttpSession session) {
 
 			String formSource = "index";		
-			
+			/*public string ejemplo(HttpSession s, Model m){
+			 * User u (User)s.getAttribute("user");
+			 * u= entityManager.find(User.class, ugetId());
+			 * m.addAttribute("perros", u.getPerros());
+			 * }
+			 * 
+			 * */
 			try {
-				if(formLogin.equals("user@iw.com") && formPass.equals("iw2017")){
+				if(formLogin.equals("a@a.as") && formPass.equals("a")){
 					getTokenForSession(session);
 					session.setAttribute("roles", "USER");
 					formSource="redirect:/home";

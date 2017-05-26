@@ -16,12 +16,7 @@ public class Allergen {
 	private List<User> victims;
 
 	
-	public List<User> getVictims() {
-		return victims;
-	}
-	public void setVictims(List<User> victims) {
-		this.victims = victims;
-	}
+	
 	@Id
 	@GeneratedValue
 	public long getId() {
@@ -34,8 +29,19 @@ public class Allergen {
 		return name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.name = name;		
 	}
+	
+	
+	@ManyToMany(targetEntity=User.class)
+	public List<User> getVictims() {
+		return victims;
+	}
+	
+	public void setVictims(List<User> victims) {
+		this.victims = victims;
+	}
+	
 	@ManyToMany(targetEntity=Dish.class)
 	public List<Dish> getDishes() {
 		return dishes;
