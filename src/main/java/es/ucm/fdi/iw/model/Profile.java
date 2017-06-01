@@ -3,6 +3,7 @@
  */
 package es.ucm.fdi.iw.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -44,6 +45,7 @@ public abstract class Profile {
 		this.name = name;
 	}
 	
+	@Column(unique = true)
 	public String getMail() {
 		return mail;
 	}

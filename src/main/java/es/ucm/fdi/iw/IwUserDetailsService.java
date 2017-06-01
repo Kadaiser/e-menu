@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import es.ucm.fdi.iw.model.Profile;
 
@@ -25,8 +26,8 @@ public class IwUserDetailsService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(String username){
     	try {
-	        Profile u = entityManager.createQuery("from Profile where name = :name", Profile.class)
-	                            .setParameter("name", username)
+	        Profile u = entityManager.createQuery("from Profile where mail = :mail", Profile.class)
+	                            .setParameter("mail", username)
 	                            .getSingleResult();
 	        // build UserDetails object
 	        
@@ -43,7 +44,7 @@ public class IwUserDetailsService implements UserDetailsService {
 	        
 	    } catch (Exception e) {
     		log.info("No such user: " + username);
-    		return null;
+    		throw new UsernameNotFoundException("No such user: " + username);
     	}
     }
 }

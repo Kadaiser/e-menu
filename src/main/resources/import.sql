@@ -13,18 +13,12 @@ INSERT INTO Allergen(id, name) VALUES (12,'Sesamo')
 INSERT INTO Allergen(id, name) VALUES (13,'Soja')
 INSERT INTO Allergen(id, name) VALUES (14,'Sulfitos')
 
-INSERT INTO Profile(id, name, mail, pass, roles) VALUES (1,'user1','user1@ucm.es','1234','USER')
+INSERT INTO PROFILE VALUES('User',1,'a@a.as', 'a', '$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','USER',NULL,NULL,NULL,18,NULL,0.0E0)
+INSERT INTO PROFILE VALUES('Restaurant',2,'r@r.rs','r','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','RESTAURANT',NULL,0,NULL,NULL,NULL,NULL)
 
+INSERT INTO Profile(id, name, mail, pass, roles) VALUES (1,'user1','user1@ucm.es','1234','USER')
 INSERT INTO Profile(id, name, mail, pass, roles) VALUES (2,'admin1','admin1@ucm.es','1234','ADMIN')
  
-INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (3, 'La Trapella', 'latrapella@restmail.com', '12345678', 'RESTAURANT', '913003033', 'c/ Sanchez Pacheco 22, Pozuelo de Alarcón, Madrid', 58, NULL, NULL)
-
-
-INSERT INTO Profile(id, name, mail, pass, roles) VALUES (4,'user2','user2@ucm.es','1234','USER')
-INSERT INTO Profile(id, name, mail, pass, roles) VALUES (5,'user3','user3@ucm.es','1234','USER')
-INSERT INTO Profile(id, name, mail, pass, roles) VALUES (6,'user4','user4@ucm.es','1234','USER')
-
-
 INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (1, 'location.id', 'Macarrones napolitana', 516, 70, 119, 247, )
 INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Judias verdes de pueblo', 192, 19, 52, 121, )
 INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Ensalada variada', 186, 45, 120, 20, )

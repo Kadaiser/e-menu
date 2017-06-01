@@ -5,9 +5,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class Admin extends Profile {
-
-	
-	public Admin() {
-		setRoles("ADMIN");
+	@Override
+	public String getRoles() {
+		return "ADMIN";
 	}
 }

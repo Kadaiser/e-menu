@@ -8,24 +8,20 @@
     include the remember me checkbox
     -->
     <div class="container">
-        <div class="card card-container">
-        <p>Para usar los logueos:	</p>
-        <p>user@iw.com</p>
-  		<p>admin@iw.com</p>
-  		<p>rest@iw.com</p>
-  		<p>Pass para todos:  iw2017	</p>
-  		
+        <div class="card card-container">	
             <img id="profile-img" class="profile-img-card" src="${prefix}/img/logo.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" action="login" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" name="user" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
-                <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                <input type="email" name="username" value="a@a.as" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
+                <input type="password" name="password" value="a" id="inputPassword" class="form-control" placeholder="Contraseña" required>
                 <div id="remember" class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Recuérdame
                     </label>
                 </div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar sesión</button>
             </form><!-- /form -->
             <a href="#" class="forgot-password">

@@ -19,10 +19,6 @@ public class Restaurant extends Profile {
 	private List<Comment> comments;
 	private List<User> fans;
 	
-	public Restaurant() {
-		setRoles("RESTAURANT");
-	}
-	
 	public String getPhone() {
 		return phone;
 	}
@@ -77,5 +73,8 @@ public class Restaurant extends Profile {
 		this.fans = fans;
 	}
 
-
+	@Override
+	public String getRoles() {
+		return "RESTAURANT";
+	}
 }

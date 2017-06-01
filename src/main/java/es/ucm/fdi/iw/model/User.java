@@ -21,11 +21,6 @@ public class User extends Profile {
 	private	List<Comment> comments;
 	private	float karma;
 
-	
-	public User() {
-		setRoles("USER");
-	}
-
 	public Date getBornDate() {
 		return bornDate;
 	}
@@ -102,7 +97,7 @@ public class User extends Profile {
 
 	@Override
 	public String getRoles() {
-		return "User";
+		return "USER";
 	}
 
 }

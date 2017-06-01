@@ -32,6 +32,7 @@ import es.ucm.fdi.iw.LocalData;
 import es.ucm.fdi.iw.model.Admin;
 import es.ucm.fdi.iw.model.Allergen;
 import es.ucm.fdi.iw.model.Dish;
+import es.ucm.fdi.iw.model.Profile;
 import es.ucm.fdi.iw.model.Restaurant;
 import es.ucm.fdi.iw.model.User;
 
@@ -42,14 +43,11 @@ public class RootController {
 	@Autowired
 	private EntityManager entityManager;
 
-	
 	  @ModelAttribute
 	  public void addAttributes(Model m){
 	  	m.addAttribute("prefix","static");
-	 }
-	 
-	
-	
+	  }
+
 	private static Logger log = Logger.getLogger(RootController.class.getName());
 	  
 	private Allergen getAllergen(long id, Dish d) {
@@ -90,7 +88,7 @@ public class RootController {
 		log.info("deberia haber hecho 3 inserts...");
 		return "reg";
 	}
-	
+	/*
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(
 			@RequestParam("user") String formLogin,
@@ -99,14 +97,17 @@ public class RootController {
 			Model model, HttpSession session) {
 
 			String formSource = "index";		
-			/*public string ejemplo(HttpSession s, Model m){
+			//public string ejemplo(HttpSession s, Model m){
 			 * User u (User)s.getAttribute("user");
 			 * u= entityManager.find(User.class, ugetId());
 			 * m.addAttribute("perros", u.getPerros());
 			 * }
 			 * 
-			 * */
+			
+			Profile p = null;
 			try {
+				p=(Profile)entityManager.createNamedQuery("userByLogin").setParameter("loginParam", formLogin).getSingleResult();
+				//comprobar que la contr es valida. min 4 y no vacia
 				if(formLogin.equals("a@a.as") && formPass.equals("a")){
 					getTokenForSession(session);
 					session.setAttribute("roles", "USER");
@@ -132,7 +133,7 @@ public class RootController {
 
 		// redirects to view from which login was requested
 		return formSource;
-			
+						
 	}
 	/**
 	 * Logout (also returns to home view).
@@ -159,7 +160,7 @@ public class RootController {
 	    session.setAttribute("csrf_token", token);
 	    return token;
 	}
-	static boolean isAdmin(HttpSession session) {
+	/*static boolean isAdmin(HttpSession session) {
 		if (session != null){
 		return session.getAttribute("rol").equals("ADMIN");
 		}
@@ -223,70 +224,54 @@ public class RootController {
 		return "admin";
 	}	
 	
-/*All*/
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public String all(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "All");	
-
-		
 		return "all";
 	}
-/*Home*/
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String home(Model model, HttpSession session){
-		
-		
-		model.addAttribute("pageTitle", "eMenu-Home");	
 
-		
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@Transactional
+	public String home(Model model, HttpSession session){	
+		model.addAttribute("pageTitle", "eMenu-Home");		
 		return "home";
 	}
-/*Contact*/
+
+	@RequestMapping(value = "/reg", method = RequestMethod.GET)
+	@Transactional
+	public String reg(Model model, HttpSession session){
+		model.addAttribute("pageTitle", "Registro");	
+		return "reg";
+	}
+
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	public String contact(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "Contact");	
-		
 		return "contact";
 	}
-/*Index*/
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(Model model, HttpSession session){
-		
-		
-		model.addAttribute("pageTitle", "eMenu");	
 
-		
+	@RequestMapping(value ={"/", "/index"}, method = RequestMethod.GET)
+	@Transactional
+	public String index(Model model, HttpSession session){
+		model.addAttribute("pageTitle", "eMenu");	
 		return "index";
 	}
-/*MenuRestaurant*/
+
 	@RequestMapping(value = "/carta-restaurante", method = RequestMethod.GET)
 	public String carta(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "Carta");	
-		
 		return "carta";
 	}
-/*Reservations*/
+
 	@RequestMapping(value = "/mis-reserv", method = RequestMethod.GET)
 	public String reservas(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "Mis Reservas");	
-		
 		return "reservas";
 	}
-/*Restaurant*/
+
 	@RequestMapping(value = "/restaurant", method = RequestMethod.GET)
 	public String restaurante(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "Restaurant");	
-		
 		return "restaurant";
 	}
 	
@@ -327,15 +312,11 @@ public class RootController {
 		
 		return "misrest";
 	}
-/*User*/
+
 	private LocalData localData;
-	
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String user(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "User");	
-		
 		return "user";
 	}
 	
@@ -376,23 +357,10 @@ public class RootController {
 		entityManager.persist(u);
 		return "user";
 	}
-/*UserRegister*/
-	@RequestMapping(value = "/reg", method = RequestMethod.GET)
-	@Transactional
-	public String reg(Model model, HttpSession session){
-		
-		
-		model.addAttribute("pageTitle", "Registro");	
-		
-		return "reg";
-	}
-/*UserRest*/
+	
 	@RequestMapping(value = "/user-restaurant", method = RequestMethod.GET)
 	public String userRest(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "User");	
-		
 		return "userRest";
 	}
 
