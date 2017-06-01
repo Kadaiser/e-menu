@@ -14,7 +14,19 @@ import javax.persistence.NamedQuery;
 
 @NamedQueries({
 	@NamedQuery(name="userByLogin",
-	query="select u from Profile u where u.name = :loginParam")
+		query="select u from Profile u where u.name = :loginParam"),
+	@NamedQuery(name="todosUsuarios",
+		query="select u from Profile u where u.roles = 'USER'"),
+	@NamedQuery(name="usuarioPorID",
+	query="select u from Profile u where u.id = :idParam and u.roles = 'USER'"),
+	@NamedQuery(name="todosRestaurantes",
+		query="select r from Profile r where r.roles = 'RESTAURANT'"),
+	@NamedQuery(name="restaurantePorID",
+		query="select r from Profile r where r.id = :idParam and r.roles = 'RESTAURANT'"),	
+	@NamedQuery(name="restaurantePorNombre",
+		query="select r from Profile r where r.name = :nombreParam and r.roles = 'RESTAURANT'"),
+	@NamedQuery(name="restaurantePorCiudad", 
+		query="select r from Profile r where r.address = :ciudadParam and r.roles = 'RESTAURANT'")
 	})
 
 

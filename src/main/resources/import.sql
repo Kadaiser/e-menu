@@ -15,19 +15,36 @@ INSERT INTO Allergen(id, name) VALUES (14,'Sulfitos')
 
 INSERT INTO PROFILE VALUES('User',1,'a@a.as', 'a', '$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','USER',NULL,NULL,NULL,18,NULL,0.0E0)
 INSERT INTO PROFILE VALUES('Restaurant',2,'r@r.rs','r','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','RESTAURANT',NULL,0,NULL,NULL,NULL,NULL)
-
-INSERT INTO Profile(id, name, mail, pass, roles) VALUES (1,'user1','user1@ucm.es','1234','USER')
-INSERT INTO Profile(id, name, mail, pass, roles) VALUES (2,'admin1','admin1@ucm.es','1234','ADMIN')
+INSERT INTO Profile VALUES ('User',3,'user1@ucm.es','user1','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','USER',NULL,NULL,NULL,18,NULL,0.0E0)
+INSERT INTO Profile VALUES ('Admin',4,'admin@ucm.es','admin','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','ADMIN',NULL,NULL,NULL,18,NULL,0.0E0)
  
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (1, 'location.id', 'Macarrones napolitana', 516, 70, 119, 247, )
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Judias verdes de pueblo', 192, 19, 52, 121, )
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Ensalada variada', 186, 45, 120, 20, )
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Judias verdes salteadas', 181, 445, 81, 40, )
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Chuleta de cerdo riojana', 573, 96, 461, 16, )
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'San Jacobo', 533, 149, 318, 66, )
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Tortilla de jamón york', 364, 114, 251, 0, )
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Marrajo a la plancha', 340, 158, 173, 9, )
-INSERT INTO Dish (id, location, name, kcal, prot, fats, carbs) VALUES (NULL, 'location.id', 'Judias verdes de pueblo', 192, 19, 52, 121, )
+
+/* id, carbs, fats, kcal, name, prot, location-id*/
+
+INSERT INTO Dish VALUES (1,247,119,516,'Macarrones napolitana',70,NULL )
+INSERT INTO Dish VALUES (2,121,52,192,'Judias verdes de pueblo',19,NULL )
+INSERT INTO Dish VALUES (3,20,120,186,'Ensalada variada',45,NULL )
+INSERT INTO Dish VALUES (4,40,81,181,'Judias verdes salteadas',445,NULL )
+
+INSERT INTO Dish VALUES (5,16,461,573,'Chuleta de cerdo riojana',96,NULL )
+INSERT INTO Dish VALUES (6,66,318,533,'San Jacobo',149,NULL )
+INSERT INTO Dish VALUES (7,0,251,364,'Tortilla de jamón york',114,NULL )
+INSERT INTO Dish VALUES (8,9,173,340,'Marrajo a la plancha',158,NULL )
+INSERT INTO DISH VALUES (9,10,5,1,'Pato laqueado',18,NULL )
+INSERT INTO Dish VALUES (10,121,52,192,'Judias verdes de pueblo',19,NULL )
+
+INSERT INTO ALLERGEN_DISHES VALUES(1,1)
+INSERT INTO ALLERGEN_DISHES VALUES(8,1)
+INSERT INTO ALLERGEN_DISHES VALUES(4,2)
+INSERT INTO ALLERGEN_DISHES VALUES(1,2)
+INSERT INTO ALLERGEN_DISHES VALUES(8,3)
+INSERT INTO ALLERGEN_DISHES VALUES(4,4)
+INSERT INTO ALLERGEN_DISHES VALUES(1,5)
+INSERT INTO ALLERGEN_DISHES VALUES(8,6)
+INSERT INTO ALLERGEN_DISHES VALUES(4,7)
+INSERT INTO ALLERGEN_DISHES VALUES(1,8)
+INSERT INTO ALLERGEN_DISHES VALUES(8,9)
+INSERT INTO ALLERGEN_DISHES VALUES(4,10)
 
 INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (7, 'El Mejíbar', 'mejibar@gmail.com', '12345678', 'RESTAURANT', '915402233','Av. de Europa 54, Madrid ', 40, NULL, NULL)
 INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (8, 'Gandarío', 'gandario@gmail.com', '12345678', 'RESTAURANT', '915402233','Calle Gaztambide 28, Madrid', 30, NULL, NULL)

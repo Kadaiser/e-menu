@@ -6,7 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
+@NamedQueries({
+	@NamedQuery(name="todosAlergenos",
+		query="select a from Allergen a"),
+	@NamedQuery(name="alergenosPorID",
+		query="select a from Allergen a where a.id = :idParam"),
+	@NamedQuery(name="alergenosPorNombre",
+		query="select a from Allergen a where a.name = :nombreParam")
+})
 @Entity
 public class Allergen {
 	

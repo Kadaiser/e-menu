@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import es.ucm.fdi.iw.LocalData;
 import es.ucm.fdi.iw.model.Admin;
 import es.ucm.fdi.iw.model.Allergen;
@@ -61,7 +62,7 @@ public class RootController {
 	@Transactional
 	public String test() {
 		
-		User u = new User();
+		/*User u = new User();
 		u.setAge(18);
 		u.setMail("a@a.as");
 		u.setPass("a");
@@ -72,7 +73,7 @@ public class RootController {
 		r.setMail("r@r.rs");
 		r.setPass("r");
 		r.setName("r");
-		entityManager.persist(r);
+		entityManager.persist(r);*/
 		
 		Dish d = new Dish();
 		d.setCarbs(10);
@@ -232,7 +233,12 @@ public class RootController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	@Transactional
-	public String home(Model model, HttpSession session){	
+	public String home(Model model, HttpSession session){
+		
+		List<Profile> restaurantes;
+		restaurantes = (List<Profile>)entityManager.createNamedQuery("todosRestaurantes").getResultList();
+		model.addAttribute("restaurantes", restaurantes);
+		
 		model.addAttribute("pageTitle", "eMenu-Home");		
 		return "home";
 	}

@@ -39,6 +39,7 @@ public class IwUserDetailsService implements UserDetailsService {
 	        //}
 		        roles.add(new SimpleGrantedAuthority("ROLE_" + u.getRoles()));
 		        
+		        
 	        return new org.springframework.security.core.userdetails.User(
 	        		u.getName(), u.getPass(), roles);
 	        
