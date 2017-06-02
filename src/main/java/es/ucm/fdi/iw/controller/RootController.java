@@ -2,14 +2,11 @@ package es.ucm.fdi.iw.controller;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -231,14 +228,11 @@ public class RootController {
 		return "all";
 	}
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	@Transactional
+	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String home(Model model, HttpSession session){
 		
-		List<Profile> restaurantes;
-		restaurantes = (List<Profile>)entityManager.createNamedQuery("todosRestaurantes").getResultList();
-		model.addAttribute("restaurantes", restaurantes);
-		
+		model.addAttribute("restaurantes", 
+				entityManager.createNamedQuery("todosRestaurantes").getResultList());
 		model.addAttribute("pageTitle", "eMenu-Home");		
 		return "home";
 	}
@@ -256,7 +250,7 @@ public class RootController {
 		return "contact";
 	}
 
-	@RequestMapping(value ={"/", "/index"}, method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	@Transactional
 	public String index(Model model, HttpSession session){
 		model.addAttribute("pageTitle", "eMenu");	
