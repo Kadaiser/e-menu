@@ -41,7 +41,7 @@ public class IwUserDetailsService implements UserDetailsService {
 		        
 		        
 	        return new org.springframework.security.core.userdetails.User(
-	        		u.getName(), u.getPass(), roles);
+	        		u.getMail(), u.getPass(), roles);
 	        
 	    } catch (Exception e) {
     		log.info("No such user: " + username);

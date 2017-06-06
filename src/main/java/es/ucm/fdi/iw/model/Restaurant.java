@@ -21,6 +21,7 @@ public class Restaurant extends Profile {
 	private String phone;
 	private String address;
 	private int capacity;
+	private String cif;
 	private List<Dish> menu;
 	private List<Comment> comments;
 	private List<User> fans;
@@ -82,5 +83,13 @@ public class Restaurant extends Profile {
 	@Override
 	public String getRoles() {
 		return "RESTAURANT";
+	}
+
+	public String getCif() {
+		return cif;
+	}
+
+	public void setCif(String cif) {
+		this.cif = cif;
 	}
 }

@@ -17,6 +17,8 @@ import javax.persistence.NamedQuery;
 		query="select u from Profile u where u.name = :loginParam"),
 	@NamedQuery(name="todosUsuarios",
 		query="select u from Profile u where u.roles = 'USER'"),
+	@NamedQuery(name="userByMail", 
+		query="select u from Profile u where u.mail = :emailParam"),
 	@NamedQuery(name="usuarioPorID",
 	query="select u from Profile u where u.id = :idParam and u.roles = 'USER'"),
 	@NamedQuery(name="todosRestaurantes",

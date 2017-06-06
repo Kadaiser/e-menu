@@ -2,16 +2,21 @@ package es.ucm.fdi.iw.controller;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,18 +64,18 @@ public class RootController {
 	@Transactional
 	public String test() {
 		
-		/*User u = new User();
+		User u = new User();
 		u.setAge(18);
-		u.setMail("a@a.as");
-		u.setPass("a");
-		u.setName("a");
+		u.setMail("adri@a.as");
+		u.setPass("aa");
+		u.setName("aa");
 		entityManager.persist(u);
-		
+		/*
 		Restaurant r = new Restaurant();
 		r.setMail("r@r.rs");
 		r.setPass("r");
 		r.setName("r");
-		entityManager.persist(r);*/
+		entityManager.persist(r);
 		
 		Dish d = new Dish();
 		d.setCarbs(10);
@@ -81,7 +86,7 @@ public class RootController {
 		entityManager.persist(d);
 		getAllergen(1, d);
 		getAllergen(8, d);
-		getAllergen(4, d);
+		getAllergen(4, d);*/
 		
 		log.info("deberia haber hecho 3 inserts...");
 		return "reg";
@@ -363,5 +368,125 @@ public class RootController {
 		model.addAttribute("pageTitle", "User");	
 		return "userRest";
 	}
+	
+	//Usado junto con AJAX, notifica si el correo del Admin esta en uso
+		@ResponseBody
+		@Transactional
+		@RequestMapping(value = "/comprobarCorreoUser", method = RequestMethod.GET)
+		public ResponseEntity<String> comprobarCorreoUser(
+				@RequestParam("correo") String correoUser) {
+			
+			StringBuilder sb = new StringBuilder("");
+			
+			//Comprobamos si el correo esta en la BBDD
+			try {
+				@SuppressWarnings("unused")
+				Profile h = (Profile)entityManager.createNamedQuery("userByMail")
+					.setParameter("emailParam", correoUser).getSingleResult();
+				
+			//	String mensajeError = "El correo del user está en uso";
+				sb.append("{"
+							+ "\"estado\": \"" + "usado" + "\", "
+							+ "\"mensajeError\": \"" + "El correo está en uso" + "\"}");
+					
+				return new ResponseEntity<String>(sb + "", HttpStatus.OK);
+				
+			} catch (NoResultException nre) {
+				sb.append("{"
+						+ "\"estado\": \"" + "valido" + "\"}");
+				
+				return new ResponseEntity<String>(sb + "", HttpStatus.OK);
+			}
+		}
+		
+		
+		public boolean usuarioValido(String correoUser) {
+			
+			//Comprobamos si el correo esta en la BBDD
+			try {
+				@SuppressWarnings("unused")
+				Profile h = (Profile)entityManager.createNamedQuery("userByMail")
+					.setParameter("emailParam", correoUser).getSingleResult();
+					
+				return false;
+				
+			} catch (NoResultException nre) {
+				return true;
+			}
+		}
+		
+		@Transactional
+		@RequestMapping(value="/registrar", method = RequestMethod.POST)
+		public String registrar(
+				@RequestParam("email") String email,
+				@RequestParam("first_name") String nombre,
+				@RequestParam("born_date") Date fecha,
+				@RequestParam("password") String password,
+				@RequestParam("password_confirmation") String password1,
+				HttpServletRequest request, HttpServletResponse response,
+				Model model, 
+				HttpSession session){
+				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+					getTokenForSession(session);
+					User u = new User();
+					log.info("registrar");
+					//Comprobamos que coinciden las contraseña.
+					if(password.equals(password1) && password.length()>4){
+					//comprobamos que el mail es válido.
+						log.info("password buena");
+						if(usuarioValido(email)){
+					//Creamos usuario e insertamos.
+							u.setBornDate(fecha);
+							u.setMail(email);
+							u.setName(nombre);
+							u.setPass(passwordEncoder.encode(password));
+							entityManager.persist(u);
+							entityManager.flush();
+							log.info("deberia haber hecho un insert");
+							return "index";
+						}
+				
+				
+			}
+			log.info("no pasamos de password");
+			return "reg";
+		}
+		
+		@Transactional
+		@RequestMapping(value="/registrarRest", method = RequestMethod.POST)
+		public String registrarRes(
+				@RequestParam("email") String email,
+				@RequestParam("first_name") String nombre,
+				@RequestParam("cif") String cif,
+				@RequestParam("telefono") String telefono,
+				HttpServletRequest request, HttpServletResponse response,
+				Model model, 
+				HttpSession session){
+				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+					getTokenForSession(session);
+					Restaurant u = new Restaurant();
+					log.info("registrar");
+					//Creamos contraseña igual a todos pass: a
+					String password = "$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC";
+					//comprobamos que el mail es válido.
+						log.info("password buena");
+						if(usuarioValido(email)){
+					//Creamos usuario e insertamos.
+							u.setMail(email);
+							u.setName(nombre);
+							u.setPass(password);
+							u.setPhone(telefono);
+							u.setCif(cif);
+							entityManager.persist(u);
+							entityManager.flush();
+							log.info("deberia haber hecho un insert");
+							return "index";
+						}
+				
+				
+			
+			log.info("no pasamos de password");
+			return "reg";
+		}
 
 }
