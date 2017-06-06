@@ -1,14 +1,17 @@
 
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
   	  		<!-- Nav Top -->
   	
-  	<% if (session.getAttribute("rol").equals("user")) { %>
+  	<sec:authorize access="hasRole('ROLE_USER')">
   	<%@ 	include file="../jspf/navUser.jspf" %>
-  	<%}else if (session.getAttribute("rol").equals("admin")) { %>
+  	</sec:authorize>
+  	<sec:authorize access="hasRole('ROLE_ADMIN')">
   	<%@ 	include file="../jspf/navTopAdmin.jspf" %>
-  	<% }else if (session.getAttribute("rol").equals("rest")) { %>
+  	</sec:authorize>
+  	<sec:authorize access="hasRole('ROLE_RESTAURANT')">
   	<%@ include file="../jspf/navRest.jspf" %>
-  	<%} %>
+  	</sec:authorize>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -20,7 +23,42 @@
                  <!-- /. ROW  -->
                  <hr/>
                  <div class="row">
-                    <div class="col-md-6">
+                 <div class="col-md-6">
+                 <form>
+                 	Email:
+                 	<div class="input-group">
+                 		<span class="input-group-addon">@</span>
+                 		<input type="text" class="form-control" placeholder="email" value=${usuario.mail} />
+                 	</div>
+                 	<br>
+                 	Nick:
+                 	<div class="input-group">
+                 		<input type="text" class="form-control" placeholder="Nick" value=${usuario.name} />
+                 	</div>
+                 	<br>
+                 	Contraseña Antigua:
+                 	<div class="input-group">
+                 		<input type="text" class="form-control" placeholder="pass"/>
+                 	</div>
+                 	<br>
+                 	Contraseña Nueva:
+                 	<div class="input-group">
+                 		<input type="text" class="form-control" placeholder="new pass"/>
+                 	</div>
+                 	<br>
+                 	Fecha de Nacimiento:
+                 	<div class="input-group">
+                 		<input type="date" class="form-control" placeholder="born_date" value=${usuario.bornDate} />
+                 	</div>
+                 	<br>
+                 	<div class="input-group">
+                 		<input type="submit" class="btn" value="Guardar Cambios" />
+                 	</div>
+                 </form>
+                 	
+                 	
+                 </div>
+                    <!-- <div class="col-md-6">
                       <div class="tm-home-box-2">
                           <img src="${prefix}/img/perfil.jpg" alt="image" class="img-responsive">
                           <a href="#">
@@ -37,7 +75,7 @@
                     <div  class="col-md-6">
 
       
-        <!-- Nav tabs -->
+        <!-- Nav tabs
                         <div class="tm-home-box-1">
                             <ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
                               <li role="presentation" class="active">
@@ -45,7 +83,7 @@
                               </li>
                            </ul>
 
-          <!-- Tab panes -->
+          <!-- Tab panes
           <div class="tab-content">
               <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="rest">
                 <div class="tm-search-box effect2">
@@ -104,14 +142,14 @@
                     
                       
 
-                      </div>
+                      </div>-->
 
 
 
 
 
 
-                 </div>
+                 </div> 
 
                  <!-- /. ROW  -->
                  <div class="row">

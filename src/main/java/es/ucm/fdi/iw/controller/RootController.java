@@ -16,6 +16,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -235,7 +237,9 @@ public class RootController {
 
 	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String home(Model model, HttpSession session){
-		
+		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		session.setAttribute("usuario", 
+				entityManager.createNamedQuery("userByMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
 		model.addAttribute("restaurantes", 
 				entityManager.createNamedQuery("todosRestaurantes").getResultList());
 		model.addAttribute("pageTitle", "eMenu-Home");		
@@ -319,6 +323,7 @@ public class RootController {
 	}
 
 	private LocalData localData;
+	
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String user(Model model, HttpSession session){
 		model.addAttribute("pageTitle", "User");	

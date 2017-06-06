@@ -78,7 +78,7 @@
 					<img src="${prefix}/img/index-0<c:out value="${i}"/>.jpg" alt="image" class="img-responsive">
 					<a href="restaurante">
 						<div class="tm-green-gradient-bg tm-city-price-container">
-							<span>${restaurantes[0].name}</span>
+							<span>${restaurantes[i].name}</span>
 						</div>
 					</a>
 				</div>

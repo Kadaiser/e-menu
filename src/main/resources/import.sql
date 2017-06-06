@@ -13,11 +13,13 @@ INSERT INTO Allergen(id, name) VALUES (12,'Sesamo')
 INSERT INTO Allergen(id, name) VALUES (13,'Soja')
 INSERT INTO Allergen(id, name) VALUES (14,'Sulfitos')
 /*DTYPE, ID, MAIL, NAME, PASS, ROLES, ADDRESS, CAPACITY, CIF, PHONE, AGE, BORN_DATE, KARMA*/
-INSERT INTO PROFILE VALUES('User',1,'a@a.as', 'a', '$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','USER',NULL,NULL,NULL,NULL,18,NULL,0.0E0)
-INSERT INTO PROFILE VALUES('Restaurant',2,'r@r.rs','r','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','RESTAURANT',NULL,0,'12345678A','666666666',NULL,NULL,NULL)
+INSERT INTO PROFILE VALUES('User',1,'a@a.as', 'UsuarioA', '$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','USER',NULL,NULL,NULL,NULL,18,'1958-12-05',0.0E0)
+INSERT INTO PROFILE VALUES('Restaurant',2,'r@r.rs','DiverXO','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','RESTAURANT','Calle de Padre Damian 23 Madrid',30,'12345678A','915402233',NULL,NULL,NULL)
 INSERT INTO Profile VALUES ('User',3,'user1@ucm.es','user1','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','USER',NULL,NULL,NULL,NULL,18,NULL,0.0E0)
 INSERT INTO Profile VALUES ('Admin',4,'admin@ucm.es','admin','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','ADMIN',NULL,NULL,NULL,NULL,18,NULL,0.0E0)
- 
+INSERT INTO PROFILE VALUES('Restaurant',5,'r1@r.rs','El Mejíbar','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','RESTAURANT','Av. de Europa 54, Madrid ',40,'12345678A','915402233',NULL,NULL,NULL)
+INSERT INTO PROFILE VALUES('Restaurant',6,'r2@r.rs','Gandarío','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','RESTAURANT','Calle Gaztambide 28, Madrid',25,'12345678A','915402233',NULL,NULL,NULL)
+
 
 /* id, carbs, fats, kcal, name, prot, location-id*/
 
@@ -45,7 +47,3 @@ INSERT INTO ALLERGEN_DISHES VALUES(4,7)
 INSERT INTO ALLERGEN_DISHES VALUES(1,8)
 INSERT INTO ALLERGEN_DISHES VALUES(8,9)
 INSERT INTO ALLERGEN_DISHES VALUES(4,10)
-
-INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (7, 'El Mejíbar', 'mejibar@gmail.com', '12345678', 'RESTAURANT', '915402233','Av. de Europa 54, Madrid ', 40, NULL, NULL)
-INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (8, 'Gandarío', 'gandario@gmail.com', '12345678', 'RESTAURANT', '915402233','Calle Gaztambide 28, Madrid', 30, NULL, NULL)
-INSERT INTO Profile(id, name, mail, pass, roles, phone, address, capacity, menu, comments) VALUES (9, 'DiverXO', 'diverxo@gmail.com', '12345678', 'RESTAURANT', '915402233','Calle de Padre Damian 23 Madrid', 50, NULL, NULL)
