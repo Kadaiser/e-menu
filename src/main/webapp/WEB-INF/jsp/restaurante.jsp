@@ -10,8 +10,8 @@
 		  <ul class="slides">
 		    <li>
 			    <div class="tm-banner-inner">
-					<h1 class="tm-banner-title"><span class="tm-yellow-text">Restaurante</span></h1>
-					<p class="tm-banner-subtitle">subtitle</p>
+					<h1 class="tm-banner-title"><span class="tm-yellow-text"> ${restaurante.name} </span></h1>
+					<p class="tm-banner-subtitle"> ${restaurante.address} </p>
 					<a href="#more" class="tm-banner-link">Reservar</a>
 				</div>
 		      <img src="${prefix}/img/banner-2.jpg" />

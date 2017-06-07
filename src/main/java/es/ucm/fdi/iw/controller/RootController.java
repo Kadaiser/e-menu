@@ -269,19 +269,23 @@ public class RootController {
 	@RequestMapping(value = "/carta-restaurante", method = RequestMethod.GET)
 	public String carta(Model model, HttpSession session){
 		model.addAttribute("pageTitle", "Carta");	
-		return "carta";
+		return "carta-restaurante";
 	}
 
 	@RequestMapping(value = "/mis-reserv", method = RequestMethod.GET)
 	public String reservas(Model model, HttpSession session){
 		model.addAttribute("pageTitle", "Mis Reservas");	
-		return "reservas";
+		return "mis-reserv";
 	}
 
-	@RequestMapping(value = "/restaurant", method = RequestMethod.GET)
-	public String restaurante(Model model, HttpSession session){
-		model.addAttribute("pageTitle", "Restaurant");	
-		return "restaurant";
+	@RequestMapping(value = "/restaurante", method = RequestMethod.GET)
+	public String restaurante(
+			@RequestParam("id") long idRes,
+			Model model, HttpSession session){
+		model.addAttribute("restaurante", 
+				entityManager.createNamedQuery("restaurantePorID").setParameter("idParam", idRes).getSingleResult());
+		model.addAttribute("pageTitle", "Restaurante");	
+		return "restaurante";
 	}
 	
 	@Transactional
@@ -310,7 +314,7 @@ public class RootController {
 		
 		model.addAttribute("pageTitle", "Reservas");	
 		
-		return "reservRes";
+		return "reservas-restaurante";
 	}
 /*Restaurants*/
 	@RequestMapping(value = "/mis-rest", method = RequestMethod.GET)
@@ -319,7 +323,7 @@ public class RootController {
 		
 		model.addAttribute("pageTitle", "Mis Restaurantes");	
 		
-		return "misrest";
+		return "mis-rest";
 	}
 
 	private LocalData localData;
@@ -371,7 +375,7 @@ public class RootController {
 	@RequestMapping(value = "/user-restaurant", method = RequestMethod.GET)
 	public String userRest(Model model, HttpSession session){
 		model.addAttribute("pageTitle", "User");	
-		return "userRest";
+		return "user-restaurant";
 	}
 	
 	//Usado junto con AJAX, notifica si el correo del Admin esta en uso
