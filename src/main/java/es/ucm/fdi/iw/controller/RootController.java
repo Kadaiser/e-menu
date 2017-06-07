@@ -374,6 +374,8 @@ public class RootController {
 	
 	@RequestMapping(value = "/user-restaurant", method = RequestMethod.GET)
 	public String userRest(Model model, HttpSession session){
+		model.addAttribute("alergenos", 
+				entityManager.createNamedQuery("todosAlergenos").getResultList());
 		model.addAttribute("pageTitle", "User");	
 		return "user-restaurant";
 	}
@@ -497,5 +499,125 @@ public class RootController {
 			log.info("no pasamos de password");
 			return "reg";
 		}
-
+		
+		@Transactional
+		@RequestMapping(value="/actualizar-user", method = RequestMethod.POST)
+		public String actualizarUser(
+				@RequestParam("pass") String pass,
+				@RequestParam("pass_new") String pass1,
+				@RequestParam("born_date") Date fecha,
+				HttpServletRequest request, HttpServletResponse response,
+				Model model, 
+				HttpSession session){
+					BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+					User user=(User)session.getAttribute("usuario");
+					if(pass != "" && pass1 != ""){
+						//comprobamos que la contraseña actual coincida.
+						if(passwordEncoder.encode(pass).equals(user.getPass())){
+							if(pass1.length()>4){
+								pass1=passwordEncoder.encode(pass1);
+								user.setPass(pass1);
+								user.setBornDate(fecha);
+								entityManager.merge(user);
+								session.setAttribute("usuario", user);
+								return "user";
+							}
+						}
+					}else /*Comprobamos si ha cambiado la fecha sólo*/
+						if(user.getBornDate()!=fecha){
+							
+							user.setBornDate(fecha);
+							entityManager.merge(user);
+							session.setAttribute("usuario", user);
+							return "user";
+						
+					}
+				
+					return "user";
+	
+		}
+		@Transactional
+		@RequestMapping(value="/actualizar-res", method = RequestMethod.POST)
+		public String actualizarRes(
+				@RequestParam("pass") String pass,
+				@RequestParam("pass_new") String pass1,
+				@RequestParam("phone") String phone,
+				@RequestParam("addr") String addr,
+				@RequestParam("cap") int cap,
+				HttpServletRequest request, HttpServletResponse response,
+				Model model, 
+				HttpSession session){
+			
+					BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+					Restaurant user=(Restaurant)session.getAttribute("usuario");
+					if(pass != "" && pass1 != ""){
+						//comprobamos que la contraseña actual coincida.
+						if(passwordEncoder.encode(pass).equals(user.getPass())){
+							if(pass1.length()>4){
+								pass1=passwordEncoder.encode(pass1);
+								user.setPass(pass1);
+							}
+						}
+					}
+					//comprobamos los datos que han cambiado.
+					//cambia la dirección?
+					if(user.getAddress()!=addr){
+						user.setAddress(addr);
+					}
+					//cambia la telefono?
+					if(user.getPhone()!=phone){
+						user.setPhone(phone);
+					}
+					//cambia la capacidad?
+					if(user.getCapacity()!=cap){
+						user.setCapacity(cap);
+					}
+					entityManager.merge(user);
+					session.setAttribute("usuario", user);
+					return "redirect:/user-restaurant";
+	
+		}
+		
+		@Transactional
+		@RequestMapping(value="/crearPlato", method = RequestMethod.POST)
+		public String crearPlato(
+				@RequestParam("pass") String pass,
+				@RequestParam("pass_new") String pass1,
+				@RequestParam("phone") String phone,
+				@RequestParam("addr") String addr,
+				@RequestParam("cap") int cap,
+				HttpServletRequest request, HttpServletResponse response,
+				Model model, 
+				HttpSession session){
+			
+					BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+					Restaurant user=(Restaurant)session.getAttribute("usuario");
+					if(pass != "" && pass1 != ""){
+						//comprobamos que la contraseña actual coincida.
+						if(passwordEncoder.encode(pass).equals(user.getPass())){
+							if(pass1.length()>4){
+								pass1=passwordEncoder.encode(pass1);
+								user.setPass(pass1);
+							}
+						}
+					}
+					//comprobamos los datos que han cambiado.
+					//cambia la dirección?
+					if(user.getAddress()!=addr){
+						user.setAddress(addr);
+					}
+					//cambia la telefono?
+					if(user.getPhone()!=phone){
+						user.setPhone(phone);
+					}
+					//cambia la capacidad?
+					if(user.getCapacity()!=cap){
+						user.setCapacity(cap);
+					}
+					entityManager.merge(user);
+					session.setAttribute("usuario", user);
+					return "redirect:/user-restaurant";
+	
+		}
+		
 }

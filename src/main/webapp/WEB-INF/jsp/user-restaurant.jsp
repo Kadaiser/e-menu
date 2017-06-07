@@ -13,27 +13,58 @@
                  <hr/>
                  <div class="row">
                     <div class="col-md-6">
-                      <div class="tm-home-box-2">
-                          <img src="${prefix}/img/perfil.jpg" alt="image" class="img-responsive">
-                          <a href="#">
-                            <div class="tm-green-gradient-bg tm-city-price-container">
-                              <span>Edita tu perfil</span>
-
-                            </div>
-                          </a>
-                      </div>
-
-
-                    </div>
-
-                    <div  class="col-md-6">
-
-
-        <!-- Nav tabs -->
+                    <form action="actualizar-res" method="post">
+                 		Email:
+                 		<div class="input-group">
+                 			<p> ${usuario.mail} </p>
+                 		</div>
+                 		<br>
+                 		Nombre Restaurante:
+                 		<div class="input-group">
+                 			<p> ${usuario.name} </p>
+                 		</div>
+                 		<br>
+                 		CIF:
+                 		<div class="input-group">
+                 			<p> ${usuario.cif} </p>
+                 		</div>
+                 		<br>
+                 		Teléfono:
+                 		<div class="input-group">
+                 			<input type="number" class="form-control" id="phone" min="111111111" max="999999999" name="phone" placeholder="teléfono" value=${usuario.phone} />
+                 		</div>
+                 		<br>
+                 		Dirección:
+                 		<div class="input-group">
+                 			<input type="text" class="form-control" id="addr" name="addr" placeholder="dirección" value="${usuario.address}" />
+                 		</div>
+                 		<br>
+                 		Capacidad:
+                 		<div class="input-group">
+                 			<input type="number" class="form-control" id="cap" name="cap" placeholder="capacidad" value=${usuario.capacity} />
+                 		</div>
+                 		<br>
+                 		Contraseña Actual:
+                 		<div class="input-group">
+                 			<input type="text" class="form-control" id="pass" name="pass" placeholder="pass"/>
+                 		</div>
+                 		<br>
+                 		Contraseña Nueva:
+                 		<div class="input-group">
+                 			<input type="text" class="form-control" id="pass_new" name="pass_new" placeholder="new pass"/>
+                 		</div>
+                 		<br>
+                 		<div class="input-group">
+                 			<input type="submit" class="btn" value="Guardar Cambios" />
+                 		</div>
+                 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </form>
+                </div> 
+				<div  class="col-md-6">
                         <div class="tm-home-box-1">
                             <ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
                               <li role="presentation" class="active">
-                                <a href="#rest" aria-controls="hotel" role="tab" data-toggle="tab">Crear plato</a>
+                                <a aria-controls="hotel" role="tab" data-toggle="tab">Crear plato</a>
                               </li>
                            </ul>
 
@@ -41,36 +72,28 @@
                           <div class="tab-content">
                               <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="rest">
                                 <div class="tm-search-box effect2">
-                                <form action="#" method="post" class="hotel-search-form">
+                                <form action="crearPlato" method="post" class="hotel-search-form">
                                   <div class="tm-form-inner">
+                                  	<div class="form-group margin-bottom-0">
+                                  		<input type="text" class="form-control" id="dishName" name="dishName" placeholder="Nombre" />
+                                	</div>
+                                	<div class="form-group">
+  										<input type="number" id="kcal" name="kcal" placeholder="Kcal">
+  										<input type="number" id="prot" name="prot" placeholder="Prot">
+  										<input type="number" id="carbs" name="carbs" placeholder="Carbs">
+  										<input type="number" id="fats" name="fats" placeholder="Fats">
+									</div>
                                     <div class="form-group">
-                                      <select class="form-control">
-                                        <option value=""  disabled selected>-- Tipo -- </option>
-                                        <option value="Entrante">Entrante</option>
-                                        <option value="1">1 Plato</option>
-                                        <option value="2">2 Plato</option>
-                                        <option value="Postre">Postre</option>
-                                      </select>
-                                    </div>
-                                    <div class="form-group">
-                                      <select class="form-control">
-                                        <option value="" disabled selected>-- Menu -- </option>
-                                        <option value="ninguno">Ninguno</option>
-                                        <option value="ejecutivo">Menu Ejecutivo</option>
-                                        <option value="estudiante">Menu Estudiante</option>
-                                        <option value="dia">Menu del día</option>
-                                      </select>
-                                    </div>
-                                    <div class="form-group">
-                                      <select multiple class="form-control" title="Alergias">
-                                        <option value="gluten">Sin Gluten</option>
-                                        <option value="vegetariano">Vegetariano</option>
-                                        <option value="vegano">Vegano</option>
-                                        <option value="carnivoro">Carnivoro</option>
+                                    <p>Seleccione alérgenos: (Puede seleccionar varios pulsando Ctrl)</p>
+                                     <select multiple id="alers" name="alers" class="form-control" title="Alergias">
+                                        	<c:forEach var="a" items="${alergenos}">
+                                        		<option value="${a.id}">${a.name}</option>
+                                    		</c:forEach>
                                       </select>
                                     </div>
                                 <div class="form-group margin-bottom-0">
-                                  <input class="form-control" placeholder="Precio" />
+                                	<span class="input-group-addon">€</span>
+                                  <input type="number" id="precio" name="number" step="0.01" class="form-control" placeholder="0.00" />
                                 </div>
                               </div>
                               <div class="form-group tm-yellow-gradient-bg text-center">

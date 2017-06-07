@@ -24,36 +24,39 @@
                  <hr/>
                  <div class="row">
                  <div class="col-md-6">
-                 <form>
+                 <form action="actualizar-user" method="post">
                  	Email:
                  	<div class="input-group">
-                 		<span class="input-group-addon">@</span>
-                 		<input type="text" class="form-control" placeholder="email" value=${usuario.mail} />
+                 	<p> ${usuario.mail} </p>
+                 		<!--<span class="input-group-addon">@</span>
+                 		 <input type="text" class="form-control" id="mail" name="name" placeholder="email" value=${usuario.mail} /> -->
                  	</div>
                  	<br>
                  	Nick:
                  	<div class="input-group">
-                 		<input type="text" class="form-control" placeholder="Nick" value=${usuario.name} />
+                 	<p> ${usuario.name} </p>
+                 		<!-- <input type="text" class="form-control" id="mail" name="name" placeholder="Nick" value=${usuario.name} /> -->
                  	</div>
                  	<br>
-                 	Contraseña Antigua:
+                 	Contraseña Actual:
                  	<div class="input-group">
-                 		<input type="text" class="form-control" placeholder="pass"/>
+                 		<input type="text" class="form-control" id="pass" name="pass" placeholder="pass"/>
                  	</div>
                  	<br>
                  	Contraseña Nueva:
                  	<div class="input-group">
-                 		<input type="text" class="form-control" placeholder="new pass"/>
+                 		<input type="text" class="form-control" id="pass_new" name="pass_new" placeholder="new pass"/>
                  	</div>
                  	<br>
                  	Fecha de Nacimiento:
                  	<div class="input-group">
-                 		<input type="date" class="form-control" placeholder="born_date" value=${usuario.bornDate} />
+                 		<input type="date" class="form-control" id="born_date" name="born_date" placeholder="born_date" value=${usuario.bornDate} />
                  	</div>
                  	<br>
                  	<div class="input-group">
                  		<input type="submit" class="btn" value="Guardar Cambios" />
                  	</div>
+                 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                  </form>
                  	
                  	
