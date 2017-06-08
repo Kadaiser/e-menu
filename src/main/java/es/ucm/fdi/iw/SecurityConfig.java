@@ -30,6 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				
 				.antMatchers("/actualizar-res").hasRole("RESTAURANT")
 				
+				.antMatchers("/crearPlato").hasRole("RESTAURANT")
+				
 				.antMatchers("/restaurant").hasAnyRole("RESTAURANT","ADMIN")
 				.antMatchers("/restaurant/**").hasAnyRole("RESTAURANT","ADMIN")
 				

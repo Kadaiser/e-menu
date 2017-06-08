@@ -110,6 +110,11 @@
       <!-- CUSTOM SCRIPTS -->
     <script src="${prefix}/js/custom.js"></script>
 
+	<script>
+		$(document).ready(function(){
+		    $('a[href^="reservas-restaurante"]').addClass('active-link');
+		});
+	</script>
 
 </body>
 </html>

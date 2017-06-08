@@ -25,6 +25,8 @@ import javax.persistence.NamedQuery;
 		query="select r from Profile r where r.roles = 'RESTAURANT'"),
 	@NamedQuery(name="restaurantePorID",
 		query="select r from Profile r where r.id = :idParam and r.roles = 'RESTAURANT'"),	
+	@NamedQuery(name="restaurantePorMail",
+	query="select r from Profile r where r.mail = :emailParam and r.roles = 'RESTAURANT'"),	
 	@NamedQuery(name="restaurantePorNombre",
 		query="select r from Profile r where r.name = :nombreParam and r.roles = 'RESTAURANT'"),
 	@NamedQuery(name="restaurantePorCiudad", 

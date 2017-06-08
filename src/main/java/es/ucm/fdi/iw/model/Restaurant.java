@@ -51,7 +51,7 @@ public class Restaurant extends Profile {
 	}
 	
 	@OneToMany(targetEntity=Dish.class)	
-	@JoinColumn(name="location_id")
+	//@JoinColumn(name="location_id")
 	public List<Dish> getMenu() {
 		return menu;
 	}

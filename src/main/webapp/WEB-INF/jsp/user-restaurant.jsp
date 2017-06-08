@@ -75,13 +75,13 @@
                                 <form action="crearPlato" method="post" class="hotel-search-form">
                                   <div class="tm-form-inner">
                                   	<div class="form-group margin-bottom-0">
-                                  		<input type="text" class="form-control" id="dishName" name="dishName" placeholder="Nombre" />
+                                  		<input type="text" class="form-control" id="dishName" name="dishName" placeholder="Nombre" required/>
                                 	</div>
                                 	<div class="form-group">
-  										<input type="number" id="kcal" name="kcal" placeholder="Kcal">
-  										<input type="number" id="prot" name="prot" placeholder="Prot">
-  										<input type="number" id="carbs" name="carbs" placeholder="Carbs">
-  										<input type="number" id="fats" name="fats" placeholder="Fats">
+  										<input type="number" id="kcal" name="kcal" placeholder="Kcal"  required>
+  										<input type="number" id="prot" name="prot" placeholder="Prot"  required>
+  										<input type="number" id="carbs" name="carbs" placeholder="Carbs"  required>
+  										<input type="number" id="fats" name="fats" placeholder="Fats"  required>
 									</div>
                                     <div class="form-group">
                                     <p>Seleccione alérgenos: (Puede seleccionar varios pulsando Ctrl)</p>
@@ -93,12 +93,13 @@
                                     </div>
                                 <div class="form-group margin-bottom-0">
                                 	<span class="input-group-addon">€</span>
-                                  <input type="number" id="precio" name="number" step="0.01" class="form-control" placeholder="0.00" />
+                                  <input type="number" id="precio" name="precio" step="0.01" class="form-control" placeholder="0.00" required/>
                                 </div>
                               </div>
                               <div class="form-group tm-yellow-gradient-bg text-center">
                                 <button type="submit" name="submit" class="tm-yellow-btn">Crear</button>
                               </div>
+                              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </form>
                           </div>
                         </div>
@@ -424,7 +425,11 @@
       <!-- CUSTOM SCRIPTS -->
     <script src="${prefix}/js/custom.js"></script>
 
-
+	<script>
+		$(document).ready(function(){
+		    $('a[href^="user-restaurant"]').addClass('active-link');
+		});
+	</script>
 </body>
 </html>
 		

@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -23,6 +24,7 @@ public class Dish {
 	private int prot;
 	private int fats;
 	private int carbs;
+	private float precio;
 	private List<Allergen> allergens;
 	
 	@Id
@@ -35,7 +37,8 @@ public class Dish {
 		this.id = id;
 	}
 	
-	@ManyToOne(targetEntity=Restaurant.class)	
+	@ManyToOne(targetEntity=Restaurant.class)
+	@JoinColumn(name="rest_id")
 	public Restaurant getLocation() {
 		return location;
 	}
@@ -90,6 +93,14 @@ public class Dish {
 
 	public void setAllergens(List<Allergen> allergens) {
 		this.allergens = allergens;
+	}
+
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
 	}
 	
 	

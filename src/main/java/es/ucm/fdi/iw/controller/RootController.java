@@ -581,43 +581,37 @@ public class RootController {
 		@Transactional
 		@RequestMapping(value="/crearPlato", method = RequestMethod.POST)
 		public String crearPlato(
-				@RequestParam("pass") String pass,
-				@RequestParam("pass_new") String pass1,
-				@RequestParam("phone") String phone,
-				@RequestParam("addr") String addr,
-				@RequestParam("cap") int cap,
+				@RequestParam("dishName") String nombre,
+				@RequestParam("kcal") int kcal,
+				@RequestParam("prot") int prot,
+				@RequestParam("fats") int fats,
+				@RequestParam("carbs") int carbs,
+				@RequestParam("alers") String[] alergenos,
+				@RequestParam("precio") int precio,
 				HttpServletRequest request, HttpServletResponse response,
 				Model model, 
 				HttpSession session){
 			
-					BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-					Restaurant user=(Restaurant)session.getAttribute("usuario");
-					if(pass != "" && pass1 != ""){
-						//comprobamos que la contraseña actual coincida.
-						if(passwordEncoder.encode(pass).equals(user.getPass())){
-							if(pass1.length()>4){
-								pass1=passwordEncoder.encode(pass1);
-								user.setPass(pass1);
-							}
-						}
+			Restaurant r=new Restaurant();
+			UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			r=(Restaurant)entityManager.createNamedQuery("restaurantePorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
+			
+				if(nombre != ""){
+					Dish p= new Dish();
+					p.setName(nombre);
+					p.setCarbs(carbs);
+					p.setFats(fats);
+					p.setKcal(kcal);
+					p.setProt(prot);
+					p.setPrecio(precio);
+					p.setLocation(r);
+					entityManager.persist(p);
+					for(String i: alergenos){
+						getAllergen(Integer.parseInt(i), p);
 					}
-					//comprobamos los datos que han cambiado.
-					//cambia la dirección?
-					if(user.getAddress()!=addr){
-						user.setAddress(addr);
-					}
-					//cambia la telefono?
-					if(user.getPhone()!=phone){
-						user.setPhone(phone);
-					}
-					//cambia la capacidad?
-					if(user.getCapacity()!=cap){
-						user.setCapacity(cap);
-					}
-					entityManager.merge(user);
-					session.setAttribute("usuario", user);
+					
+				}
 					return "redirect:/user-restaurant";
-	
 		}
 		
 }

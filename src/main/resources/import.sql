@@ -21,19 +21,18 @@ INSERT INTO PROFILE VALUES('Restaurant',5,'r1@r.rs','El Mejíbar','$2a$06$xkp4Zn
 INSERT INTO PROFILE VALUES('Restaurant',6,'r2@r.rs','Gandarío','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','RESTAURANT','Calle Gaztambide 28, Madrid',25,'12345678A','915402233',NULL,NULL,NULL)
 
 
-/* id, carbs, fats, kcal, name, prot, location-id*/
+/* id, carbs, fats, kcal, name,precio, prot, location-id*/
 
-INSERT INTO Dish VALUES (1,247,119,516,'Macarrones napolitana',70,NULL )
-INSERT INTO Dish VALUES (2,121,52,192,'Judias verdes de pueblo',19,NULL )
-INSERT INTO Dish VALUES (3,20,120,186,'Ensalada variada',45,NULL )
-INSERT INTO Dish VALUES (4,40,81,181,'Judias verdes salteadas',445,NULL )
-
-INSERT INTO Dish VALUES (5,16,461,573,'Chuleta de cerdo riojana',96,NULL )
-INSERT INTO Dish VALUES (6,66,318,533,'San Jacobo',149,NULL )
-INSERT INTO Dish VALUES (7,0,251,364,'Tortilla de jamón york',114,NULL )
-INSERT INTO Dish VALUES (8,9,173,340,'Marrajo a la plancha',158,NULL )
-INSERT INTO DISH VALUES (9,10,5,1,'Pato laqueado',18,NULL )
-INSERT INTO Dish VALUES (10,121,52,192,'Judias verdes de pueblo',19,NULL )
+INSERT INTO Dish VALUES (1,247,119,516,'Macarrones napolitana',7.5,70,2 )
+INSERT INTO Dish VALUES (2,121,52,192,'Judias verdes de pueblo',9,19,2 )
+INSERT INTO Dish VALUES (3,20,120,186,'Ensalada variada',7,45,2 )
+INSERT INTO Dish VALUES (4,40,81,181,'Judias verdes salteadas',8.5,445,2 )
+INSERT INTO Dish VALUES (5,16,461,573,'Chuleta de cerdo riojana',13,96,5 )
+INSERT INTO Dish VALUES (6,66,318,533,'San Jacobo',9.5,149,5 )
+INSERT INTO Dish VALUES (7,0,251,364,'Tortilla de jamón york',5,114,6 )
+INSERT INTO Dish VALUES (8,9,173,340,'Marrajo a la plancha',7.5,158,6 )
+INSERT INTO DISH VALUES (9,10,5,1,'Pato laqueado',60,18,5 )
+INSERT INTO Dish VALUES (10,121,52,192,'Judias verdes de pueblo',8,19,6 )
 
 INSERT INTO ALLERGEN_DISHES VALUES(1,1)
 INSERT INTO ALLERGEN_DISHES VALUES(8,1)
