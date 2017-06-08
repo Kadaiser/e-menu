@@ -17,6 +17,7 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name="alergenosPorNombre",
 		query="select a from Allergen a where a.name = :nombreParam")
 })
+
 @Entity
 public class Allergen {
 	

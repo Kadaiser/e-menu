@@ -11,7 +11,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
+
+@NamedQueries({
+	@NamedQuery(name="AllDish",
+		query="select d from Dish d"),
+	@NamedQuery(name="DishID",
+		query="select d from Dish d where d.id = :idParam"),
+	@NamedQuery(name="DishName",
+		query="select d from Dish d where d.name = :idParam"),
+	@NamedQuery(name="RestaurantOfDish",
+		query="select r from Restaurant r JOIN Dish d ON r.id = d.location  where d.id = :nombreParam")
+})
 
 @Entity
 public class Dish {

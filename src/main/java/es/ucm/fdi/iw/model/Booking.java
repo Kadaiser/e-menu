@@ -8,11 +8,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
-/**
- * @author usuario_local
- *
- */
+@NamedQueries({
+	@NamedQuery(name="allBookings",
+		query="select a from Booking a"),
+	@NamedQuery(name="BookingPorID",
+		query="select a from Booking a where a.id = :idParam"),
+	@NamedQuery(name="BookingPorLocation",
+		query="select a from Restaurant a where a.id = :idParam"),
+	@NamedQuery(name="BookingPorOwner",
+		query="select a from Profile a where a.id = :nombreParam")
+})
+
 @Entity
 public class Booking {
 

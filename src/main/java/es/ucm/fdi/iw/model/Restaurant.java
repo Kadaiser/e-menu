@@ -10,10 +10,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 
-	
-
-
-
 @Entity
 public class Restaurant extends Profile {
 
