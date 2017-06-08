@@ -9,16 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@NamedQueries({
-	@NamedQuery(name="AllComents",
-		query="select c from Comment c"),
-	@NamedQuery(name="CommentID",
-		query="select c from Comment c where c.id = :idParam"),
-	@NamedQuery(name="ComentOfRestaurant",
-		query="select r from Restaurant r JOIN Comment c ON r.id = c.location  where c.id = :idParam"),
-	@NamedQuery(name="ComentOfUser",
-		query="select p from Profile p JOIN Comment c ON p.id = c.owner  where c.id = :nombreParam")
-})
+
 
 @Entity
 public class Comment {

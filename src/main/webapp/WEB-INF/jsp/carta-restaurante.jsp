@@ -70,142 +70,39 @@
 
                  </div>
           <div class="filtro row">
-                 <div class="filtro row">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <select class="form-control">
-                          <option value=""  disabled selected>-- Tipo -- </option>
-                          <option value="Entrante">Entrante</option>
-                          <option value="1">1 Plato</option>
-                          <option value="2">2 Plato</option>
-                          <option value="Postre">Postre</option>
-                        </select>
-                          </div>
-
-                    </div>
-
-                 </div>
-
+               
                   <div class="filtro row">
+                     
+                     <c:forEach var="p" items="${platos}">
                      <div class="panel panel-default col-md-4 col-lg-4">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Plato</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">${p.name}</a>
                                     </h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
                                             <img src="${prefix}/img/rest1.jpg">
-                                            <p>Datos plato</p>
+                                            <p> Kcal: ${p.kcal}  </p>
+                                            <p> Prot: ${p.prot}  </p>
+                                            <p> Carbs: ${p.carbs}  </p>
+                                            <p> Fats: ${p.fats}  </p>
+                                            <p> Precio: ${p.precio} € </p>
                                         </div>
                                         </br>
+                                        <form action="" method="get">
                                         <button type="submit" name="submit" class="btn btn-warning" style="margin-bottom:15px">Editar Plato</button>
+                                        </form>
                                         </br>
-                                        <button type="submit" name="submit" class="btn btn-primary" >Borrar Plato</button>
+                                         <form action="/borrarPlato?id=${p.id}" method="post">
+                   							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                        	<button type="submit" name="submit" class="btn btn-primary" >Borrar Plato</button>
+                                    	</form>
                                     </div>
                                 </div>
                       </div>
-
-                      <div class="panel panel-default col-md-4 col-lg-4">
-                                 <div class="panel-heading">
-                                     <h4 class="panel-title">
-                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Plato</a>
-                                     </h4>
-                                 </div>
-                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
-                                     <div class="panel-body">
-                                         <div class= "imag-rest">
-                                             <img src="${prefix}/img/rest1.jpg">
-                                             <p>Datos plato</p>
-                                         </div>
-                                         </br>
-                                         <button type="submit" name="submit" class="btn btn-warning" style="margin-bottom:15px">Editar Plato</button>
-                                         </br>
-                                         <button type="submit" name="submit" class="btn btn-primary" >Borrar Plato</button>
-                                     </div>
-                                 </div>
-                       </div>
-                       <div class="panel panel-default col-md-4 col-lg-4">
-                                  <div class="panel-heading">
-                                      <h4 class="panel-title">
-                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Plato</a>
-                                      </h4>
-                                  </div>
-                                  <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
-                                      <div class="panel-body">
-                                          <div class= "imag-rest">
-                                              <img src="${prefix}/img/rest1.jpg">
-                                              <p>Datos plato</p>
-                                          </div>
-                                          </br>
-                                          <button type="submit" name="submit" class="btn btn-warning" style="margin-bottom:15px">Editar Plato</button>
-                                          </br>
-                                          <button type="submit" name="submit" class="btn btn-primary" >Borrar Plato</button>
-                                      </div>
-                                  </div>
-                        </div>
-
-
-                <!-- <div class="filtro row"> -->
-                   <div class="panel panel-default col-md-4 col-lg-4">
-                              <div class="panel-heading">
-                                  <h4 class="panel-title">
-                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Plato</a>
-                                  </h4>
-                              </div>
-                              <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
-                                  <div class="panel-body">
-                                      <div class= "imag-rest">
-                                          <img src="${prefix}/img/rest1.jpg">
-                                          <p>Datos plato</p>
-                                      </div>
-                                      </br>
-                                      <button type="submit" name="submit" class="btn btn-warning" style="margin-bottom:15px">Editar Plato</button>
-                                      </br>
-                                      <button type="submit" name="submit" class="btn btn-primary" >Borrar Plato</button>
-                                  </div>
-                              </div>
-                    </div>
-
-                    <div class="panel panel-default col-md-4 col-lg-4">
-                               <div class="panel-heading">
-                                   <h4 class="panel-title">
-                                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Plato</a>
-                                   </h4>
-                               </div>
-                               <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
-                                   <div class="panel-body">
-                                       <div class= "imag-rest">
-                                           <img src="${prefix}/img/rest1.jpg">
-                                           <p>Datos plato</p>
-                                       </div>
-                                       </br>
-                                       <button type="submit" name="submit" class="btn btn-warning" style="margin-bottom:15px">Editar Plato</button>
-                                       </br>
-                                       <button type="submit" name="submit" class="btn btn-primary" >Borrar Plato</button>
-                                   </div>
-                               </div>
-                     </div>
-                     <div class="panel panel-default col-md-4 col-lg-4">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Plato</a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
-                                    <div class="panel-body">
-                                        <div class= "imag-rest">
-                                            <img src="${prefix}/img/rest1.jpg">
-                                            <p>Datos plato</p>
-                                        </div>
-                                        </br>
-                                        <button type="submit" name="submit" class="btn btn-warning" style="margin-bottom:15px">Editar Plato</button>
-                                        </br>
-                                        <button type="submit" name="submit" class="btn btn-primary" >Borrar Plato</button>
-                                    </div>
-                                </div>
-                      </div>
+					</c:forEach>
               <!-- </div> -->
 
     </div>

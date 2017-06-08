@@ -22,9 +22,9 @@ import javax.persistence.NamedQuery;
 		query="select d from Dish d where d.id = :idParam"),
 	@NamedQuery(name="DishName",
 		query="select d from Dish d where d.name = :idParam"),
-	@NamedQuery(name="RestaurantOfDish",
-		query="select r from Restaurant r JOIN Dish d ON r.id = d.location  where d.id = :nombreParam")
-})
+	@NamedQuery(name="platosPorRes", 
+		query="select p from Dish p where p.location = :idResParam")
+	})
 
 @Entity
 public class Dish {

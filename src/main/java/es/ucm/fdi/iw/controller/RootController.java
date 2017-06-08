@@ -267,7 +267,14 @@ public class RootController {
 	}
 
 	@RequestMapping(value = "/carta-restaurante", method = RequestMethod.GET)
-	public String carta(Model model, HttpSession session){
+	public String carta(Model model, HttpSession session){	
+		Restaurant r=new Restaurant();
+		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		r=(Restaurant)entityManager.createNamedQuery("restaurantePorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
+		model.addAttribute("alergenos", 
+				entityManager.createNamedQuery("todosAlergenos").getResultList());
+		model.addAttribute("platos", 
+				entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList());
 		model.addAttribute("pageTitle", "Carta");	
 		return "carta-restaurante";
 	}
@@ -613,5 +620,22 @@ public class RootController {
 				}
 					return "redirect:/user-restaurant";
 		}
-		
+		@Transactional
+		@RequestMapping(value="/borrarPlato", method = RequestMethod.POST)
+		public String crearPlato(
+				@RequestParam("id") long id,
+				HttpServletRequest request, HttpServletResponse response,
+				Model model, 
+				HttpSession session){
+			
+				Dish p= new Dish();
+				p=(Dish)entityManager.createNamedQuery("DishID").setParameter("idParam", id).getSingleResult();
+				
+				for(Allergen al : p.getAllergens()){
+					al.getDishes().remove(p);
+				}
+				entityManager.remove(p);
+				entityManager.flush();
+				return "redirect:/carta-restaurante";
+		}
 }
