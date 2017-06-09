@@ -12,10 +12,11 @@
                 </div>
                  <!-- /. ROW  -->
                  <hr/>
+                 <c:forEach var="r" items="${usuario.favoriteRestaurants}">
                  <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Restaurante 1</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"> ${r.name} </a>
                                     </h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
@@ -33,56 +34,8 @@
                                     </div>
                                 </div>
                       </div>
-
-                      <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Restaurante 2</a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
-                                    <div class="panel-body">
-                                       <div class= "imag-rest">
-                                            <img src="${prefix}/img/rest1.jpg">
-
-                                        </div>
-
-                                        <div>
-                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                                        </div>  
-
-
-                                    </div>
-                                </div>
-                      </div>
-
-                      <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Restaurante 3</a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
-                                    <div class="panel-body">
-                                       <div class= "imag-rest">
-                                            <img src="${prefix}/img/rest1.jpg">
-
-                                        </div>
-
-                                        <div>
-                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                                        </div>  
-
-
-                                    </div>
-                                </div>
-                      </div>
-
-
-
-
-
-
+					</c:forEach>
+                
     </div>
              <!-- /. PAGE INNER  -->
             </div>

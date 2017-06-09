@@ -10,8 +10,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-
-
+@NamedQueries({
+	})
 @Entity
 public class User extends Profile {
 
@@ -32,13 +32,6 @@ public class User extends Profile {
 		this.bornDate = bornDate;
 	}
 	
-	/*public int getAge() {
-	return age;
-	}
-	
-	public void setAge(int age) {
-		this.age = age;
-	}*/
 	
 	@ManyToMany(targetEntity=Allergen.class, mappedBy="victims")	
 	public List<Allergen> getKnownAllergens() {

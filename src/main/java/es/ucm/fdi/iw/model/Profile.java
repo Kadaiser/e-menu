@@ -39,6 +39,7 @@ import javax.persistence.NamedQuery;
 		query="select u from Profile u where u.name like :textoParam and u.roles='RESTAURANT'"),
 	@NamedQuery(name="restaurantePorCiudad", 
 		query="select r from Profile r where r.address = :ciudadParam and r.roles = 'RESTAURANT'")
+
 	})
 
 

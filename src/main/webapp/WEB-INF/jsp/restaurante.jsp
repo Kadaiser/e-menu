@@ -12,7 +12,14 @@
 			    <div class="tm-banner-inner">
 					<h1 class="tm-banner-title"><span class="tm-yellow-text"> ${restaurante.name} </span></h1>
 					<p class="tm-banner-subtitle"> ${restaurante.address} </p>
-					<a href="/anyadirFavoritos?id=${restaurante.id}" class="tm-banner-link">Añadir a Favoritos</a>
+					<sec:authorize access="hasRole('ROLE_USER')">
+						<c:if test="${fav==true }">
+							<a class="tm-banner-link">Siguiendo</a>
+						</c:if>
+						<c:if test="${fav==false }">
+							<a href="/anyadirFavoritos?id=${restaurante.id}" class="tm-banner-link">Añadir a Favoritos</a>
+						</c:if>
+						</sec:authorize>
 				</div>
 		      <img src="${prefix}/img/banner-2.jpg" />
 		    </li>

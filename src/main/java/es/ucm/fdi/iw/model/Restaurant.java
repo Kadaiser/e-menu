@@ -9,6 +9,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+@NamedQueries({
+	@NamedQuery(name="restaurantesPorUsuario", 
+			query="select r from Restaurant r where r.fans in :idUsu")
+})
 
 @Entity
 public class Restaurant extends Profile {

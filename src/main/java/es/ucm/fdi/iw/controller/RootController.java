@@ -317,7 +317,16 @@ public class RootController {
 		
 		model.addAttribute("platos", 
 				entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList());
+		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
+		User user=(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
+		
+		boolean fav=false;
+		for(Restaurant res : user.getFavoriteRestaurants()){
+			if(res.getId() == idRes)
+				fav=true;
+		}
+		model.addAttribute("fav",fav);
 		model.addAttribute("pageTitle", "Restaurante");	
 		return "restaurante";
 	}
@@ -353,8 +362,10 @@ public class RootController {
 /*Restaurants*/
 	@RequestMapping(value = "/mis-rest", method = RequestMethod.GET)
 	public String misrest(Model model, HttpSession session){
-		
-		
+		User u = new User();
+		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("usuario",(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
+		//model.addAttribute("restaurantes",entityManager.createNamedQuery("restaurantesPorUsuario").setParameter("idUsu", u.getId()).getResultList());
 		model.addAttribute("pageTitle", "Mis Restaurantes");	
 		
 		return "mis-rest";
