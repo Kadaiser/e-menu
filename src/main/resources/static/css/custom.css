@@ -186,3 +186,7 @@ Propias
 .tm-site-name-container {
     padding-top: 15px !important;
 }
+#boton-buscar{
+	position: absolute;
+	height: 34px;
+}

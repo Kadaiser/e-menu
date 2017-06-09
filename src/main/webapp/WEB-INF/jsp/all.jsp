@@ -2,7 +2,16 @@
 
         <!-- /. NAV TOP  -->
 	<%@ include file="../jspf/navTopAdmin.jspf" %>	
-	
+	<script type="text/javascript">
+//Funcion ajax encargada de rellenar la lista con la busqueda
+	$(document).ready(function(){
+		$("#search").keyup(function(){
+			var texto=$(this).val();
+			
+		});
+	}); 
+
+</script>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
           <div id="page-inner">
@@ -17,8 +26,21 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <h5>Search user</h5>
                        <div class="input-group">
-                            <span class="input-group-addon">@</span>
-                            <input type="text" class="form-control" placeholder="Username" />
+                            <c:if test="${usuarios[0].roles=='RESTAURANT'}" >
+                                <form action="buscarUser" method="get">
+                            		<input type="hidden" id="what" name="what" value="res"/>
+                            		<input type="text" class="form-control" id="search" name="search" placeholder="Username" />
+                                  	<input type="submit" id="boton-buscar" name="boton-buscar" value="Buscar">		
+                            	</form>
+                            </c:if>
+                            <c:if test="${usuarios[0].roles=='USER'}">
+                                <form action="buscarUser" method="get">
+                            		<input type="hidden" id="what" name="what" value="user"/>
+                            		<input type="text" class="form-control" id="search" name="search" placeholder="Username" />
+                                  	<input type="submit" id="boton-buscar" name="boton-buscar" value="Buscar">		
+                            	</form>
+                            </c:if>
+                       		
                        </div>
                     </div>
 

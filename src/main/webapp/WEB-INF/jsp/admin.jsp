@@ -89,7 +89,7 @@
 
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="add" >
+                           <a href="addRes" >
                               <i class="fa fa-plus fa-5x"></i>
                               <h4>Add Rest</h4>
                             </a>

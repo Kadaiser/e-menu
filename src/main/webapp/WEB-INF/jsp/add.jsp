@@ -13,48 +13,32 @@
                <!-- /. ROW  -->
                 <hr>
                 <div class="row">
+                <form action="/user/add" method="post">
                     <div class="col-lg-4 col-md-4">
                         <div class="form-group">
-                            <input class="form-control"  placeholder="Nombre" />
+                            <input class="form-control" name="name" placeholder="Nick" />
 
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control"  placeholder="Apellidos" />
+                            <input type="date" class="form-control" name="bornDate"  placeholder="Fecha Nacimiento" />
 
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control"  placeholder="E-mail" />
+                            <input class="form-control" name="mail" placeholder="E-mail" />
 
                         </div>
-
-                        <div class="form-group">
-                            <input class="form-control"  placeholder="Username" />
-
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" class="form-control"  placeholder="Pass" />
-
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" class="form-control"  placeholder="Confirm Pass" />
-
-                        </div>
-
-
                     </div>
-
-
-
+				<p>
+				<label class="radio-inline"><input type="radio" name="optradio" value="admin">Administrador</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="user"  checked="checked">Usuario</label>
+               </p> 
+               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+               <p><input type=submit value="Crear" /></p>
+				</form>
 
                 </div>
-                <label class="radio-inline"><input type="radio" name="optradio">Administrador</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Usuario</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Restaurante</label>
-
 
 
                 <!-- /. ROW  -->

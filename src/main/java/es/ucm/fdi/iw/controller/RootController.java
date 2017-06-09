@@ -139,11 +139,15 @@ public class RootController {
 /*Add*/
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String add(Model model, HttpSession session){
-		
-		
-		model.addAttribute("pageTitle", "Add");	
-		
+		model.addAttribute("pageTitle", "Add");			
 		return "add";
+	}
+	/*Add*/
+	@RequestMapping(value = "/addRes", method = RequestMethod.GET)
+	public String addRes(Model model, HttpSession session){
+		model.addAttribute("pageTitle", "AddRes");	
+		
+		return "addRes";
 	}
 /*Admin*/
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -158,15 +162,78 @@ public class RootController {
 	private PasswordEncoder passwordEncoder;
 	
 	@Transactional
-	@RequestMapping(value = "/admin/add", method = RequestMethod.GET)
-	public String addAdmin(Model model, HttpSession session){
-		
-		Admin a = new Admin();
-		a.setName("Paco");
-		a.setPass(passwordEncoder.encode("arr"));
-		entityManager.persist(a);
-		return "admin";
+	@RequestMapping(value = "/user/add", method = RequestMethod.POST)
+	public String addUser(
+			@RequestParam("name") String name,
+			@RequestParam("bornDate") Date fecha,
+			@RequestParam("mail") String mail,
+			@RequestParam("optradio") String valor,
+			Model model, HttpSession session){
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		getTokenForSession(session);
+		if(valor.equals("user")){
+			User u = new User();
+			if(usuarioValido(mail)){
+				u.setBornDate(fecha);
+				u.setMail(mail);
+				u.setName(name);
+				u.setPass(passwordEncoder.encode("a"));
+				entityManager.persist(u);
+				entityManager.flush();
+				log.info("registrado usuario");
+				return "redirect:/admin";
+			}else{
+				log.info("el usuario no está disponible");
+				return "redirect:/add";
+			}
+			
+		}else if(valor.equals("admin")){
+			Admin u = new Admin();
+			if(usuarioValido(mail)){
+				u.setBornDate(fecha);
+				u.setMail(mail);
+				u.setName(name);
+				u.setPass(passwordEncoder.encode("a"));
+				entityManager.persist(u);
+				entityManager.flush();
+				log.info("registrado administrador");
+				return "redirect:/admin";
+			}else{
+				log.info("el usuario no está disponible");
+				return "redirect:/add";
+			}
+		}
+		return "redirect:/admin";
 	}	
+	@Transactional
+	@RequestMapping(value = "/rest/add", method = RequestMethod.POST)
+	public String addRest(
+			@RequestParam("nombre") String name,
+			@RequestParam("mail") String mail,
+			@RequestParam("telefono") String telefono,
+			@RequestParam("cif") String cif,
+			@RequestParam("direccion") String direccion,
+			@RequestParam("cap") int cap,
+			Model model, HttpSession session){
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		getTokenForSession(session);
+		
+			Restaurant u = new Restaurant();
+			if(usuarioValido(mail)){
+				u.setName(name);
+				u.setMail(mail);
+				u.setPhone(telefono);
+				u.setPass(passwordEncoder.encode("a"));
+				u.setCif(cif);
+				u.setAddress(direccion);
+				u.setCapacity(cap);
+				entityManager.persist(u);
+				entityManager.flush();
+				log.info("registrado restaurante");
+				return "redirect:/admin";
+			}
+		return "redirect:/admin";
+	}
 	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public String all(
@@ -642,6 +709,25 @@ public class RootController {
 			
 			getFavRes(id,u);
 			return "redirect:/restaurante?id="+id;
+			
+		}
+		
+		@RequestMapping(value="/buscarUser", method= RequestMethod.GET)
+		public String buscarUser(
+				@RequestParam("what") String what,
+				@RequestParam("search") String user,
+				Model model, 
+				HttpSession session
+				){
+			if(what.equals("user")){
+				model.addAttribute("usuarios", 
+						entityManager.createNamedQuery("userContiene").setParameter("textoParam", user+"%").getResultList());
+			}if(what.equals("res")){
+				model.addAttribute("usuarios", 
+						entityManager.createNamedQuery("resContiene").setParameter("textoParam", user+"%").getResultList());
+			}
+			model.addAttribute("pageTitle", "All");	
+			return "all";
 			
 		}
 }

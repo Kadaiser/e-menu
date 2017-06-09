@@ -25,7 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         		
 				.antMatchers("/user").hasAnyRole("USER", "ADMIN")
 				//.antMatchers("/user").hasRole("ADMIN")
-				.antMatchers("/user/**").hasRole("USER")
+				.antMatchers("/user/**").hasRole("ADMIN")
+				
+				.antMatchers("/rest/add").hasRole("ADMIN")
 				
 				.antMatchers("/actualizar-user").hasAnyRole("USER", "ADMIN")
 				//.antMatchers("/actualizar-user").hasRole("ADMIN")
@@ -39,6 +41,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/crearPlato").hasRole("RESTAURANT")
 				
 				.antMatchers("/all").hasRole("ADMIN")
+				
+				.antMatchers("/add").hasRole("ADMIN")
+				.antMatchers("/addRes").hasRole("ADMIN")
+				
+				.antMatchers("/buscarUser").hasRole("ADMIN")
 				
 				.antMatchers("/borrarPlato").hasRole("RESTAURANT")
 				

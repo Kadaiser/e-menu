@@ -33,6 +33,10 @@ import javax.persistence.NamedQuery;
 		query="select r from Profile r where r.mail = :emailParam and r.roles = 'RESTAURANT'"),	
 	@NamedQuery(name="restaurantePorNombre",
 		query="select r from Profile r where r.name = :nombreParam and r.roles = 'RESTAURANT'"),
+	@NamedQuery(name="userContiene",
+		query="select u from Profile u where u.name like :textoParam and (u.roles='USER' or u.roles = 'ADMIN')"),
+	@NamedQuery(name="resContiene",
+		query="select u from Profile u where u.name like :textoParam and u.roles='RESTAURANT'"),
 	@NamedQuery(name="restaurantePorCiudad", 
 		query="select r from Profile r where r.address = :ciudadParam and r.roles = 'RESTAURANT'")
 	})
