@@ -19,14 +19,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-        		.antMatchers("/static/**", "/logout", "/403", "/test", "/reg", "/reg-rest", "/all", "/registrar", "/registrarRest").permitAll()
+        		.antMatchers("/static/**", "/logout", "/403", "/test", "/reg", "/reg-rest", "/registrar", "/registrarRest").permitAll()
         		      		
 				.antMatchers("/admin", "/admin/**").hasRole("ADMIN")
         		
-				.antMatchers("/user").hasRole("USER")
+				.antMatchers("/user").hasAnyRole("USER", "ADMIN")
+				//.antMatchers("/user").hasRole("ADMIN")
 				.antMatchers("/user/**").hasRole("USER")
 				
-				.antMatchers("/actualizar-user").hasRole("USER")
+				.antMatchers("/actualizar-user").hasAnyRole("USER", "ADMIN")
+				//.antMatchers("/actualizar-user").hasRole("ADMIN")
+				.antMatchers("/anyadirFavoritos").hasRole("USER")
 				
 				.antMatchers("/actualizar-res").hasRole("RESTAURANT")
 				
@@ -34,6 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				
 				.antMatchers("/user-restaurant").hasRole("RESTAURANT")
 				.antMatchers("/crearPlato").hasRole("RESTAURANT")
+				
+				.antMatchers("/all").hasRole("ADMIN")
 				
 				.antMatchers("/borrarPlato").hasRole("RESTAURANT")
 				

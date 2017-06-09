@@ -17,7 +17,7 @@ public class User extends Profile {
 
 
 	private	Date bornDate;
-	private	int age;
+	//private	int age;
 	private	List<Allergen> knownAllergens;
 	private	List<Restaurant> favoriteRestaurants;
 	private List<Booking> bookings;
@@ -32,13 +32,13 @@ public class User extends Profile {
 		this.bornDate = bornDate;
 	}
 	
-	public int getAge() {
-		return age;
+	/*public int getAge() {
+	return age;
 	}
 	
 	public void setAge(int age) {
 		this.age = age;
-	}
+	}*/
 	
 	@ManyToMany(targetEntity=Allergen.class, mappedBy="victims")	
 	public List<Allergen> getKnownAllergens() {

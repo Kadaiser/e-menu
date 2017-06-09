@@ -3,6 +3,7 @@ package es.ucm.fdi.iw.controller;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -61,13 +63,17 @@ public class RootController {
 		entityManager.persist(d);
 		return a;
 	}
-	
+	private Restaurant getFavRes(long id, User u) {
+		Restaurant r = entityManager.find(Restaurant.class, id);
+		r.getFans().add(u);
+		entityManager.persist(u);
+		return r;
+	}
 	@RequestMapping(value="/test", method = RequestMethod.GET)
 	@Transactional
 	public String test() {
 		
 		User u = new User();
-		u.setAge(18);
 		u.setMail("adri@a.as");
 		u.setPass("aa");
 		u.setName("aa");
@@ -93,53 +99,7 @@ public class RootController {
 		log.info("deberia haber hecho 3 inserts...");
 		return "reg";
 	}
-	/*
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(
-			@RequestParam("user") String formLogin,
-			@RequestParam("pwd") String formPass,
-			HttpServletRequest request, HttpServletResponse response, 
-			Model model, HttpSession session) {
-
-			String formSource = "index";		
-			//public string ejemplo(HttpSession s, Model m){
-			 * User u (User)s.getAttribute("user");
-			 * u= entityManager.find(User.class, ugetId());
-			 * m.addAttribute("perros", u.getPerros());
-			 * }
-			 * 
-			
-			Profile p = null;
-			try {
-				p=(Profile)entityManager.createNamedQuery("userByLogin").setParameter("loginParam", formLogin).getSingleResult();
-				//comprobar que la contr es valida. min 4 y no vacia
-				if(formLogin.equals("a@a.as") && formPass.equals("a")){
-					getTokenForSession(session);
-					session.setAttribute("roles", "USER");
-					formSource="redirect:/home";
-					
-				}else if(formLogin.equals("admin@iw.com") && formPass.equals("iw2017")){
-					getTokenForSession(session);
-					session.setAttribute("roles", "ADMIN");
-					formSource="redirect:/admin";
-					
-				}else if(formLogin.equals("rest@iw.com") && formPass.equals("iw2017")){
-					getTokenForSession(session);
-					session.setAttribute("roles", "REST");
-					formSource="redirect:/user-restaurant";
-					
-				}
-				
-			} catch (NoResultException nre) {
-				
-				model.addAttribute("errorLogin", "No estás registrado");
-			}
-		
-
-		// redirects to view from which login was requested
-		return formSource;
-						
-	}
+	
 	/**
 	 * Logout (also returns to home view).
 	 */
@@ -164,27 +124,6 @@ public class RootController {
 	    String token=UUID.randomUUID().toString();
 	    session.setAttribute("csrf_token", token);
 	    return token;
-	}
-	/*static boolean isAdmin(HttpSession session) {
-		if (session != null){
-		return session.getAttribute("rol").equals("ADMIN");
-		}
-		return false;
-		}
-	static boolean isRest(HttpSession session) {
-		if (session != null){
-			return session.getAttribute("rol").equals("RESTAURANT");
-		}else{
-			return false;
-		}
-	}
-	static boolean isUser(HttpSession session) {
-		if(session != null){
-			return session.getAttribute("rol").equals("USER");
-		}else{
-			return false;
-		}
-		
 	}
 	
 /* About*/
@@ -230,7 +169,22 @@ public class RootController {
 	}	
 	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public String all(Model model, HttpSession session){
+	public String all(
+			@RequestParam("what") String what,
+			Model model,
+			HttpSession session){
+		//Comprobamos que queremos ver, usuarios o restaurantes.
+		//separamos usuarios normales de restaurantes.
+		if(what.equals("users")){
+			model.addAttribute("usuarios", 
+					entityManager.createNamedQuery("todosUsuarios").getResultList());
+		}if(what.equals("restaurants")){
+			model.addAttribute("usuarios", 
+					entityManager.createNamedQuery("todosRestaurantes").getResultList());
+		}if(what.equals("banned")){
+			
+		}
+		
 		model.addAttribute("pageTitle", "All");	
 		return "all";
 	}
@@ -291,6 +245,12 @@ public class RootController {
 			Model model, HttpSession session){
 		model.addAttribute("restaurante", 
 				entityManager.createNamedQuery("restaurantePorID").setParameter("idParam", idRes).getSingleResult());
+		Restaurant r=new Restaurant();
+		r=(Restaurant)entityManager.createNamedQuery("restaurantePorID").setParameter("idParam", idRes).getSingleResult();
+		
+		model.addAttribute("platos", 
+				entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList());
+		
 		model.addAttribute("pageTitle", "Restaurante");	
 		return "restaurante";
 	}
@@ -501,9 +461,6 @@ public class RootController {
 							return "index";
 						}
 				
-				
-			
-			log.info("no pasamos de password");
 			return "reg";
 		}
 		
@@ -517,27 +474,61 @@ public class RootController {
 				Model model, 
 				HttpSession session){
 					BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-					User user=(User)session.getAttribute("usuario");
-					if(pass != "" && pass1 != ""){
-						//comprobamos que la contraseña actual coincida.
-						if(passwordEncoder.encode(pass).equals(user.getPass())){
-							if(pass1.length()>4){
-								pass1=passwordEncoder.encode(pass1);
-								user.setPass(pass1);
+					UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+					Collection<GrantedAuthority> authorities=(Collection<GrantedAuthority>)userDetails.getAuthorities();
+					String hasRole="";
+					for(GrantedAuthority authority : authorities){
+						hasRole= authority.getAuthority();
+					}
+					if(hasRole.equals("ROLE_USER")){
+						//User user=(User)session.getAttribute("usuario");	
+						User user=(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
+						//User user=(User)session.getAttribute("usuario");
+						if(pass != "" && pass1 != ""){
+							//comprobamos que la contraseña actual coincida.
+							if(passwordEncoder.encode(pass).equals(user.getPass())){
+								if(pass1.length()>4){
+									pass1=passwordEncoder.encode(pass1);
+									user.setPass(pass1);
+									user.setBornDate(fecha);
+									entityManager.merge(user);
+									session.setAttribute("usuario", user);
+									return "user";
+								}
+							}
+						}else /*Comprobamos si ha cambiado la fecha sólo*/
+							if(user.getBornDate()!=fecha){
+								
 								user.setBornDate(fecha);
 								entityManager.merge(user);
 								session.setAttribute("usuario", user);
 								return "user";
-							}
-						}
-					}else /*Comprobamos si ha cambiado la fecha sólo*/
-						if(user.getBornDate()!=fecha){
 							
-							user.setBornDate(fecha);
-							entityManager.merge(user);
-							session.setAttribute("usuario", user);
-							return "user";
-						
+						}
+					}else{
+						Admin user=(Admin)entityManager.createNamedQuery("adminPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
+						//User user=(User)session.getAttribute("usuario");
+						if(pass != "" && pass1 != ""){
+							//comprobamos que la contraseña actual coincida.
+							if(passwordEncoder.encode(pass).equals(user.getPass())){
+								if(pass1.length()>4){
+									pass1=passwordEncoder.encode(pass1);
+									user.setPass(pass1);
+									user.setBornDate(fecha);
+									entityManager.merge(user);
+									session.setAttribute("usuario", user);
+									return "user";
+								}
+							}
+						}else /*Comprobamos si ha cambiado la fecha sólo*/
+							if(user.getBornDate()!=fecha){
+								
+								user.setBornDate(fecha);
+								entityManager.merge(user);
+								session.setAttribute("usuario", user);
+								return "user";
+							
+						}
 					}
 				
 					return "user";
@@ -637,5 +628,20 @@ public class RootController {
 				entityManager.remove(p);
 				entityManager.flush();
 				return "redirect:/carta-restaurante";
+		}
+		@Transactional
+		@RequestMapping(value="/anyadirFavoritos", method= RequestMethod.GET)
+		public String anyadirFavoritos(
+				@RequestParam("id") long id,
+				HttpServletRequest request, HttpServletResponse response,
+				Model model, 
+				HttpSession session){
+			UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			User u=new User();
+			u=(User)entityManager.createNamedQuery("userByMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
+			
+			getFavRes(id,u);
+			return "redirect:/restaurante?id="+id;
+			
 		}
 }

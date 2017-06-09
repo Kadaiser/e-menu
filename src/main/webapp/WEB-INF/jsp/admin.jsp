@@ -28,7 +28,7 @@
                        <!-- Users -->
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="all" >
+                           <a href="all?what=users" >
                               <i class="fa fa-users fa-5x"></i>
                               <h4>See Users</h4>
                             </a>
@@ -50,7 +50,7 @@
                     <!-- Ban-user -->
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="blank" >
+                           <a href="all?what=banned" >
                               <i class="fa fa-user-times fa-5x"></i>
                               <h4>Ban</h4>
                             </a>
@@ -79,7 +79,7 @@
 
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="all" >
+                           <a href="all?what=restaurants" >
                               <i class="fa fa-cutlery fa-5x"></i>
                               <h4>Restaurants</h4>
                           </a>

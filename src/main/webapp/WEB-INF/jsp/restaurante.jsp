@@ -12,7 +12,7 @@
 			    <div class="tm-banner-inner">
 					<h1 class="tm-banner-title"><span class="tm-yellow-text"> ${restaurante.name} </span></h1>
 					<p class="tm-banner-subtitle"> ${restaurante.address} </p>
-					<a href="#more" class="tm-banner-link">Reservar</a>
+					<a href="/anyadirFavoritos?id=${restaurante.id}" class="tm-banner-link">Añadir a Favoritos</a>
 				</div>
 		      <img src="${prefix}/img/banner-2.jpg" />
 		    </li>
@@ -87,8 +87,7 @@
 				</div>
 
 
-			<div class="col-lg-4 col-md-4 col-sm-6">
-
+	<div class="col-lg-4 col-md-4 col-sm-6">
         <div class="tm-tours-box-1">
           <img src="${prefix}/img/tours-03.jpg" alt="image" class="img-responsive">
           <div class="tm-tours-box-1-info">
@@ -120,96 +119,37 @@
 					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
 				</div>
 			</div>
+			
+			
 			<div class="row">
+				
+				<c:forEach var="p" items="${platos}">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
 						<img src="${prefix}/img/tours-03.jpg" alt="image" class="img-responsive">
-            <div class="tm-tours-box-1-info">
-              <div class="tm-tours-box-1-info-left">
-                <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
-                <p class="gray-text">Tipo-Categoria</p>
-              </div>
-              <div class="tm-tours-box-1-info-right">
-                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, elit.</p>
-              </div>
-            </div>
-            <div class="tm-tours-box-1-link">
-              <div class="tm-tours-box-1-link-left">
-              Precio 20
-              </div>
-              <a href="#" class="tm-tours-box-1-link-right">
-                *****
-              </a>
-            </div>
-
+            			<div class="tm-tours-box-1-info">
+              				<div class="tm-tours-box-1-info-left">
+                				<p class="text-uppercase margin-bottom-20">${p.name}</p>
+                				<p class="gray-text">Tipo-Categoria</p>
+             				</div>
+             				<div class="tm-tours-box-1-info-right">
+                				<p class="gray-text tours-1-description">
+									<p>Kcal: ${p.kcal}  //  Prot: ${p.prot } </p>
+									<p>Carbs: ${p.fats} // Fats: ${p.fats} </p>
+								</p>
+              				</div>
+           				</div>
+            			<div class="tm-tours-box-1-link">
+              				<div class="tm-tours-box-1-link-left">
+             			 		Precio: ${p.precio }€
+              				</div>
+             				<a href="#" class="tm-tours-box-1-link-right">
+               					*****
+              				</a>
+            			</div>
 					</div>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<div class="tm-tours-box-1">
-						<img src="${prefix}/img/tours-04.jpg" alt="image" class="img-responsive">
-            <div class="tm-tours-box-1-info">
-              <div class="tm-tours-box-1-info-left">
-                <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
-                <p class="gray-text">Tipo-Categoria</p>
-              </div>
-              <div class="tm-tours-box-1-info-right">
-                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, elit.</p>
-              </div>
-            </div>
-            <div class="tm-tours-box-1-link">
-              <div class="tm-tours-box-1-link-left">
-              Precio 20
-              </div>
-              <a href="#" class="tm-tours-box-1-link-right">
-                *****
-              </a>
-            </div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<div class="tm-tours-box-1">
-						<img src="${prefix}/img/tours-05.jpg" alt="image" class="img-responsive">
-            <div class="tm-tours-box-1-info">
-              <div class="tm-tours-box-1-info-left">
-                <p class="text-uppercase margin-bottom-20">TÃ­tulo Comida-Menu</p>
-                <p class="gray-text">Tipo-Categoria</p>
-              </div>
-              <div class="tm-tours-box-1-info-right">
-                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, elit.</p>
-              </div>
-            </div>
-            <div class="tm-tours-box-1-link">
-              <div class="tm-tours-box-1-link-left">
-              Precio 20â¬
-              </div>
-              <a href="#" class="tm-tours-box-1-link-right">
-                *****
-              </a>
-            </div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<div class="tm-tours-box-1">
-						<img src="${prefix}/img/tours-06.jpg" alt="image" class="img-responsive">
-            <div class="tm-tours-box-1-info">
-              <div class="tm-tours-box-1-info-left">
-                <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
-                <p class="gray-text">Tipo-Categoria</p>
-              </div>
-              <div class="tm-tours-box-1-info-right">
-                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, elit.</p>
-              </div>
-            </div>
-            <div class="tm-tours-box-1-link">
-              <div class="tm-tours-box-1-link-left">
-              Precio 20
-              </div>
-              <a href="#" class="tm-tours-box-1-link-right">
-                *****
-              </a>
-            </div>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</section>
@@ -471,7 +411,7 @@
             </div>
              <div class="col-lg-4 col-md-4 col-lg-offset-1 col-md-offset-1">
 
-                  <a href="#" target="_blank" class="btn btn-danger btn-lg btn-block">PuntÃºa nuestro restaurante  *****</a>
+                  <a href="#" target="_blank" class="btn btn-danger btn-lg btn-block">Puntúa nuestro restaurante  *****</a>
               </div>
           </div>
 				</div>

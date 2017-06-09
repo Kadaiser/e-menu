@@ -32,13 +32,29 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <c:if test="${usuarios[0].roles!='RESTAURANT'}">
+                                        		<th>Nacimiento</th>
+                                        </c:if>
+                                        <th>Rol</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                               		<c:forEach var="u" items="${usuarios}">
+                                		<tr>
+                                        	<td> ${u.id} </td>
+                                        	<td> ${u.name} </td>
+                                        	<td> ${u.mail} </td>
+                                        	<c:if test="${u.roles!='RESTAURANT'}">
+                                        		<td> ${u.bornDate} </td>
+                                        	</c:if>
+                                        	<td> ${u.roles} </td>
+                                    	</tr>
+                                	</c:forEach>
+                                    
+                                    <!-- 
                                     <tr>
                                         <td>1</td>
                                         <td>Mark</td>
@@ -62,7 +78,7 @@
                                         <td>John</td>
                                         <td>Smith</td>
                                         <td>@jsmith</td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>
