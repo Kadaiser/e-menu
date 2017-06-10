@@ -1,6 +1,21 @@
 	<%@ page pageEncoding="UTF-8"%>
 	<!-- Header -->
   	<%@ include file="../jspf/header-index.jspf" %>
+<script type="text/JavaScript">
+
+
+function cambiaUser(){ 
+	document.getElementById("inputEmail").value="a@a.as"
+} 
+function cambiaRest(){ 
+	document.getElementById("inputEmail").value="r@r.rs"
+} 
+function cambiaAdmin(){ 
+	document.getElementById("inputEmail").value="admin@ucm.es"
+} 
+</script>
+
+
 <body>
 
 <!--
@@ -23,7 +38,11 @@
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar sesión</button>
+            	<input type="button" value="User" onclick="cambiaUser()" />
+            	<input type="button" value="Rest" onclick="cambiaRest()" />
+            	<input type="button" value="Admin" onclick="cambiaAdmin()" />
             </form><!-- /form -->
+            
             <a href="#" class="forgot-password">
                 Olvidó la contraseña?
             </a>

@@ -338,6 +338,7 @@ hr { border-top: 1px solid #111010; }
 	font-weight: 250;
 }
 .tm-home-box-2 {
+	margin:2%;
 	background-color: white;
 	max-width: 254px;
 }

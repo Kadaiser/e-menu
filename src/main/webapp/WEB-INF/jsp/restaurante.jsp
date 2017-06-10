@@ -10,8 +10,8 @@
 		  <ul class="slides">
 		    <li>
 			    <div class="tm-banner-inner">
-					<h1 class="tm-banner-title"><span class="tm-yellow-text"> ${restaurante.name} </span></h1>
-					<p class="tm-banner-subtitle"> ${restaurante.address} </p>
+					<h1 class="tm-banner-title"><span class="tm-yellow-text"> <c:out value="${restaurante.name}"/> </span></h1>
+					<p class="tm-banner-subtitle"> <c:out value="${restaurante.address}"/> </p>
 					<sec:authorize access="hasRole('ROLE_USER')">
 						<c:if test="${fav==true }">
 							<a class="tm-banner-link">Siguiendo</a>
@@ -136,13 +136,13 @@
 						<img src="${prefix}/img/tours-03.jpg" alt="image" class="img-responsive">
             			<div class="tm-tours-box-1-info">
               				<div class="tm-tours-box-1-info-left">
-                				<p class="text-uppercase margin-bottom-20">${p.name}</p>
+                				<p class="text-uppercase margin-bottom-20"><c:out value="${p.name}"/></p>
                 				<p class="gray-text">Tipo-Categoria</p>
              				</div>
              				<div class="tm-tours-box-1-info-right">
                 				<p class="gray-text tours-1-description">
-									<p>Kcal: ${p.kcal}  //  Prot: ${p.prot } </p>
-									<p>Carbs: ${p.fats} // Fats: ${p.fats} </p>
+									<p>Kcal: <c:out value="${p.kcal}"/>  //  Prot: <c:out value="${p.prot }"/> </p>
+									<p>Carbs: <c:out value="${p.carbs}"/> // Fats: <c:out value="${p.fats}"/> </p>
 								</p>
               				</div>
            				</div>

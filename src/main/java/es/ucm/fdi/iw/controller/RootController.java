@@ -1,6 +1,7 @@
 package es.ucm.fdi.iw.controller;
 
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Date;
 import java.util.Collection;
@@ -35,8 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-
-import es.ucm.fdi.iw.LocalData;
+import es.ucm.fdi.iw.*;
 import es.ucm.fdi.iw.model.Admin;
 import es.ucm.fdi.iw.model.Allergen;
 import es.ucm.fdi.iw.model.Dish;
@@ -159,6 +159,9 @@ public class RootController {
 /*Admin*/
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Model model, HttpSession session){
+		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("usuario", 
+				entityManager.createNamedQuery("adminPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
 		
 		
 		model.addAttribute("pageTitle", "Admin");	
@@ -423,9 +426,26 @@ public class RootController {
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String user(Model model, HttpSession session){
 		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		model.addAttribute("usuario",(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
-		model.addAttribute("alergenos", 
-				entityManager.createNamedQuery("todosAlergenos").getResultList());
+		
+		Collection<GrantedAuthority> authorities=(Collection<GrantedAuthority>)userDetails.getAuthorities();
+		String hasRole="";
+		for(GrantedAuthority authority : authorities){
+			hasRole= authority.getAuthority();
+		}
+		log.info(hasRole);
+		if(hasRole.equals("ROLE_USER")){
+				model.addAttribute("usuario",
+						(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
+				model.addAttribute("alergenos", 
+						entityManager.createNamedQuery("todosAlergenos").getResultList());
+
+		}else{
+			model.addAttribute("usuario",
+					(Admin)entityManager.createNamedQuery("adminPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
+
+		}
+		
+		
 		model.addAttribute("pageTitle", "User");	
 		return "user";
 	}
@@ -436,15 +456,19 @@ public class RootController {
 	 * @param photo to upload
 	 * @return
 	 */
-	@RequestMapping(value="/photo/{id}", method=RequestMethod.POST)
-    public @ResponseBody String handleFileUpload(@RequestParam("photo") MultipartFile photo,
+	@RequestMapping(value="/photoUser/{id}", method=RequestMethod.POST)
+    public @ResponseBody String handleFileUpload(
+    		@RequestParam("photo") MultipartFile photo,
     		@PathVariable("id") String id){
         if (!photo.isEmpty()) {
             try {
                 byte[] bytes = photo.getBytes();
+                log.info("bytes image: "+ bytes);
+                File f=localData.getFile("img/user", "user"+id);
                 BufferedOutputStream stream =
                         new BufferedOutputStream(
-                        		new FileOutputStream(localData.getFile("user", id)));
+                        		new FileOutputStream(f));
+                
                 stream.write(bytes);
                 stream.close();
                 return "You successfully uploaded " + id + 

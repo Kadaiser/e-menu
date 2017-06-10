@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-12 ">
                         <div class="alert alert-info">
-                             <strong>Bienvenido  ${rol} </strong>
+                             <strong>Bienvenido  <c:out value="${usuario.name}"/> </strong>
                         </div>
 
                     </div>

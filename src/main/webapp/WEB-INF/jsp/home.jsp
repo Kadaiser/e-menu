@@ -7,8 +7,8 @@
 	<section class="container tm-home-section-1" id="more">
 		<div class="row">
 
-			<div class="col-lg-3 col-md-3 col-sm-3">
-				<!-- Nav tabs -->
+			<!--<div class="col-lg-3 col-md-3 col-sm-3">
+				
 				<div class="tm-home-box-1">
 					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
 					    <li role="presentation" class="active">
@@ -17,7 +17,7 @@
 
 					</ul>
 
-					<!-- Tab panes -->
+					
 					<div class="tab-content">
 					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="rest">
 					    	<div class="tm-search-box effect2">
@@ -70,16 +70,16 @@
 
 					</div>
 				</div>
-			</div>
+			</div>-->
 			
-			<c:forEach var = "i" begin = "0" end = "2">
+			<c:forEach var = "r" items="${restaurantes}">
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="${prefix}/img/index-0<c:out value="${i}"/>.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/index-0<c:out value="${r.id}"/>.jpg" alt="image" class="img-responsive">
 					
-					<a href="restaurante?id=${restaurantes[i].id}"}>
+					<a href="restaurante?id=${r.id}"}>
 						<div class="tm-green-gradient-bg tm-city-price-container">
-							<span>${restaurantes[i].name}</span>
+							<span><c:out value="${r.name}"/></span>
 						</div>
 					</a>
 					
@@ -89,7 +89,7 @@
 
 		</div> <!-- Row -->
 
-		<div class="row">
+	<!--<div class="row">
 
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
@@ -133,7 +133,7 @@
 				</div>
 			</div>
 
-		</div>
+		</div>-->
 
 		<div class="section-margin-top">
 			<div class="row">

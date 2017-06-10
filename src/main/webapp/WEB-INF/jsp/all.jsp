@@ -66,41 +66,17 @@
                                 <tbody>
                                		<c:forEach var="u" items="${usuarios}">
                                 		<tr>
-                                        	<td> ${u.id} </td>
-                                        	<td> ${u.name} </td>
-                                        	<td> ${u.mail} </td>
+                                        	<td> <c:out value="${u.id}"/> </td>
+                                        	<td> <c:out value="${u.name}"/> </td>
+                                        	<td> <c:out value="${u.mail}"/> </td>
                                         	<c:if test="${u.roles!='RESTAURANT'}">
-                                        		<td> ${u.bornDate} </td>
+                                        		<td> <c:out value="${u.bornDate}"/> </td>
                                         	</c:if>
-                                        	<td> ${u.roles} </td>
+                                        	<td> <c:out value="${u.roles}"/> </td>
                                     	</tr>
                                 	</c:forEach>
                                     
-                                    <!-- 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>John</td>
-                                        <td>Smith</td>
-                                        <td>@jsmith</td>
-                                    </tr> -->
+                                   
                                 </tbody>
                             </table>
                         </div>

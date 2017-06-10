@@ -77,18 +77,18 @@
                      <div class="panel panel-default col-md-4 col-lg-4">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">${p.name}</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><c:out value="${p.name}"/></a>
                                     </h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
                                             <img src="${prefix}/img/rest1.jpg">
-                                            <p> Kcal: ${p.kcal}  </p>
-                                            <p> Prot: ${p.prot}  </p>
-                                            <p> Carbs: ${p.carbs}  </p>
-                                            <p> Fats: ${p.fats}  </p>
-                                            <p> Precio: ${p.precio} € </p>
+                                            <p> Kcal: <c:out value="${p.kcal}"/>  </p>
+                                            <p> Prot: <c:out value="${p.prot}"/>  </p>
+                                            <p> Carbs: <c:out value="${p.carbs}"/>  </p>
+                                            <p> Fats: <c:out value="${p.fats}"/>  </p>
+                                            <p> Precio: <c:out value="${p.precio}"/> € </p>
                                         </div>
                                         </br>
                                         <form action="/modifica-plato" method="get">

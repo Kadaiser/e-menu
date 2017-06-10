@@ -27,14 +27,14 @@
                  <form action="actualizar-user" method="post">
                  	Email:
                  	<div class="input-group">
-                 	<p> ${usuario.mail} </p>
+                 	<p> <c:out value="${usuario.mail}"/> </p>
                  		<!--<span class="input-group-addon">@</span>
                  		 <input type="text" class="form-control" id="mail" name="name" placeholder="email" value=${usuario.mail} /> -->
                  	</div>
                  	<br>
                  	Nick:
                  	<div class="input-group">
-                 	<p> ${usuario.name} </p>
+                 	<p> <c:out value="${usuario.name}"/> </p>
                  		<!-- <input type="text" class="form-control" id="mail" name="name" placeholder="Nick" value=${usuario.name} /> -->
                  	</div>
                  	<br>
@@ -53,26 +53,42 @@
                  		<input type="date" class="form-control" id="born_date" name="born_date" placeholder="born_date" value=${usuario.bornDate} />
                  	</div>
                  	<br>
+                 	<sec:authorize access="hasRole('ROLE_USER')">
                  	<select multiple id="alers" name="alers" class="form-control" title="Alergias">
                                         	<c:forEach var="a" items="${alergenos}">
                                         		<c:set var="in" value="false" />
                                         		<c:forEach var="al" items="${usuario.knownAllergens}">
                                         			<c:if test= "${al.id==a.id && in eq false}"  >
-                                        				<option value="${a.id}" selected>${a.name}</option>
+                                        				<option value="${a.id}" selected><c:out value="${a.name}"/></option>
                                     					<c:set var="in" value="true" />
                                     				</c:if>
                                     				
                                     			</c:forEach>
                                     			<c:if test= "${al.id!=a.id && in eq false}" >
-                                        				<option value="${a.id}">${a.name}</option>
+                                        				<option value="${a.id}"><c:out value="${a.name}"/></option>
                                     				</c:if>
                                     		</c:forEach>
-                                      	</select>
+                       </select>
+                       <br>
+                       </sec:authorize>
                  	<div class="input-group">
                  		<input type="submit" class="btn" value="Guardar Cambios" />
                  	</div>
                  	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                  </form>
+                 <br>
+                 <form action="/photoUser/${usuario.id}" method="post" enctype="multipart/form-data">
+                 	<div class="input-group">
+                    Subir foto de usuario:
+                    	
+                    	<input type="file" name="photo" >
+                    	<br>
+                    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    	<input type="submit" class="btn" value="Subir Imagen" />
+                    </div> 
+                    <br> 
+                 </form>
+                  
                  	
                  	
                  </div>

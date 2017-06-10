@@ -37,6 +37,7 @@ public class LocalData {
      * created if absent.
      */
     public File getFolder(String folderName) {
+    	log.info("baseFolder: "+baseFolder.getAbsolutePath());
     	File folder = new File(baseFolder, folderName);
     	if ( ! folder.exists()) {
     		folder.mkdirs();
@@ -51,6 +52,7 @@ public class LocalData {
      * the file does not exist, it is not created.
      */
     public File getFile(String folderName, String fileName) {
+    	log.info("baseFolder: "+baseFolder.getAbsolutePath());
     	return new File(getFolder(folderName), fileName);
     }
 }

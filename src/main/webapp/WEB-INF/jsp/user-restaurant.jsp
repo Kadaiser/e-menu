@@ -16,22 +16,22 @@
                     <form action="actualizar-res" method="post">
                  		Email:
                  		<div class="input-group">
-                 			<p> ${usuario.mail} </p>
+                 			<p> <c:out value="${usuario.mail}"/> </p>
                  		</div>
                  		<br>
                  		Nombre Restaurante:
                  		<div class="input-group">
-                 			<p> ${usuario.name} </p>
+                 			<p> <c:out value="${usuario.name}"/> </p>
                  		</div>
                  		<br>
                  		CIF:
                  		<div class="input-group">
-                 			<p> ${usuario.cif} </p>
+                 			<p> <c:out value="${usuario.cif}"/> </p>
                  		</div>
                  		<br>
                  		Teléfono:
                  		<div class="input-group">
-                 			<input type="number" class="form-control" id="phone" min="111111111" max="999999999" name="phone" placeholder="teléfono" value=${usuario.phone} />
+                 			<input type="number" class="form-control" id="phone" min="111111111" max="999999999" name="phone" placeholder="teléfono" value="${usuario.phone}" />
                  		</div>
                  		<br>
                  		Dirección:
@@ -41,7 +41,7 @@
                  		<br>
                  		Capacidad:
                  		<div class="input-group">
-                 			<input type="number" class="form-control" id="cap" name="cap" placeholder="capacidad" value=${usuario.capacity} />
+                 			<input type="number" class="form-control" id="cap" name="cap" placeholder="capacidad" value="${usuario.capacity}" />
                  		</div>
                  		<br>
                  		Contraseña Actual:
@@ -87,7 +87,7 @@
                                     <p>Seleccione alérgenos: (Puede seleccionar varios pulsando Ctrl)</p>
                                      <select multiple id="alers" name="alers" class="form-control" title="Alergias">
                                         	<c:forEach var="a" items="${alergenos}">
-                                        		<option value="${a.id}">${a.name}</option>
+                                        		<option value="${a.id}"><c:out value="${a.name}"/></option>
                                     		</c:forEach>
                                       </select>
                                     </div>

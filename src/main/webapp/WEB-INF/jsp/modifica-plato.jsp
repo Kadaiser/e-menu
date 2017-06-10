@@ -18,7 +18,7 @@
                         <div class="tm-home-box-1">
                             <ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
                               <li role="presentation" class="active">
-                                <a aria-controls="hotel" role="tab" data-toggle="tab">Crear plato</a>
+                                <a aria-controls="hotel" role="tab" data-toggle="tab">Modificar plato</a>
                               </li>
                            </ul>
 
@@ -44,13 +44,13 @@
                                         		<c:set var="in" value="false" />
                                         		<c:forEach var="al" items="${plato.allergens}">
                                         			<c:if test= "${al.id==a.id && in eq false}"  >
-                                        				<option value="${a.id}" selected>${a.name}</option>
+                                        				<option value="${a.id}" selected><c:out value="${a.name}"/></option>
                                     					<c:set var="in" value="true" />
                                     				</c:if>
                                     				
                                     			</c:forEach>
                                     			<c:if test= "${al.id!=a.id && in eq false}" >
-                                        				<option value="${a.id}">${a.name}</option>
+                                        				<option value="${a.id}"><c:out value="${a.name}"/></option>
                                     				</c:if>
                                     		</c:forEach>
                                       	</select>
