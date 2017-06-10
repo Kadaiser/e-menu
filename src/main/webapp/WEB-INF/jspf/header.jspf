@@ -20,6 +20,8 @@
 	<link href="${prefix}/css/flexslider.css" rel="stylesheet">
 	<link href="${prefix}/css/templatemo-style.css" rel="stylesheet">
 	
+	<link href="${prefix}/css/custom.css" rel="stylesheet" />
+	
 	<script src="${prefix}/js/jquery-1.10.2.js"></script>
 	
 </head>

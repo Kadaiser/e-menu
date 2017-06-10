@@ -190,3 +190,31 @@ Propias
 	position: absolute;
 	height: 34px;
 }
+.clasificacion form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+.star {
+  font-size: 10px;
+  color: white;
+}
+
+.ra{
+  display: none;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+.star:hover,
+.star:hover ~ .star {
+  color: orange;
+}
+
+.ra:checked ~ .star {
+  color: orange;
+}

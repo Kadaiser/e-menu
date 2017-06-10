@@ -53,6 +53,21 @@
                  		<input type="date" class="form-control" id="born_date" name="born_date" placeholder="born_date" value=${usuario.bornDate} />
                  	</div>
                  	<br>
+                 	<select multiple id="alers" name="alers" class="form-control" title="Alergias">
+                                        	<c:forEach var="a" items="${alergenos}">
+                                        		<c:set var="in" value="false" />
+                                        		<c:forEach var="al" items="${usuario.knownAllergens}">
+                                        			<c:if test= "${al.id==a.id && in eq false}"  >
+                                        				<option value="${a.id}" selected>${a.name}</option>
+                                    					<c:set var="in" value="true" />
+                                    				</c:if>
+                                    				
+                                    			</c:forEach>
+                                    			<c:if test= "${al.id!=a.id && in eq false}" >
+                                        				<option value="${a.id}">${a.name}</option>
+                                    				</c:if>
+                                    		</c:forEach>
+                                      	</select>
                  	<div class="input-group">
                  		<input type="submit" class="btn" value="Guardar Cambios" />
                  	</div>

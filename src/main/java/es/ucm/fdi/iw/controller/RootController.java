@@ -63,6 +63,12 @@ public class RootController {
 		entityManager.persist(d);
 		return a;
 	}
+	private Allergen userGetAllergen(long id, User d) {
+		Allergen a = entityManager.find(Allergen.class, id);
+		a.getVictims().add(d);
+		entityManager.persist(d);
+		return a;
+	}
 	private Restaurant getFavRes(long id, User u) {
 		Restaurant r = entityManager.find(Restaurant.class, id);
 		r.getFans().add(u);
@@ -383,6 +389,10 @@ public class RootController {
 	
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String user(Model model, HttpSession session){
+		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("usuario",(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
+		model.addAttribute("alergenos", 
+				entityManager.createNamedQuery("todosAlergenos").getResultList());
 		model.addAttribute("pageTitle", "User");	
 		return "user";
 	}
@@ -427,6 +437,8 @@ public class RootController {
 	
 	@RequestMapping(value = "/user-restaurant", method = RequestMethod.GET)
 	public String userRest(Model model, HttpSession session){
+		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("usuario",(Restaurant)entityManager.createNamedQuery("restaurantePorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
 		model.addAttribute("alergenos", 
 				entityManager.createNamedQuery("todosAlergenos").getResultList());
 		model.addAttribute("pageTitle", "User");	
@@ -556,6 +568,7 @@ public class RootController {
 				@RequestParam("pass") String pass,
 				@RequestParam("pass_new") String pass1,
 				@RequestParam("born_date") Date fecha,
+				@RequestParam("alers") String[] alergenos,
 				HttpServletRequest request, HttpServletResponse response,
 				Model model, 
 				HttpSession session){
@@ -572,31 +585,55 @@ public class RootController {
 						//User user=(User)session.getAttribute("usuario");
 						if(pass != "" && pass1 != ""){
 							//comprobamos que la contraseña actual coincida.
-							if(passwordEncoder.encode(pass).equals(user.getPass())){
+							log.info(passwordEncoder.encode(pass));
+							if (passwordEncoder.matches(pass, user.getPass())) {
+								log.info("Coincide la contraseña");
+							
 								if(pass1.length()>4){
 									pass1=passwordEncoder.encode(pass1);
 									user.setPass(pass1);
 									user.setBornDate(fecha);
+									for(Allergen a: user.getKnownAllergens()){
+										a.getDishes().remove(user);
+									}
+									for(String i: alergenos){
+										userGetAllergen(Integer.parseInt(i), user);
+									}
 									entityManager.merge(user);
 									session.setAttribute("usuario", user);
-									return "user";
+									return "redirect:/user";
 								}
 							}
 						}else /*Comprobamos si ha cambiado la fecha sólo*/
 							if(user.getBornDate()!=fecha){
 								
 								user.setBornDate(fecha);
+								for(Allergen a: user.getKnownAllergens()){
+									a.getDishes().remove(user);
+								}
+								for(String i: alergenos){
+									userGetAllergen(Integer.parseInt(i), user);
+								}
 								entityManager.merge(user);
 								session.setAttribute("usuario", user);
-								return "user";
+								return "redirect:/user";
 							
 						}
+						for(Allergen a: user.getKnownAllergens()){
+							a.getDishes().remove(user);
+						}
+						for(String i: alergenos){
+							userGetAllergen(Integer.parseInt(i), user);
+						}
+						entityManager.merge(user);
+						session.setAttribute("usuario", user);
+						return "redirect:/user";
 					}else{
 						Admin user=(Admin)entityManager.createNamedQuery("adminPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
 						//User user=(User)session.getAttribute("usuario");
 						if(pass != "" && pass1 != ""){
 							//comprobamos que la contraseña actual coincida.
-							if(passwordEncoder.encode(pass).equals(user.getPass())){
+							if (passwordEncoder.matches(pass, user.getPass())) {
 								if(pass1.length()>4){
 									pass1=passwordEncoder.encode(pass1);
 									user.setPass(pass1);

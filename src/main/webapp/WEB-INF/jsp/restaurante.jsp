@@ -150,9 +150,23 @@
               				<div class="tm-tours-box-1-link-left">
              			 		Precio: ${p.precio }€
               				</div>
-             				<a href="#" class="tm-tours-box-1-link-right">
+             				<!--  <a href="#" class="tm-tours-box-1-link-right">
                					*****
-              				</a>
+              				</a>-->
+              				<form>
+								  <p class="clasificacion tm-tours-box-1-link-right">
+								    <input class="ra" id="radio1" type="radio" name="estrellas" value="5">
+								    <label class="star" for="radio1">★</label> 
+								   	<input class="ra" id="radio2" type="radio" name="estrellas" value="4">
+								    <label class="star" for="radio2">★</label>
+								    <input class="ra" id="radio3" type="radio" name="estrellas" value="3">
+								    <label class="star" for="radio3">★</label>
+								    <input class="ra" id="radio4" type="radio" name="estrellas" value="2">
+								    <label class="star" for="radio4">★</label>
+								    <input class="ra" id="radio5" type="radio" name="estrellas" value="1">
+								    <label class="star" for="radio5">★</label>
+								  </p>
+</form>
             			</div>
 					</div>
 				</div>
