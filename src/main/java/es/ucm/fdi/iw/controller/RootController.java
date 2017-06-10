@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.sql.Date;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -321,9 +322,9 @@ public class RootController {
 		Restaurant r=new Restaurant();
 		r=(Restaurant)entityManager.createNamedQuery("restaurantePorID").setParameter("idParam", idRes).getSingleResult();
 		
-		model.addAttribute("platos", 
+		/*model.addAttribute("platos", 
 				entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList());
-		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		*/UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
 		
 		Collection<GrantedAuthority> authorities=(Collection<GrantedAuthority>)userDetails.getAuthorities();
@@ -338,8 +339,40 @@ public class RootController {
 				if(res.getId() == idRes)
 					fav=true;
 			}
+			List<Dish> listaPlatos=entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList();
+			List<Dish> listaPlatos1=entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList();
 			model.addAttribute("fav",fav);
+			boolean borrado=true;
+			
+			Iterator itr = listaPlatos.iterator();
+			Dish p=new Dish();
+			log.info("lita alergenos user: "+user.getKnownAllergens().size());
+			log.info("lita platos res: "+listaPlatos1.size());
+			if(!user.getKnownAllergens().isEmpty()){
+				for(Allergen a:user.getKnownAllergens()){
+					borrado=true;
+					while(itr.hasNext() ){
+						p=(Dish)itr.next();
+						borrado=true;
+						for(int i=0; i<p.getAllergens().size() && borrado==true;i++){
+							if(p.getAllergens().get(i).getId() == a.getId()){
+								listaPlatos1.remove(p);
+								borrado=false;
+							}
+						}
+						
+						}
+						
+					}
+					
+			}
+		model.addAttribute("platos", listaPlatos1);
+		}else{
+			model.addAttribute("platos", 
+					entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList());
+			
 		}
+		
 		
 		model.addAttribute("pageTitle", "Restaurante");	
 		return "restaurante";
@@ -594,7 +627,7 @@ public class RootController {
 									user.setPass(pass1);
 									user.setBornDate(fecha);
 									for(Allergen a: user.getKnownAllergens()){
-										a.getDishes().remove(user);
+										a.getVictims().remove(user);
 									}
 									for(String i: alergenos){
 										userGetAllergen(Integer.parseInt(i), user);
@@ -609,7 +642,7 @@ public class RootController {
 								
 								user.setBornDate(fecha);
 								for(Allergen a: user.getKnownAllergens()){
-									a.getDishes().remove(user);
+									a.getVictims().remove(user);
 								}
 								for(String i: alergenos){
 									userGetAllergen(Integer.parseInt(i), user);
@@ -620,7 +653,7 @@ public class RootController {
 							
 						}
 						for(Allergen a: user.getKnownAllergens()){
-							a.getDishes().remove(user);
+							a.getVictims().remove(user);
 						}
 						for(String i: alergenos){
 							userGetAllergen(Integer.parseInt(i), user);

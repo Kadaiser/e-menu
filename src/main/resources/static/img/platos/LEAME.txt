@@ -1,0 +1,32 @@
+FICHERO -	NOMBRE							Kcal-Prot-Grs-H.C	A|C|C|H|P|A|L|M|M|F|C|S|S|S			Fuente
+-------------------------------------------------------------------------------------------------------------------------------------------------
+d-1.jpg 	Macarrones napolitana			[516-70-119-247] 	1 1	  1         1	  1				http://www.mtcocina.com/recetas/macarrones-a-la-napolitana.htm
+d-2.jpg 	Judias verdes con jamon			[192-19-52-121] 	1						1			http://www.misthermorecetas.com/2015/08/27/judias-verdes-con-jamon/
+d-3.jpg		Ensalada variada				[186-45-12-20]				1							https://www.hogarmania.com/cocina/recetas/ensaladas-verduras/201312/ensalada-mixta-22661.html	
+d-4.jpg		Judias verdes salteadas			[181-445-81-40]											https://unareceta.com/judias-verdes-salteadas/
+d-5.jpg		Chuleta de cerdo a la riojana	[573-96-461-16]		1 1                     1 1    		http://recetasfaciles.com/recetas/chuletas-cerdo-riojana       
+d-6.jpg		San jacobo						[533-149-318-66]	  1   1     1           1 1			http://casamatachin.com/producto/san-jacobo-de-pollo/
+d-7.jpg		Tortilla de jamon york			[34-114-251-0]			  1		1			1 1			https://www.entrepucheros.com/tortilla-francesa-con-jamon-york/
+d-8.jpg		Marrojo a a plancha				[340-158-173-9]		  1		1		1	  1	  1			http://lamaquinadeltiempo.es/marrajo-a-la-plancha-martin-brody-tiburon/
+d-9.jpg		Sopa de cocido					[82-58-127-170]	    1 1			1			1			https://www.hogarmania.com/cocina/recetas/sopas-cremas/200512/sopa-cocido-1689.html
+d-10.jpg	Coditos a la napolitana			[516-70-199-247]	1 1   1								https://www.menudospuntocero.com//merkagest/templates/GENERAL/archivos/platos/0738.jpg
+d-11.jpg	Acelgas reogadas				[245-37-118-91]								  1			http://www.entrefogonesandaeljuego.com/?p=351
+d-12.jpg	Cocido madrileño				[817-208-423-186]	1			1			1			http://www.misthermorecetas.com/wp-content/uploads/2012/12/cocido1.jpg
+d-13.jpg	Fogonero en salsa				[372-144-107-121]	   1  1					1 1			https://store.46cromosomas.es/segundos-platos/85-suprema-fogonero-en-salsa-de-tomate-y-albahaca.html
+d-14.jpg	Enpanadillas de Bonito			[438-57-210-171]	  1	  1 1 1 1    1  	1 			https://www.hogarmania.com/cocina/recetas/pastas-pizzas/201410/empanadillas-bonito-26388.html
+d-15.jpg	Tortilla de esparragos			[262-70-14-7]			  1								http://recetasdemimadreymias.blogspot.com.es/2015/04/tortilla-de-esparragos-silvestres.html
+d-16.jpg	Sopa de verduras 				[281-38-175-67]											https://mejorconsalud.com/deliciosas-recetas-de-sopa-de-verduras/
+d-17.jpg	Macarrones gratinados			[448-50-191-206]	1 1			1  1	  1				https://www.hogarmania.com/cocina/recetas/pastas-pizzas/201107/macarrones-gratinados-9340.html
+d-18.jpg	Crema castellana				[258-26-89-143]		1 1			1			  1			http://canalcocina.es/receta/crema-castellana-huevo-codorniz-escalfado
+d-19.jpg	Ensalada mixta					[186-45-120-20]		  1		1							https://i.ytimg.com/vi/B5ZMtBbaEtc/maxresdefault.jpg
+d-20.jpg	Muslitos de pollo en pepitoria	[388-202-89-97]		1 1				 1	    1 1			http://cocinitas.es/pollo-en-pepitoria/
+d-21.jpg	Enpanadillas argentinas			[435-57-210-63]		  1  1  1  1 1        1 1 1			https://okdiario.com/recetas/2016/08/30/empanadas-argentinas-16590
+d-22.jpg	Huevos a la andaluza			[449-84-365-78]			 1     1			1			https://redtodoonline.com/huevos-la-andaluza/
+d-23.jpg	Fogonero al horno				[372-144-107-121]	    1   1				1 1			http://www.recetario-cocina.com/recetas-de/filete-de-fogonero/0
+d-24.jpg	Judias blancas estofadas		[298-55-101-141]	1						1			http://fussioncook-foro.com/viewtopic.php?f=2&t=8917
+d-25.jpg	Pipirrana						[256-27-123-128]			1				  1			http://fussioncook-foro.com/viewtopic.php?f=2&t=8917
+d-26.jpg	Crema de verduras				[215-11-133-71]								  1			http://www.recetasdeescandalo.com/crema-de-verduras/
+d-27.jpg	Ensalada mixta					[186-45-120-20]				1				  1			http://contest.salepepe.it/insalatefantasia/contributo/insalata-mista/
+d-28.jpg	Lasaña de carne					[466-72-274-120]	1 1 1	   1  1		  1 1 1			http://www.elperiodicomediterraneo.com/noticias/recetas/lasana-carne_938691.html	
+d-29.jpg	Caballa a la plancha			[483-124-289-70]			1							http://www.rtve.es/alacarta/videos/la-manana/saber-cocinar-caballa-asada-crepes-gambas/1378567/
+d-30.jpg	Tortilla de esparragos			[212-45-30-20]			  1								http://www.eladerezo.com/recetas/tortilla-de-esparragos-trigueros.html
