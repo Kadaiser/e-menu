@@ -34,6 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/anyadirFavoritos").hasRole("USER")
 				
 				.antMatchers("/actualizar-res").hasRole("RESTAURANT")
+				.antMatchers("modifica-plato").hasRole("RESTAURANT")
+				.antMatchers("modificaPlato").hasRole("RESTAURANT")
 				
 				.antMatchers("/carta-restaurante").hasRole("RESTAURANT")
 				

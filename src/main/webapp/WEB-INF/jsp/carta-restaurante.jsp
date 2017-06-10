@@ -91,8 +91,9 @@
                                             <p> Precio: ${p.precio} € </p>
                                         </div>
                                         </br>
-                                        <form action="" method="get">
-                                        <button type="submit" name="submit" class="btn btn-warning" style="margin-bottom:15px">Editar Plato</button>
+                                        <form action="/modifica-plato" method="get">
+                                            <input type="hidden" name="id" value="${p.id}"/>
+                                        	<button type="submit" name="submit" class="btn btn-warning" style="margin-bottom:15px">Editar Plato</button>
                                         </form>
                                         </br>
                                          <form action="/borrarPlato?id=${p.id}" method="post">

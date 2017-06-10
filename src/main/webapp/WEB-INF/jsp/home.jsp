@@ -21,7 +21,7 @@
 					<div class="tab-content">
 					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="rest">
 					    	<div class="tm-search-box effect2">
-								<form action="#" method="post" class="hotel-search-form">
+								<form method="post" class="hotel-search-form">
 									<div class="tm-form-inner">
 										<div class="form-group">
 							            	 <select class="form-control">

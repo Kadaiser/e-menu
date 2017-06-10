@@ -319,14 +319,22 @@ public class RootController {
 				entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList());
 		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
-		User user=(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
 		
-		boolean fav=false;
-		for(Restaurant res : user.getFavoriteRestaurants()){
-			if(res.getId() == idRes)
-				fav=true;
+		Collection<GrantedAuthority> authorities=(Collection<GrantedAuthority>)userDetails.getAuthorities();
+		String hasRole="";
+		for(GrantedAuthority authority : authorities){
+			hasRole= authority.getAuthority();
 		}
-		model.addAttribute("fav",fav);
+		if(hasRole.equals("ROLE_USER")){
+			User user=(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
+			boolean fav=false;
+			for(Restaurant res : user.getFavoriteRestaurants()){
+				if(res.getId() == idRes)
+					fav=true;
+			}
+			model.addAttribute("fav",fav);
+		}
+		
 		model.addAttribute("pageTitle", "Restaurante");	
 		return "restaurante";
 	}
@@ -663,7 +671,7 @@ public class RootController {
 				@RequestParam("fats") int fats,
 				@RequestParam("carbs") int carbs,
 				@RequestParam("alers") String[] alergenos,
-				@RequestParam("precio") int precio,
+				@RequestParam("precio") float precio,
 				HttpServletRequest request, HttpServletResponse response,
 				Model model, 
 				HttpSession session){
@@ -707,6 +715,62 @@ public class RootController {
 				entityManager.flush();
 				return "redirect:/carta-restaurante";
 		}
+		
+		@RequestMapping(value = "/modifica-plato", method = RequestMethod.GET)
+		public String modificaPlato(
+				@RequestParam("id") long idP,
+				Model model,
+				HttpSession session){
+			
+			model.addAttribute("plato",
+					entityManager.createNamedQuery("DishID").setParameter("idParam", idP).getSingleResult());
+			model.addAttribute("alergenos", 
+					entityManager.createNamedQuery("todosAlergenos").getResultList());
+			model.addAttribute("pageTitle", "Modificar Plato");	
+			return "modifica-plato";
+		}
+		
+		@Transactional
+		@RequestMapping(value="modificaPlato", method=RequestMethod.POST)
+		public String modific(
+			@RequestParam("id") long id,
+			@RequestParam("dishName") String nombre,
+			@RequestParam("kcal") int kcal,
+			@RequestParam("prot") int prot,
+			@RequestParam("fats") int fats,
+			@RequestParam("carbs") int carbs,
+			@RequestParam("alers") String[] alergenos,
+			@RequestParam("precio") float precio,
+			HttpServletRequest request, HttpServletResponse response,
+			Model model, 
+			HttpSession session){
+				Dish p= new Dish();
+				p=(Dish)entityManager.createNamedQuery("DishID").setParameter("idParam", id).getSingleResult();
+				
+				if(!p.getName().equals(nombre)){
+					p.setName(nombre);	
+				}if(p.getKcal()!=kcal){
+					p.setKcal(kcal);					
+				}if(p.getProt()!=prot){
+					p.setProt(prot);
+				}if(p.getFats()!=fats){
+					p.setFats(fats);
+				}if(p.getCarbs()!=carbs){
+					p.setCarbs(carbs);
+				}if(p.getPrecio()!=precio){
+					p.setPrecio(precio);
+				}
+				for(Allergen a: p.getAllergens()){
+					a.getDishes().remove(p);
+				}
+				for(String i: alergenos){
+					getAllergen(Integer.parseInt(i), p);
+				}
+				entityManager.merge(p);
+				session.setAttribute("plato", p);
+				return "redirect:/carta-restaurante";
+		}
+		
 		@Transactional
 		@RequestMapping(value="/anyadirFavoritos", method= RequestMethod.GET)
 		public String anyadirFavoritos(
