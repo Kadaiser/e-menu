@@ -43,9 +43,8 @@
 							<li><a href="about">About</a></li>
 							<li><a href="contact">Contact</a></li>
 							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#"> 
-								${usuario.name}
-								<!--<sec:authentication property="principal.username"/> -->
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								<c:out value="${usuario.name}"/>
 								<span class="caret"></span></a>
 								<ul class="dropdown-menu">
       								<c:choose>

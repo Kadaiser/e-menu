@@ -273,6 +273,8 @@ public class RootController {
 				entityManager.createNamedQuery("userByMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
 		model.addAttribute("restaurantes", 
 				entityManager.createNamedQuery("todosRestaurantes").getResultList());
+		model.addAttribute("platos", 
+				entityManager.createNamedQuery("AllDish").getResultList());
 		model.addAttribute("pageTitle", "eMenu-Home");		
 		return "home";
 	}

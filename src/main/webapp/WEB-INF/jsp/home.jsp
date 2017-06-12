@@ -75,7 +75,7 @@
 			<c:forEach var = "r" items="${restaurantes}">
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
-					<img src="${prefix}/img/index-0<c:out value="${r.id}"/>.jpg" alt="image" class="img-responsive">
+					<img src="${prefix}/img/restaurantes/r-<c:out value="${r.id}"/>.jpg" alt="image" class="img-responsive">
 					
 					<a href="restaurante?id=${r.id}"}>
 						<div class="tm-green-gradient-bg tm-city-price-container">
@@ -89,113 +89,34 @@
 
 		</div> <!-- Row -->
 
-	<!--<div class="row">
-
-			<div class="col-lg-3 col-md-3 col-sm-63">
-				<div class="tm-home-box-2">
-
-
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-3 col-sm-63">
-				<div class="tm-home-box-2">
-					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
-					<a href="restaurante">
-						<div class="tm-green-gradient-bg tm-city-price-container">
-							<span>New York</span>
-							<span>$6,600</span>
-						</div>
-					</a>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-3 col-sm-63">
-				<div class="tm-home-box-2">
-					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
-					<a href="restaurante">
-						<div class="tm-green-gradient-bg tm-city-price-container">
-							<span>New York</span>
-							<span>$6,600</span>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-3 col-sm-63">
-				<div class="tm-home-box-2">
-					<img src="${prefix}/img/index-01.jpg" alt="image" class="img-responsive">
-					<a href="restaurante">
-						<div class="tm-green-gradient-bg tm-city-price-container">
-							<span>New York</span>
-							<span>$6,600</span>
-						</div>
-					</a>
-				</div>
-			</div>
-
-		</div>-->
-
 		<div class="section-margin-top">
 			<div class="row">
 				<div class="tm-section-header">
 					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
-					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">Lorem Ipsum Dolor</h2></div>
+					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">Our Restaurants</h2></div>
 					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
 				</div>
 			</div>
 			<div class="row">
+				<c:forEach var = "r" items="${restaurantes}">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">
-						<img src="${prefix}/img/index-03.jpg" alt="image" class="img-responsive">
-						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
-						<p class="tm-date">28 March 2016</p>
+						<img src="${prefix}/img/restaurantes/r-<c:out value="${r.id}"/>.jpg" alt="image" class="img-responsive">
+						<h3><c:out value="${r.name}"/></h3>
+						<p><c:out value="${r.phone}"/> - <c:out value="${r.address}"/></p>
 						<div class="tm-home-box-2-container">
 							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
 							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">Travel</span></a>
 							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
+						</div>		
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2">
-					    <img src="${prefix}/img/index-04.jpg" alt="image" class="img-responsive">
-						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
-						<p class="tm-date">26 March 2016</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">Travel</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2">
-					    <img src="${prefix}/img/index-05.jpg" alt="image" class="img-responsive">
-						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
-						<p class="tm-date">24 March 2016</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">Travel</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-					<div class="tm-home-box-2 tm-home-box-2-right">
-					    <img src="${prefix}/img/index-06.jpg" alt="image" class="img-responsive">
-						<h3>Proin Gravida Nibhvel Lorem Quis Bind</h3>
-						<p class="tm-date">22 March 2016</p>
-						<div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">Travel</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-					</div>
-				</div>
+				</c:forEach>
+
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="home-description">Holiday is free Bootstrap v3.3.5 responsive template for tour and travel websites. You can download and use this layout for any purpose. You do not need to provide a credit link to us. If you have any question, feel free to <a href="http://www.facebook.com/templatemo" target="_parent">contact us</a>. Credit goes to <a rel="nofollow" href="http://unsplash.com" target="_parent">Unspash</a> for images used in this template.</p>
+					<p class="home-description">The top 5 restaurant selection are based on the number of reservations per month</p>
 				</div>
 			</div>
 		</div>
@@ -207,69 +128,30 @@
 			<div class="row">
 				<div class="tm-section-header section-margin-top">
 					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
-					<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Popular Packages</h2></div>
+					<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Our Dishes</h2></div>
 					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
 				</div>
+				
+
+			
+				<c:forEach var = "p" items="${platos}">
 				<div class="col-lg-6">
 					<div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}/img/index-07.jpg" alt="image" class="img-responsive">
+							<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" class="img-responsive" height="240" width="200">
 						</div>
 						<div class="tm-home-box-3-info">
-							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+							<p class="tm-home-box-3-description"><c:out value="${p.name}"/></p>
 					        <div class="tm-home-box-2-container">
 							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+							<a href="restaurante?id=${p.location.id}" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3"><c:out value="${p.location.name}"/></span></a>
 							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
 						</div>
 						</div>
 					</div>
 			     </div>
-			     <div class="col-lg-6">
-			        <div class="tm-home-box-3">
-						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}/img/index-08.jpg" alt="image" class="img-responsive">
-						</div>
-						<div class="tm-home-box-3-info">
-							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
-					        <div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-				    <div class="tm-home-box-3">
-						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}/img/index-09.jpg" alt="image" class="img-responsive">
-						</div>
-						<div class="tm-home-box-3-info">
-							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
-					        <div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-						</div>
-					</div>
-			    </div>
-			    <div class="col-lg-6">
-			        <div class="tm-home-box-3">
-						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}/img/index-10.jpg" alt="image" class="img-responsive">
-						</div>
-						<div class="tm-home-box-3-info">
-							<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
-					        <div class="tm-home-box-2-container">
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
-							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-						</div>
-						</div>
-					</div>
-			   	</div>
+			     </c:forEach>
+			     
 			</div>
 		</div>
 	</section>
