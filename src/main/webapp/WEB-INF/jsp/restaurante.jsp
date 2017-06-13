@@ -144,8 +144,10 @@
              				</div>
              				<div class="tm-tours-box-1-info-right">
                 				<p class="gray-text tours-1-description">
-									<p>Kcal: <c:out value="${p.kcal}"/>  //  Prot: <c:out value="${p.prot }"/> </p>
-									<p>Carbs: <c:out value="${p.carbs}"/> // Fats: <c:out value="${p.fats}"/> </p>
+									<p>Kcal: <c:out value="${p.kcal}"/></p>
+									<p>Prot: <c:out value="${p.prot }"/></p>
+									<p>Carbs: <c:out value="${p.carbs}"/></p>
+									<p>Fats: <c:out value="${p.fats}"/> </p>
 								</p>
               				</div>
            				</div>
