@@ -84,7 +84,7 @@
                     </div>
 									</div>
 						      <div class="form-group tm-yellow-gradient-bg text-center">
-						       	<button type="submit" name="submit" class="tm-yellow-btn">Reserva Ahora</button>
+						       	<button type="submit" name="submit" class="tm-yellow-bTítulo Comida-Menutn">Reserva Ahora</button>
 						       </div>
 								  </form>
 							</div>
@@ -96,19 +96,19 @@
 
 	<div class="col-lg-4 col-md-4 col-sm-6">
         <div class="tm-tours-box-1">
-          <img src="${prefix}/img/restaurantes/r-${restaurante.id}.jpg" alt="image" class="img-responsive">
+          <img src="${prefix}/img/restaurantes/r-<c:out value="${restaurante.id}"/>.jpg" alt="image" class="img-responsive">
           <div class="tm-tours-box-1-info">
             <div class="tm-tours-box-1-info-left">
-              <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
-              <p class="gray-text">Tipo-Categoria</p>
+              <p class="text-uppercase margin-bottom-20"><c:out value="${restaurante.name}"/></p>
+              <p class="gray-text"><c:out value="${restaurante.phone}"/></p>
             </div>
             <div class="tm-tours-box-1-info-right">
-              <p class="gray-text tours-1-description">Lorem quis bibendum auctor, elit.</p>
+              <p class="gray-text tours-1-description">Aforo:<c:out value="${restaurante.capacity}"/>personas</p>
             </div>
           </div>
           <div class="tm-tours-box-1-link">
             <div class="tm-tours-box-1-link-left">
-            MENU ESTRELLA
+            Calificación
             </div>
             <a href="#" class="tm-tours-box-1-link-right">
               *****
@@ -137,7 +137,10 @@
             			<div class="tm-tours-box-1-info">
               				<div class="tm-tours-box-1-info-left">
                 				<p class="text-uppercase margin-bottom-20"><c:out value="${p.name}"/></p>
-                				<p class="gray-text">Tipo-Categoria</p>
+                				<p class="gray-text">Alergenos</p>
+                				<c:forEach var="a" items="${p.allergens}">
+                                	<img src="${prefix}/img/icons/a<c:out value="${a.id}"/>.png" alt="image" height="32" width="32" alt="<c:out value="${a.name}"/>" title="<c:out value="${a.name}"/>">
+                                </c:forEach>
              				</div>
              				<div class="tm-tours-box-1-info-right">
                 				<p class="gray-text tours-1-description">

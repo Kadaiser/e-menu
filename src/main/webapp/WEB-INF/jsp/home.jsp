@@ -6,78 +6,13 @@
   	<!-- gray bg -->
 	<section class="container tm-home-section-1" id="more">
 		<div class="row">
-
-			<!--<div class="col-lg-3 col-md-3 col-sm-3">
-				
-				<div class="tm-home-box-1">
-					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
-					    <li role="presentation" class="active">
-					    	<a href="#rest" aria-controls="hotel" role="tab" data-toggle="tab">Restaurante</a>
-					    </li>
-
-					</ul>
-
-					
-					<div class="tab-content">
-					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="rest">
-					    	<div class="tm-search-box effect2">
-								<form method="post" class="hotel-search-form">
-									<div class="tm-form-inner">
-										<div class="form-group">
-							            	 <select class="form-control">
-							            	 	<option value="">-- Selecciona Ciudad -- </option>
-							            	 	<option value="Madrid">Madrid</option>
-												<option value="Barcelona">Barcelona</option>
-												<option value="Valencia">Valencia</option>
-
-											</select>
-							          	</div>
-							          	<div class="form-group">
-							            	 <select class="form-control">
-							            	 	<option value="">-- Selecciona Localidad -- </option>
-							            	 	<option value="Madrid">Loca1</option>
-												<option value="Barcelona">Loca2</option>
-												<option value="Valencia">Loca3</option>
-
-											</select>
-							          	</div>
-							          	<div class="form-group">
-							                <div class='input-group date' id='datetimepicker1'>
-							                    <input type='text' class="form-control" placeholder="Día de asistencia" />
-							                    <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-							                </div>
-							            </div>
-
-							            <div class="form-group margin-bottom-0">
-							                <select class="form-control">
-							            	 	<option value="">-- Asistentes -- </option>
-							            	 	<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5p">5+</option>
-											</select>
-							            </div>
-									</div>
-						            <div class="form-group tm-yellow-gradient-bg text-center">
-						            	<button type="submit" name="submit" class="tm-yellow-btn">Buscar</button>
-						            </div>
-								</form>
-							</div>
-					    </div>
-
-					</div>
-				</div>
-			</div>-->
 			
 			<c:forEach var = "r" items="${restaurantes}">
 			<div class="col-lg-3 col-md-3 col-sm-63">
 				<div class="tm-home-box-2">
 					<img src="${prefix}/img/restaurantes/r-<c:out value="${r.id}"/>.jpg" alt="image" class="img-responsive">
 					
-					<a href="restaurante?id=${r.id}"}>
+					<a href="restaurante?id=<c:out value="${r.id}"/>">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span><c:out value="${r.name}"/></span>
 						</div>
@@ -106,7 +41,7 @@
 						<p><c:out value="${r.phone}"/> - <c:out value="${r.address}"/></p>
 						<div class="tm-home-box-2-container">
 							<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-							<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">Travel</span></a>
+							<a href="restaurante?id=<c:out value="${r.id}"/>" class="tm-home-box-2-link"><span class="tm-home-box-2-description">INFO</span></a>
 							<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
 						</div>		
 					</div>
@@ -116,7 +51,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="home-description">The top 5 restaurant selection are based on the number of reservations per month</p>
+					<p class="home-description">The Top4 restaurant selection are based on the number of reservations per month</p>
 				</div>
 			</div>
 		</div>
@@ -138,7 +73,7 @@
 				<div class="col-lg-6">
 					<div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" class="img-responsive">
+							<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" class="img-responsive" height="180" width="240">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description"><c:out value="${p.name}"/></p>

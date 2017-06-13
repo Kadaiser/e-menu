@@ -104,11 +104,12 @@
    
         <div class="tm-section-header section-margin-top">
           <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
-          <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title1">Recomendaciones Especiales</h2></div>
+          <div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title1">Recomendaciones Platos</h2></div>
           <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>  
         </div>        
       </div>
       <div class="row">
+      	<c:forEach var = "r" items="${restaurantes}">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
           <div class="tm-tours-box-2">            
             <img src="${prefix}/img/index-03.jpg" alt="image" class="img-responsive">
@@ -120,60 +121,16 @@
             <a href="#" class="tm-tours-box-2-link">Book Now</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-          <div class="tm-tours-box-2">            
-            <img src="${prefix}/img/index-04.jpg" alt="image" class="img-responsive">
-            <div class="tm-tours-box-2-info">
-              <h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
-              <img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
-              <p>26 March 2084</p>  
-            </div>            
-            <a href="#" class="tm-tours-box-2-link">Book Now</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-          <div class="tm-tours-box-2">            
-            <img src="${prefix}/img/index-05.jpg" alt="image" class="img-responsive">
-            <div class="tm-tours-box-2-info">
-              <h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
-              <img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
-              <p>24 March 2084</p>  
-            </div>            
-            <a href="#" class="tm-tours-box-2-link">Book Now</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-          <div class="tm-tours-box-2">            
-            <img src="${prefix}/img/index-06.jpg" alt="image" class="img-responsive">
-            <div class="tm-tours-box-2-info">
-              <h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
-              <img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
-              <p>22 March 2084</p>  
-            </div>            
-            <a href="#" class="tm-tours-box-2-link">Book Now</a>
-          </div>
-        </div>
+        </c:forEach>
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <p class="home-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-          Morbi accumsaipsu m velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat.
+          <p class="home-description">La selección de platos recomedados viene dada en base a su lista de alergenos definidos
+          								o condiciones de salud como la obesidad u otros trastornos alimenticios.
           </p>          
         </div>
-   
- 
-
-
-
-
-
-
-
-                    
-
-                 </div>
-
-    </div>
+	</div>
+   </div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

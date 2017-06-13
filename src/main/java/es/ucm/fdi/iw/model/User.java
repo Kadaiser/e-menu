@@ -17,7 +17,6 @@ public class User extends Profile {
 
 
 	private	Date bornDate;
-	//private	int age;
 	private	List<Allergen> knownAllergens;
 	private	List<Restaurant> favoriteRestaurants;
 	private List<Booking> bookings;
