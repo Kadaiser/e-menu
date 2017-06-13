@@ -89,7 +89,26 @@
 								  </form>
 							</div>
 					    </div>
-
+					</div>
+					
+					<div class="tab-content">
+					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="reserva">
+					    	<div class="tm-search-box effect2">
+								<form action="addComment" method="post" class="reserva-search-form">
+									<div class="tm-form-inner">
+					                    <div class="form-group">
+					                      <textarea placeholder="Escribe una critica..." name="content" rows="5" cols="80"></textarea>	
+					                      <p class="help-block">Se consecuente con tus criticas, agradecemos tu aportación para los demas usuarios.</p>
+					                    </div>
+									</div>
+						      <div class="form-group tm-yellow-gradient-bg text-center">
+						      <input type="hidden" name="id" value="${restaurante.id}"/>
+						       	<button type="submit" name="submit" class="tm-yellow-bTítulo Comida-Menutn">Comentar</button>
+						       	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						       </div>
+								  </form>
+							</div>
+					    </div>
 					</div>
 				</div>
 
@@ -103,7 +122,7 @@
               <p class="gray-text"><c:out value="${restaurante.phone}"/></p>
             </div>
             <div class="tm-tours-box-1-info-right">
-              <p class="gray-text tours-1-description">Aforo:<c:out value="${restaurante.capacity}"/>personas</p>
+              <p class="gray-text tours-1-description">Aforo: <c:out value="${restaurante.capacity}"/> personas</p>
             </div>
           </div>
           <div class="tm-tours-box-1-link">
@@ -133,7 +152,7 @@
 				<c:forEach var="p" items="${platos}">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" class="img-responsive" height="280" width="560">
+						<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" title="<c:out value="${p.name}"/>" height="290" width="100%">
             			<div class="tm-tours-box-1-info">
               				<div class="tm-tours-box-1-info-left">
                 				<p class="text-uppercase margin-bottom-20"><c:out value="${p.name}"/></p>
@@ -193,19 +212,21 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-tours-box-2">
-						<img src="${prefix}/img/index-03.jpg" alt="image" class="img-responsive">
 						<div class="tm-tours-box-2-info">
-							<h3 class="margin-bottom-15">Menu Ejecutivo</h3>
+							<h3 class="margin-bottom-15">Menu Ahorro</h3>
               <div class="panel-group" id="accordion">
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">Primer Plato</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Primer Plato</a>
                           </h4>
                       </div>
-                      <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
-                          <div class="panel-body">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+                      <div id="collapseOne" class="panel-collapse in" style="height: auto;">
+                          <div class="panel-body"><ul style=" list-style-type: none;">
+                              <li>Plato 1</li>
+                              <li>Plato 2</li>
+                              <li>Plato 3</li>
+                            </ul>
                           </div>
                       </div>
                   </div>
@@ -225,23 +246,7 @@
                           </div>
                       </div>
                   </div>
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">Tercer Plato</a>
-                          </h4>
-                      </div>
-                      <div id="collapseThree" class="panel-collapse collapse">
-
-
-                              <div class="panel-body">
-                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                              </div>
-                      </div>
-                  </div>
               </div>
-
-							<img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
 							<p>50</p>
 						</div>
 						<a href="#" class="tm-tours-box-2-link">Haz tu reserva</a>
@@ -249,19 +254,21 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-tours-box-2">
-						<img src="${prefix}/img/index-04.jpg" alt="image" class="img-responsive">
 						<div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Menu Estudiante</h3>
               <div class="panel-group" id="accordion">
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">Primer Plato</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Primer Plato</a>
                           </h4>
                       </div>
-                      <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+                      <div id="collapseOne" class="panel-collapse in" style="height: auto;">
                           <div class="panel-body">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+                             <ul style=" list-style-type: none;">
+                              <li>Plato 1</li>
+                              <li>Plato 2</li>
+                            </ul>
                           </div>
                       </div>
                   </div>
@@ -271,36 +278,16 @@
                               <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Segundo Plato</a>
                           </h4>
                       </div>
-                      <div id="collapseTwo" class="panel-collapse collapse" style="height: auto;">
+                      <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                           <div class="panel-body">
                             <ul style=" list-style-type: none;">
                               <li>Plato 1</li>
                               <li>Plato 2</li>
-                              <li>Plato 3</li>
                             </ul>
                           </div>
                       </div>
                   </div>
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">Tercer Plato</a>
-                          </h4>
-                      </div>
-                      <div id="collapseThree" class="panel-collapse in ">
-
-
-                              <div class="panel-body">
-                                <ul style=" list-style-type: none;">
-                                  <li>Plato 1</li>
-                                  <li>Plato 2</li>
-                                  <li>Plato 3</li>
-                                </ul>
-                              </div>
-                      </div>
-                  </div>
               </div>
-							<img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
 							<p>26</p>
 						</div>
 						<a href="#" class="tm-tours-box-2-link">Haz tu reserva</a>
@@ -308,31 +295,18 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-tours-box-2">
-						<img src="${prefix}/img/index-05.jpg" alt="image" class="img-responsive">
 						<div class="tm-tours-box-2-info">
               <h3 class="margin-bottom-15">Menu Ejecutivo</h3>
               <div class="panel-group" id="accordion">
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">Primer Plato</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Primer Plato</a>
                           </h4>
                       </div>
-                      <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+                      <div id="collapseOne" class="panel-collapse in" style="height: auto;">
                           <div class="panel-body">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                          </div>
-                      </div>
-                  </div>
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Segundo Plato</a>
-                          </h4>
-                      </div>
-                      <div id="collapseTwo" class="panel-collapse collapse" style="height: auto;">
-                          <div class="panel-body">
-                            <ul style=" list-style-type: none;">
+                           <ul style=" list-style-type: none;">
                               <li>Plato 1</li>
                               <li>Plato 2</li>
                               <li>Plato 3</li>
@@ -343,7 +317,22 @@
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">Tercer Plato</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Segundo Plato</a>
+                          </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+                          <div class="panel-body">
+                            <ul style=" list-style-type: none;">
+                              <li>Plato 1</li>
+                              <li>Plato 2</li>
+                            </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" >Tercer Plato</a>
                           </h4>
                       </div>
                       <div id="collapseThree" class="panel-collapse in ">
@@ -353,13 +342,11 @@
                                 <ul style=" list-style-type: none;">
                                   <li>Plato 1</li>
                                   <li>Plato 2</li>
-                                  <li>Plato 3</li>
                                 </ul>
                               </div>
                       </div>
                   </div>
               </div>
-							<img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
 							<p>24</p>
 						</div>
 						<a href="#" class="tm-tours-box-2-link">Haz tu reserva</a>
@@ -367,19 +354,21 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-tours-box-2">
-						<img src="${prefix}/img/index-06.jpg" alt="image" class="img-responsive">
 						<div class="tm-tours-box-2-info">
-              <h3 class="margin-bottom-15">Menu Ejecutivo</h3>
+              <h3 class="margin-bottom-15">Menu Saludable</h3>
               <div class="panel-group" id="accordion">
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">Primer Plato</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Primer Plato</a>
                           </h4>
                       </div>
-                      <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+                      <div id="collapseOne" class="panel-collapse in" style="height: auto;">
                           <div class="panel-body">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+                              <ul style=" list-style-type: none;">
+                              <li>Plato 1</li>
+                              <li>Plato 2</li>
+                            </ul>
                           </div>
                       </div>
                   </div>
@@ -389,46 +378,27 @@
                               <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Segundo Plato</a>
                           </h4>
                       </div>
-                      <div id="collapseTwo" class="panel-collapse collapse" style="height: auto;">
+                      <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                           <div class="panel-body">
                             <ul style=" list-style-type: none;">
                               <li>Plato 1</li>
                               <li>Plato 2</li>
-                              <li>Plato 3</li>
                             </ul>
                           </div>
                       </div>
                   </div>
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">Tercer Plato</a>
-                          </h4>
-                      </div>
-                      <div id="collapseThree" class="panel-collapse in ">
-
-
-                              <div class="panel-body">
-                                <ul style=" list-style-type: none;">
-                                  <li>Plato 1</li>
-                                  <li>Plato 2</li>
-                                  <li>Plato 3</li>
-                                </ul>
-                              </div>
-                      </div>
-                  </div>
               </div>
-							<img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
 							<p>30</p>
 						</div>
-						<a href="#" class="tm-tours-box-2-link">Haz tu reserva</a>
+						<a href="#" class=<c:out value="${p.id}"/>"tm-tours-box-2-link">Haz tu reserva</a>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="home-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-					Morbi accumsaipsu m velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat.
+					<p class="home-description">La seleccion de menus especiales es una recomendación automática de la web,
+                                    			y no se encuentra bajo cargo del restaurante, para conocer sus menus propios, por favor, contacte a los
+                                    			restaurantes directamente.
 					</p>
           <div class="row" style="margin-bottom:25px">
             <div class="col-lg-4 col-md-4 col-lg-offset-1 col-md-offset-1">

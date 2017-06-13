@@ -38,6 +38,7 @@ import org.springframework.web.multipart.MultipartFile;
 import es.ucm.fdi.iw.*;
 import es.ucm.fdi.iw.model.Admin;
 import es.ucm.fdi.iw.model.Allergen;
+import es.ucm.fdi.iw.model.Comment;
 import es.ucm.fdi.iw.model.Dish;
 import es.ucm.fdi.iw.model.Profile;
 import es.ucm.fdi.iw.model.Restaurant;
@@ -75,6 +76,14 @@ public class RootController {
 		entityManager.persist(u);
 		return r;
 	}
+	/*
+	private Comment getCommentsOfRest(long id, Restaurant r) {
+		Comment c = entityManager.find(Comment.class, id);
+		r.getComments().add(c);
+		entityManager.persist(r);
+		return c;
+	}
+	*/
 	@RequestMapping(value="/test", method = RequestMethod.GET)
 	@Transactional
 	public String test() {
@@ -755,6 +764,34 @@ public class RootController {
 					session.setAttribute("usuario", user);
 					return "redirect:/user-restaurant";
 	
+		}
+		
+		@Transactional
+		@RequestMapping(value="/addComment", method = RequestMethod.POST)
+		public String addComment(
+				@RequestParam("id") long idRes,
+				@RequestParam("content") String content,
+				HttpServletRequest request, HttpServletResponse response,
+				Model model, 
+				HttpSession session){
+			
+			Restaurant r=new Restaurant();
+			r=(Restaurant)entityManager.createNamedQuery("restaurantePorID").setParameter("idParam", idRes).getSingleResult();
+			
+			Profile p=new User();
+			UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			p=(Profile)entityManager.createNamedQuery("userByMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult();
+			
+				if(content != ""){
+					Comment c= new Comment();
+					c.setContent(content);
+					c.setLocation(r);
+					c.setOwner(p);
+					c.resetRates();
+					entityManager.persist(c);
+					
+				}
+					return "redirect:/restaurante?id="+idRes;
 		}
 		
 		@Transactional

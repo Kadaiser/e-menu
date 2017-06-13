@@ -9,16 +9,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-
+@NamedQueries({
+	@NamedQuery(name="allComment",
+		query="select c from Comment c"),
+	@NamedQuery(name="commentsByID",
+		query="select c from Comment c where c.id = :idParam"),
+	
+})
 
 @Entity
 public class Comment {
 	private long id;
 	private Restaurant location;
-	private User owner;
+	private Profile owner;
 	
 	private String content;
-	private Date date;
+	//private Date date;
 	private int rateUp;
 	private int rateDown;
 
@@ -42,12 +48,12 @@ public class Comment {
 		this.location = location;
 	}
 
-	@ManyToOne(targetEntity=User.class)
-	public User getOwner() {
+	@ManyToOne(targetEntity=Profile.class)
+	public Profile getOwner() {
 		return owner;
 	}
 
-	public void setOwner(User owner) {
+	public void setOwner(Profile owner) {
 		this.owner = owner;
 	}
 
@@ -59,13 +65,15 @@ public class Comment {
 		this.content = content;
 	}
 
+	/*
 	public Date getDate() {
-		return date;
+		return date;rateUp
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	*/
 
 	public int getRateUp() {
 		return rateUp;
@@ -82,6 +90,11 @@ public class Comment {
 
 	public void setRateDown(int rateDown) {
 		this.rateDown -= rateDown;
+	}
+	
+	public void resetRates() {
+		this.rateDown = 0;
+		this.rateUp = 0;
 	}
 
 }
