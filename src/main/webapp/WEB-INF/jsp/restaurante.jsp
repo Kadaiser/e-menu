@@ -96,7 +96,7 @@
 
 	<div class="col-lg-4 col-md-4 col-sm-6">
         <div class="tm-tours-box-1">
-          <img src="${prefix}/img/tours-03.jpg" alt="image" class="img-responsive">
+          <img src="${prefix}/img/restaurantes/r-${restaurante.id}.jpg" alt="image" class="img-responsive">
           <div class="tm-tours-box-1-info">
             <div class="tm-tours-box-1-info-left">
               <p class="text-uppercase margin-bottom-20">Título Comida-Menu</p>
@@ -133,7 +133,7 @@
 				<c:forEach var="p" items="${platos}">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="${prefix}/img/tours-03.jpg" alt="image" class="img-responsive">
+						<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" class="img-responsive" height="280" width="560">
             			<div class="tm-tours-box-1-info">
               				<div class="tm-tours-box-1-info-left">
                 				<p class="text-uppercase margin-bottom-20"><c:out value="${p.name}"/></p>

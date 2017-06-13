@@ -138,7 +138,7 @@
 				<div class="col-lg-6">
 					<div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
-							<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" class="img-responsive" height="240" width="200">
+							<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" class="img-responsive">
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description"><c:out value="${p.name}"/></p>
