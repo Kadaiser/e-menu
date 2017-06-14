@@ -298,7 +298,7 @@ public class RootController {
 		/*
 		model.addAttribute("comentarios", 
 				entityManager.createNamedQuery("CommentByRes").setParameter("idResParam", idRes).getSingleResult());
-				*/
+			*/	
 		model.addAttribute("restaurante", 
 				entityManager.createNamedQuery("restaurantePorID").setParameter("idParam", idRes).getSingleResult());
 		Restaurant r=new Restaurant();
@@ -323,7 +323,7 @@ public class RootController {
 			}
 			List<Dish> listaPlatos=entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList();
 			List<Dish> listaPlatos1=entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList();
-			//List<Comment> listaComments=entityManager.createNamedQuery("CommentByRes").setParameter("idResParam",r).getResultList();
+			List<Comment> listaComments=entityManager.createNamedQuery("CommentByRes").setParameter("idResParam",r).getResultList();
 			model.addAttribute("fav",fav);
 			boolean borrado=true;
 			
@@ -349,6 +349,7 @@ public class RootController {
 					}
 					
 			}
+		model.addAttribute("comments", listaComments);
 		model.addAttribute("platos", listaPlatos1);
 		}else{
 			model.addAttribute("platos", 
