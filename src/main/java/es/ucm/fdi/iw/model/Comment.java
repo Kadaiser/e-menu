@@ -14,7 +14,10 @@ import javax.persistence.NamedQuery;
 		query="select c from Comment c"),
 	@NamedQuery(name="commentsByID",
 		query="select c from Comment c where c.id = :idParam"),
-	
+	@NamedQuery(name="CommentByRes", 
+	query="select c from Comment c where c.location = :idResParam"),
+	@NamedQuery(name="CommentByOwner", 
+	query="select c from Comment c where c.owner = :idOwnParam")
 })
 
 @Entity

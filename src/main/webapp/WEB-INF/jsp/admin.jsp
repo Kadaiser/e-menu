@@ -39,7 +39,7 @@
                     <!-- Add-User -->
                       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                           <a href="add" >
+                           <a href="all?what=users" >
                               <i class="fa fa-user-plus fa-5x"></i>
                               <h4>Add User</h4>
                             </a>
@@ -84,6 +84,16 @@
                               <h4>Restaurants</h4>
                           </a>
                       </div>
+                      
+                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                           <a href="all?what=comments" >
+                              <i class="fa fa-plus fa-5x"></i>
+                              <h4>Comments</h4>
+                            </a>
+                        </div>
+
+                    </div>
 
                     </div>
 

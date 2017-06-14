@@ -83,6 +83,41 @@
                     </div>
                 </div>
 
+				                <!-- /. ROW COMMENTS  -->
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <h5>Table  Comments</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>RateUp</th>
+                                        <th>RateDown</th>
+                                        <th>location</th>
+                                        <th>Owner</th>
+                                        <th>Content</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                               		<c:forEach var="c" items="${comments}">
+                                		<tr>
+                                        	<td> <c:out value="${c.id}"/> </td>
+                                        	<td> <c:out value="${c.rateUp}"/> </td>
+                                        	<td> <c:out value="${c.rateDown}"/> </td>
+                                        	<td> <c:out value="${c.location.name}"/> </td>
+                                        	<td> <c:out value="${c.owner.name}"/> </td>
+                                        	<td> <c:out value="${c.content}"/> </td>
+                                    	</tr>
+                                	</c:forEach>
+                                    
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
 
 

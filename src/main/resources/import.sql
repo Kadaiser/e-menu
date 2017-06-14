@@ -22,7 +22,7 @@ INSERT INTO PROFILE VALUES('Restaurant',5,'r1@r.rs','El Mejíbar','$2a$06$xkp4Zn
 INSERT INTO PROFILE VALUES('Restaurant',6,'r2@r.rs','Gandarío','$2a$06$xkp4ZnBqJ9UcbcB2h2M/zuA7R29AZjsrBk4DGQoJ3cOXVisReXbCC','RESTAURANT','Calle Gaztambide 28, Madrid',25,'12345678A','915402233',NULL,NULL)
 
 /* id, owner, location, content, rateUp, rateDown*/
-INSERT INTO COMMENT VALUES(1,1,2,'Un restaurante muy bonito y bien cuidado, con gente amable y buena comida por un precio normal',0,0)
+INSERT INTO COMMENT VALUES(1,'Un restaurante muy bonito y bien cuidado, con gente amable y buena comida por un precio normal',0,0,2,1,1)
 
 /* id, carbs, fats, kcal, name,precio, prot, location-id*/
 

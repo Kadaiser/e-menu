@@ -76,44 +76,6 @@ public class RootController {
 		entityManager.persist(u);
 		return r;
 	}
-	/*
-	private Comment getCommentsOfRest(long id, Restaurant r) {
-		Comment c = entityManager.find(Comment.class, id);
-		r.getComments().add(c);
-		entityManager.persist(r);
-		return c;
-	}
-	*/
-	@RequestMapping(value="/test", method = RequestMethod.GET)
-	@Transactional
-	public String test() {
-		
-		User u = new User();
-		u.setMail("adri@a.as");
-		u.setPass("aa");
-		u.setName("aa");
-		entityManager.persist(u);
-		/*
-		Restaurant r = new Restaurant();
-		r.setMail("r@r.rs");
-		r.setPass("r");
-		r.setName("r");
-		entityManager.persist(r);
-		
-		Dish d = new Dish();
-		d.setCarbs(10);
-		d.setFats(5);
-		d.setProt(18);
-		d.setKcal(1);
-		d.setName("Pato laqueado");
-		entityManager.persist(d);
-		getAllergen(1, d);
-		getAllergen(8, d);
-		getAllergen(4, d);*/
-		
-		log.info("deberia haber hecho 3 inserts...");
-		return "reg";
-	}
 	
 	/**
 	 * Logout (also returns to home view).
@@ -141,41 +103,38 @@ public class RootController {
 	    return token;
 	}
 	
-/* About*/
+	/* About*/
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
 	public String about(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "about");	
-		
-		
 		return "about";
 	}
-/*Add*/
+	
+	/*Add*/
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String add(Model model, HttpSession session){
 		model.addAttribute("pageTitle", "Add");			
 		return "add";
 	}
+	
 	/*Add*/
 	@RequestMapping(value = "/addRes", method = RequestMethod.GET)
 	public String addRes(Model model, HttpSession session){
 		model.addAttribute("pageTitle", "AddRes");	
-		
 		return "addRes";
 	}
-/*Admin*/
+	
+	/*Admin*/
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Model model, HttpSession session){
 		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("usuario", 
 				entityManager.createNamedQuery("adminPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
 		
-		
 		model.addAttribute("pageTitle", "Admin");	
-		
 		return "admin";
 	}
+	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
@@ -258,6 +217,8 @@ public class RootController {
 			@RequestParam("what") String what,
 			Model model,
 			HttpSession session){
+		model.addAttribute("comments", 
+				entityManager.createNamedQuery("allComment").getResultList());
 		//Comprobamos que queremos ver, usuarios o restaurantes.
 		//separamos usuarios normales de restaurantes.
 		if(what.equals("users")){
@@ -266,9 +227,13 @@ public class RootController {
 		}if(what.equals("restaurants")){
 			model.addAttribute("usuarios", 
 					entityManager.createNamedQuery("todosRestaurantes").getResultList());
+		}if(what.equals("comments")){
+			model.addAttribute("comments", 
+					entityManager.createNamedQuery("allComment").getResultList());
 		}if(what.equals("banned")){
 			
 		}
+		
 		
 		model.addAttribute("pageTitle", "All");	
 		return "all";
@@ -330,6 +295,10 @@ public class RootController {
 	public String restaurante(
 			@RequestParam("id") long idRes,
 			Model model, HttpSession session){
+		/*
+		model.addAttribute("comentarios", 
+				entityManager.createNamedQuery("CommentByRes").setParameter("idResParam", idRes).getSingleResult());
+				*/
 		model.addAttribute("restaurante", 
 				entityManager.createNamedQuery("restaurantePorID").setParameter("idParam", idRes).getSingleResult());
 		Restaurant r=new Restaurant();
@@ -354,6 +323,7 @@ public class RootController {
 			}
 			List<Dish> listaPlatos=entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList();
 			List<Dish> listaPlatos1=entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList();
+			//List<Comment> listaComments=entityManager.createNamedQuery("CommentByRes").setParameter("idResParam",r).getResultList();
 			model.addAttribute("fav",fav);
 			boolean borrado=true;
 			
@@ -401,25 +371,22 @@ public class RootController {
 		entityManager.persist(a);
 		return "restaurant";
 	}
-/*RestaurantRegister*/
+	
+	/*RestaurantRegister*/
 	@RequestMapping(value = "/reg-rest", method = RequestMethod.GET)
 	public String regrest(Model model, HttpSession session){
-		
-		
 		model.addAttribute("pageTitle", "Registro");	
-		
 		return "reg-rest";
 	}
-/*RestaurantReservations*/
+	
+	/*RestaurantReservations*/
 	@RequestMapping(value = "/reservas-restaurante", method = RequestMethod.GET)
 	public String reservRes(Model model, HttpSession session){
-		
-		
-		model.addAttribute("pageTitle", "Reservas");	
-		
+		model.addAttribute("pageTitle", "Reservas");
 		return "reservas-restaurante";
 	}
-/*Restaurants*/
+	
+	/*Restaurants*/
 	@RequestMapping(value = "/mis-rest", method = RequestMethod.GET)
 	public String misrest(Model model, HttpSession session){
 		User u = new User();
@@ -454,8 +421,6 @@ public class RootController {
 					(Admin)entityManager.createNamedQuery("adminPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
 
 		}
-		
-		
 		model.addAttribute("pageTitle", "User");	
 		return "user";
 	}
@@ -588,8 +553,6 @@ public class RootController {
 							log.info("deberia haber hecho un insert");
 							return "index";
 						}
-				
-				
 			}
 			log.info("no pasamos de password");
 			return "reg";
@@ -791,7 +754,7 @@ public class RootController {
 					entityManager.persist(c);
 					
 				}
-					return "redirect:/restaurante?id="+idRes;
+			return "redirect:/restaurante?id="+idRes;
 		}
 		
 		@Transactional
@@ -829,6 +792,7 @@ public class RootController {
 				}
 					return "redirect:/user-restaurant";
 		}
+		
 		@Transactional
 		@RequestMapping(value="/borrarPlato", method = RequestMethod.POST)
 		public String crearPlato(
@@ -853,7 +817,6 @@ public class RootController {
 				@RequestParam("id") long idP,
 				Model model,
 				HttpSession session){
-			
 			model.addAttribute("plato",
 					entityManager.createNamedQuery("DishID").setParameter("idParam", idP).getSingleResult());
 			model.addAttribute("alergenos", 
