@@ -22,12 +22,11 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
-                                            <img src="${prefix}/img/rest1.jpg">
-
+                                            <img src="${prefix}/img/restaurantes/r-<c:out value="${r.id}"/>.jpg" alt="image" class="img-responsive">
                                         </div>
 
                                         <div>
-                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+                                             Ubicacion:<c:out value="${r.address}"/>
                                         </div>  
 
 

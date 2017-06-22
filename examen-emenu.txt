@@ -1,0 +1,44 @@
+# emenu
+
+ADRIÁN	DÍAZ JIMÉNEZ
+ADRIÁN	NAVAZO ESCUDERO
+DIEGO	VALBUENA PINEDA
+JESÚS	VÉLEZ AYUSO
+
+## Funcionalidad
+
+
+
+Aunque me parece estupendo durante pruebas, deberíais comentar los botones de "login rápido" en producción (=entrega)
+
+Las imágenes son siempre las mismas. No parece además haber forma de cambiarlas. También teneis mucho "relleno", que deberíais haber eliminado ya y reemplazado por contenido real de cara a esta entrega (user-restaurante es particularmente llamativa).
+
+Los platos deberían acceder a sus imágenes vía LocalData, y no vía /static - lo que hay en /static no se puede modificar sin redesplegar, mientras que LocalData está pensado justo para este fin.
+
+Es posible modificar detalles de cualquier usuario enviando una petición adecuada a /actualizar-user - aunque esto sólo permite a un usuario modificar la contraseña de otro, o a un admin la contraseña de otro. Deberíais evitar que un usuario  normal pueda cambiar información de otro usuario normal. Apuesto que lo mismo también sucede con los restaurantes; y con sus platos.
+
+Buen uso de <c:out>.
+
+
+## Código
+
+No hace falta separar cada ruta en una línea en el SecurityConfig. Tal y como se ve en la primera línea, es posible especificar varios a la vez (separados mediante comas).
+
+
+Las consultas de la forma "algoPorID" es mejor evitarlas. entityManager.find(Algo.class, id) es más limpio y rápido.
+
+Usando spring security, la función getTokenForSession de vuestro RootController es inútil. (y además no la usais)
+
+Teneis código repetido; por ejemplo, creando admin y usuario, todo el código donde estableceis atributos es común, una vez realizado el "new".
+
+Es muy cómodo usar la sesión para mantener la información del usuario actual, en lugar de tener que consutltar el SecurityContext. Esto simplificaría mucho la lógica de vuestro /user - si el objeto de la sesión instanceof Admin, una cosa; y si instanceof User, otra.
+
+Teneis mucho código que comprueba si un valor ha cambiado antes de hacer un "set". Sobra.
+
+Para que vuestras consultas por nombre de restaurante/usuario funcionen, usad algo así como 
+    SELECT u FROM User u WHERE u.searchString LIKE '%' || :text || '%'
+es decir - el operador %, que actúa como asteriscos, es tremendamente útil.
+
+## Nota
+
+Falta bastante funcionalidad. Tal y como está, optais a un 5.5. Si solucionais los problemas de seguridad, permitís carga de imágenes para restaurantes + platos (usando LocalStorage), y permitís crear reservas, podríais entrar en territorio de notable. No obstante, esto son demasiados cambios para llevarlos a cabo de aquí al 24 (y yo no podría saber quién ha hecho qué...). Si vais a intentar esta reentrega, hablad conmigo para acordar los detalles. Alternativamente, os propongo reexaminaros en septiembre con la página acabada.

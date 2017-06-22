@@ -91,17 +91,7 @@ public class RootController {
 	    Object t=session.getAttribute("csrf_token");
 	    return (t != null) && t.equals(token);
 	}
-	
-	/**
-	 * Returns an anti-csrf token for a session, and stores it in the session
-	 * @param session
-	 * @return
-	 */
-	static String getTokenForSession (HttpSession session) {
-	    String token=UUID.randomUUID().toString();
-	    session.setAttribute("csrf_token", token);
-	    return token;
-	}
+
 	
 	/* About*/
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
@@ -147,7 +137,6 @@ public class RootController {
 			@RequestParam("optradio") String valor,
 			Model model, HttpSession session){
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		getTokenForSession(session);
 		if(valor.equals("user")){
 			User u = new User();
 			if(usuarioValido(mail)){
@@ -193,7 +182,6 @@ public class RootController {
 			@RequestParam("cap") int cap,
 			Model model, HttpSession session){
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		getTokenForSession(session);
 		
 			Restaurant u = new Restaurant();
 			if(usuarioValido(mail)){
@@ -536,7 +524,6 @@ public class RootController {
 				Model model, 
 				HttpSession session){
 				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-					getTokenForSession(session);
 					User u = new User();
 					log.info("registrar");
 					//Comprobamos que coinciden las contraseña.
@@ -570,7 +557,6 @@ public class RootController {
 				Model model, 
 				HttpSession session){
 				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-					getTokenForSession(session);
 					Restaurant u = new Restaurant();
 					log.info("registrar");
 					//Creamos contraseña igual a todos pass: a
