@@ -16,7 +16,7 @@
 		
 						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<div class="tm-about-box-1">
-								<a href="#"><img src="${prefix}/img/f0.jpg" alt="img" class="tm-about-box-1-img"></a>
+								<a href="#"><img src="${prefix}/img/users/u-2.jpg" alt="img" class="tm-about-box-1-img"></a>
 								<h3 class="tm-about-box-1-title">Adrián Díaz</h3>
 								<p class="margin-bottom-15 gray-text">Estudiante de ingeniería informatica de tecnologias de la información.</p>
 								<div class="gray-text">
@@ -29,7 +29,7 @@
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<div class="tm-about-box-1">
-								<a href="#"><img src="${prefix}/img/f1.jpg" alt="img" class="tm-about-box-1-img"></a>
+								<a href="#"><img src="${prefix}/img/users/u-0.jpg"alt="img" class="tm-about-box-1-img"></a>
 								<h3 class="tm-about-box-1-title">Adrián Navazo </h3>
 								<p class="margin-bottom-15 gray-text">Estudiante de ingeniería informatica de tecnologias de la información.</p>
 								<div class="gray-text">
@@ -42,7 +42,7 @@
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<div class="tm-about-box-1">
-								<a href="#"><img src="${prefix}/img/f2.jpg" alt="img" class="tm-about-box-1-img"></a>
+								<a href="#"><img src="${prefix}/img/users/u-3.jpg" alt="img" class="tm-about-box-1-img"></a>
 								<h3 class="tm-about-box-1-title">Jesús Vélez</h3>
 								<p class="margin-bottom-15 gray-text">Estudiante ingeniería informatica.</p>
 								<div class="gray-text">
@@ -55,7 +55,7 @@
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 							<div class="tm-about-box-1">
-								<a href="#"><img src="${prefix}/img/f3.jpg" alt="img" class="tm-about-box-1-img"></a>
+								<a href="#"><img src="${prefix}/img/users/u-1.jpg" alt="img" class="tm-about-box-1-img"></a>
 								<h3 class="tm-about-box-1-title">Diego Valbuena</h3>
 								<p class="margin-bottom-15 gray-text">Estudiante de 3er año de ingeniería informatica de tecnologias de la información.</p>
 								<div class="gray-text">

@@ -28,8 +28,8 @@ function cambiaAdmin(){
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" action="login" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" name="username" value="a@a.as" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
-                <input type="password" name="password" value="a" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                <input type="email" name="username" id="inputEmail" class="form-control" placeholder="Correo electrónico" required autofocus>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
                 <div id="remember" class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Recuérdame
@@ -38,9 +38,11 @@ function cambiaAdmin(){
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar sesión</button>
+                <!--  
             	<input type="button" value="User" onclick="cambiaUser()" />
             	<input type="button" value="Rest" onclick="cambiaRest()" />
             	<input type="button" value="Admin" onclick="cambiaAdmin()" />
+            	-->
             </form><!-- /form -->
             
             <a href="#" class="forgot-password">

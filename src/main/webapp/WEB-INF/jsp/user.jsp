@@ -19,7 +19,7 @@
                     <div class="col-md-12">
                      	<h2>Perfil</h2>
                      	<div class= "imag-rest">
-                     		<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" height="180" width="240" alt="<c:out value="${p.id}"/>">
+                     		<img src="${prefix}/img/users/u-<c:out value="${usuario.id}"/>.jpg" height="200" width="140" alt="<c:out value="${usuario.name}"/>">
                      		<!-- 
                      		<img src="/user/photo?id=${usuario.id}" height="200" width="140" alt="<c:out value="${usuario.name}"/>">
                      		-->
