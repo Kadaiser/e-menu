@@ -55,8 +55,6 @@ public class RootController {
 	
 	@Autowired
 	private EntityManager entityManager;
-	
-	private LocalData localData;
 
 	  @ModelAttribute
 	  public void addAttributes(Model m){
@@ -299,9 +297,7 @@ public class RootController {
 		Restaurant r=new Restaurant();
 		r=(Restaurant)entityManager.createNamedQuery("restaurantePorID").setParameter("idParam", idRes).getSingleResult();
 		
-		/*model.addAttribute("platos", 
-				entityManager.createNamedQuery("platosPorRes").setParameter("idResParam",r).getResultList());
-		*/UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
 		
 		Collection<GrantedAuthority> authorities=(Collection<GrantedAuthority>)userDetails.getAuthorities();
@@ -388,7 +384,6 @@ public class RootController {
 		User u = new User();
 		UserDetails userDetails=(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("usuario",(User)entityManager.createNamedQuery("usuarioPorMail").setParameter("emailParam", userDetails.getUsername()).getSingleResult());
-		//model.addAttribute("restaurantes",entityManager.createNamedQuery("restaurantesPorUsuario").setParameter("idUsu", u.getId()).getResultList());
 		model.addAttribute("pageTitle", "Mis Restaurantes");	
 		
 		return "mis-rest";
@@ -437,14 +432,13 @@ public class RootController {
                 byte[] bytes = photo.getBytes();
                 log.info("bytes image: "+ bytes);
                 
-                File f=LocalData.getFile("img/user", "user"+id);
+                File f=LocalData.getFile("img/users", "u-" + id +".jpg");
                 BufferedOutputStream stream =
                         new BufferedOutputStream(
                         		new FileOutputStream(f));
                 stream.write(bytes);
                 stream.close();
-                return "You successfully uploaded " + id + 
-                		" into " + localData.getFile("user", id).getAbsolutePath() + "!";
+                return "redirect:/user";
             } catch (Exception e) {
                 return "You failed to upload " + id + " => " + e.getMessage();
             }
@@ -465,15 +459,16 @@ public class RootController {
                 byte[] bytes = photo.getBytes();
                 log.info("bytes image: "+ bytes);
                 
-                File f=LocalData.getFile("img/restaurantes", "user"+id);
+                File f=LocalData.getFile("img/restaurantes", "r-"+id+".jpg");
                 BufferedOutputStream stream =
                         new BufferedOutputStream(
                         		new FileOutputStream(f));
                 
                 stream.write(bytes);
                 stream.close();
+                
                 return "You successfully uploaded " + id + 
-                		" into " + LocalData.getFile("user", id).getAbsolutePath() + "!";
+                		" into " + LocalData.getFile("restaurantes", id).getAbsolutePath() + "!";
             } catch (Exception e) {
                 return "You failed to upload " + id + " => " + e.getMessage();
             }
@@ -485,15 +480,13 @@ public class RootController {
     public @ResponseBody String dishHandleFileUpload(
     		@RequestParam("photo") MultipartFile photo,
     		@PathVariable("id") String id){
-		
-		
-		
+
         if (!photo.isEmpty()) {
             try {
                 byte[] bytes = photo.getBytes();
                 log.info("bytes image: "+ bytes);
                 
-                File f=LocalData.getFile("img/platos", "d-"+id);
+                File f=LocalData.getFile("img/platos", "d-"+ id + ".jpg");
                 BufferedOutputStream stream =
                         new BufferedOutputStream(
                         		new FileOutputStream(f));
@@ -519,7 +512,22 @@ public class RootController {
 	    	in = new BufferedInputStream(new FileInputStream(f));
 	    } else {
 	    	in = new BufferedInputStream(
-	    			this.getClass().getClassLoader().getResourceAsStream("r-" + dishID +".jpg"));
+	    			this.getClass().getClassLoader().getResourceAsStream("nullPlato.jpg"));
+	    }
+	    
+	    return IOUtils.toByteArray(in);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/user/photo", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+	public byte[] userPhoto(@RequestParam("id") String userID) throws IOException {
+	    File f = LocalData.getFile("img/users","u-" + userID +".jpg");
+	    InputStream in = null;
+	    if (f.exists()) {
+	    	in = new BufferedInputStream(new FileInputStream(f));
+	    } else {
+	    	in = new BufferedInputStream(
+	    			this.getClass().getClassLoader().getResourceAsStream("nullAvatar.jpg"));
 	    }
 	    
 	    return IOUtils.toByteArray(in);
@@ -534,21 +542,7 @@ public class RootController {
 	    	in = new BufferedInputStream(new FileInputStream(f));
 	    } else {
 	    	in = new BufferedInputStream(
-	    			this.getClass().getClassLoader().getResourceAsStream("d-" + restaurantID +".jpg"));
-	    }
-	    
-	    return IOUtils.toByteArray(in);
-	}
-	@ResponseBody
-	@RequestMapping(value="/user/photo", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
-	public byte[] userPhoto(@RequestParam("id") String dishID) throws IOException {
-	    File f = LocalData.getFile("img/users","f" + dishID +".jpg");
-	    InputStream in = null;
-	    if (f.exists()) {
-	    	in = new BufferedInputStream(new FileInputStream(f));
-	    } else {
-	    	in = new BufferedInputStream(
-	    			this.getClass().getClassLoader().getResourceAsStream("f" + dishID +".jpg"));
+	    			this.getClass().getClassLoader().getResourceAsStream("nullRestaurant.jpg"));
 	    }
 	    
 	    return IOUtils.toByteArray(in);

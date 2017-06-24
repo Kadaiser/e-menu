@@ -59,6 +59,18 @@
                  		</div>
                  		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form>
+                <br>
+                 <form action="/restUser/${usuario.id}" method="post" enctype="multipart/form-data">
+                 	<div class="input-group">
+                    Subir foto de usuario:
+                    	
+                    	<input type="file" name="photo" >
+                    	<br>
+                    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    	<input type="submit" class="btn" value="Subir Imagen" />
+                    </div> 
+                    <br> 
+                 </form>
                 </div> 
 				<div  class="col-md-6">
                         <div class="tm-home-box-1">

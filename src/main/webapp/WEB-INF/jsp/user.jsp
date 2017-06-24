@@ -17,7 +17,13 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Perfil</h2>
+                     	<h2>Perfil</h2>
+                     	<div class= "imag-rest">
+                     		<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" height="180" width="240" alt="<c:out value="${p.id}"/>">
+                     		<!-- 
+                     		<img src="/user/photo?id=${usuario.id}" height="200" width="140" alt="<c:out value="${usuario.name}"/>">
+                     		-->
+                        </div>
                     </div>
                 </div>
                  <!-- /. ROW  -->
@@ -112,9 +118,9 @@
       	<c:forEach var = "r" items="${restaurantes}">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
           <div class="tm-tours-box-2">            
-            <img src="${prefix}/img/index-03.jpg" alt="image" class="img-responsive">
+            <img src="${prefix}/img/restaurantes/r-<c:out value="${r.id}"/>.jpg"alt="image" class="img-responsive">
             <div class="tm-tours-box-2-info">
-              <h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
+              <h3 class="margin-bottom-15"><c:out value="${r.name}"/></h3>
               <img src="${prefix}/img/rating.png" alt="image" class="margin-bottom-5">
               <p>28 March 2084</p>  
             </div>            

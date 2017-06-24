@@ -50,6 +50,11 @@
                                   		<input type="number" id="precio" name="precio" step="0.01" class="form-control" placeholder="0.00" required/>
                                 	</div>
                               </div>
+                              <div class="input-group">
+			                    Subir foto de plato:
+			                    	<input type="file" name="photo" >
+			                    	<br>
+			                    </div> 
                               <div class="form-group tm-yellow-gradient-bg text-center">
                                 <button type="submit" name="submit" class="tm-yellow-btn">Crear</button>
                               </div>
@@ -84,7 +89,9 @@
                                     <div class="panel-body">
                                         <div class= "imag-rest">
                                         	<!-- Usar LocalStorage -->
+                                        	
                                             <img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" height="180" width="240" alt="<c:out value="${p.id}"/>">
+                                            
                                             <!--
                                             <img src="/dish/photo?id=${p.id}" height="180" width="240" alt="<c:out value="${p.id}"/>">
                                            	-->
