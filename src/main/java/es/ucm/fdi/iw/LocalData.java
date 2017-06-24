@@ -13,11 +13,10 @@ import org.apache.commons.logging.LogFactory;
  */
 public class LocalData {    	    
 	private static Log log = LogFactory.getLog(LocalData.class);
-
-    private File baseFolder;
+    private static File baseFolder;
     
     public LocalData(File baseFolder) {
-		this.baseFolder = baseFolder;
+		LocalData.baseFolder = baseFolder;
     	log.info("base folder is " + baseFolder.getAbsolutePath());
     	if (!baseFolder.isDirectory()) {
     		if (baseFolder.exists()) {
@@ -36,7 +35,7 @@ public class LocalData {
      * @return a File pointing to the folder baseFolder/folderName, which will be
      * created if absent.
      */
-    public File getFolder(String folderName) {
+    public static File getFolder(String folderName) {
     	log.info("baseFolder: "+baseFolder.getAbsolutePath());
     	File folder = new File(baseFolder, folderName);
     	if ( ! folder.exists()) {
@@ -51,7 +50,7 @@ public class LocalData {
      * @return a File pointing to baseFolder/folderName/fileName. If
      * the file does not exist, it is not created.
      */
-    public File getFile(String folderName, String fileName) {
+    public static File getFile(String folderName, String fileName) {
     	log.info("baseFolder: "+baseFolder.getAbsolutePath());
     	return new File(getFolder(folderName), fileName);
     }

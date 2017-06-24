@@ -83,7 +83,11 @@
                                 <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
                                     <div class="panel-body">
                                         <div class= "imag-rest">
+                                        	<!-- Usar LocalStorage -->
                                             <img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" height="180" width="240" alt="<c:out value="${p.id}"/>">
+                                            <!--
+                                            <img src="/dish/photo?id=${p.id}" height="180" width="240" alt="<c:out value="${p.id}"/>">
+                                           	-->
                                             <p> Kcal: <c:out value="${p.kcal}"/>  </p>
                                             <p> Prot: <c:out value="${p.prot}"/>  </p>
                                             <p> Carbs: <c:out value="${p.carbs}"/>  </p>
@@ -91,6 +95,7 @@
                                             <p> Precio: <c:out value="${p.precio}"/> € </p>
                                             <c:forEach var="a" items="${p.allergens}">
                                             <img src="${prefix}/img/icons/a<c:out value="${a.id}"/>.png" alt="image" height="32" width="32" alt="<c:out value="${a.name}"/>" title="<c:out value="${a.name}"/>">
+
                                             </c:forEach>
                                         </div>
                                         </br>

@@ -1,13 +1,16 @@
 package es.ucm.fdi.iw.controller;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Date;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
@@ -16,9 +19,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -35,7 +40,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import es.ucm.fdi.iw.*;
+import es.ucm.fdi.iw.LocalData;
 import es.ucm.fdi.iw.model.Admin;
 import es.ucm.fdi.iw.model.Allergen;
 import es.ucm.fdi.iw.model.Comment;
@@ -50,6 +55,8 @@ public class RootController {
 	
 	@Autowired
 	private EntityManager entityManager;
+	
+	private LocalData localData;
 
 	  @ModelAttribute
 	  public void addAttributes(Model m){
@@ -386,8 +393,6 @@ public class RootController {
 		
 		return "mis-rest";
 	}
-
-	private LocalData localData;
 	
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String user(Model model, HttpSession session){
@@ -424,10 +429,14 @@ public class RootController {
     public @ResponseBody String handleFileUpload(
     		@RequestParam("photo") MultipartFile photo,
     		@PathVariable("id") String id){
+		
+		
+		
         if (!photo.isEmpty()) {
             try {
                 byte[] bytes = photo.getBytes();
                 log.info("bytes image: "+ bytes);
+                
                 File f=localData.getFile("img/user", "user"+id);
                 BufferedOutputStream stream =
                         new BufferedOutputStream(
@@ -443,6 +452,50 @@ public class RootController {
         } else {
             return "You failed to upload a photo for " + id + " because the file was empty.";
         }
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/dish/photo", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+	public byte[] dishPhoto(@RequestParam("id") String dishID) throws IOException {
+	    File f = LocalData.getFile("img/platos","d-" + dishID +".jpg");
+	    InputStream in = null;
+	    if (f.exists()) {
+	    	in = new BufferedInputStream(new FileInputStream(f));
+	    } else {
+	    	in = new BufferedInputStream(
+	    			this.getClass().getClassLoader().getResourceAsStream("d-" + dishID +".jpg"));
+	    }
+	    
+	    return IOUtils.toByteArray(in);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/restaurante/photo", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+	public byte[] restaurantPhoto(@RequestParam("id") String restaurantID) throws IOException {
+	    File f = LocalData.getFile("img/restaurantes","r-" + restaurantID +".jpg");
+	    InputStream in = null;
+	    if (f.exists()) {
+	    	in = new BufferedInputStream(new FileInputStream(f));
+	    } else {
+	    	in = new BufferedInputStream(
+	    			this.getClass().getClassLoader().getResourceAsStream("d-" + restaurantID +".jpg"));
+	    }
+	    
+	    return IOUtils.toByteArray(in);
+	}
+	@ResponseBody
+	@RequestMapping(value="/user/photo", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+	public byte[] userPhoto(@RequestParam("id") String dishID) throws IOException {
+	    File f = LocalData.getFile("img/restaurantes","d-" + dishID +".jpg");
+	    InputStream in = null;
+	    if (f.exists()) {
+	    	in = new BufferedInputStream(new FileInputStream(f));
+	    } else {
+	    	in = new BufferedInputStream(
+	    			this.getClass().getClassLoader().getResourceAsStream("d-" + dishID +".jpg"));
+	    }
+	    
+	    return IOUtils.toByteArray(in);
 	}
 	
 	@Transactional

@@ -37,6 +37,9 @@
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="tm-home-box-2">
 						<img src="${prefix}/img/restaurantes/r-<c:out value="${r.id}"/>.jpg" alt="image" class="img-responsive">
+						<!--
+                         <img src="/restaurante/photo?id=${r.id}" height="180" width="240" alt="<c:out value="${p.id}"/>">
+                         -->
 						<h3><c:out value="${r.name}"/></h3>
 						<p><c:out value="${r.phone}"/> - <c:out value="${r.address}"/></p>
 						<div class="tm-home-box-2-container">
@@ -74,6 +77,9 @@
 					<div class="tm-home-box-3">
 						<div class="tm-home-box-3-img-container">
 							<img src="${prefix}/img/platos/d-<c:out value="${p.id}"/>.jpg" alt="image" class="img-responsive" height="180" width="240">
+							<!--
+                         	<img src="/restaurante/photo?id=${r.id}" height="180" width="240" alt="<c:out value="${p.id}"/>">
+                         	-->
 						</div>
 						<div class="tm-home-box-3-info">
 							<p class="tm-home-box-3-description"><c:out value="${p.name}"/></p>
@@ -134,47 +140,6 @@
 
 		// Load Flexslider when everything is loaded.
 		$(window).load(function() {
-			// Vimeo API nonsense
-
-/*
-			  var player = document.getElementById('player_1');
-			  $f(player).addEvent('ready', ready);
-
-			  function addEvent(element, eventName, callback) {
-			    if (element.addEventListener) {
-			      element.addEventListener(eventName, callback, false)
-			    } else {
-			      element.attachEvent(eventName, callback, false);
-			    }
-			  }
-
-			  function ready(player_id) {
-			    var froogaloop = $f(player_id);
-			    froogaloop.addEvent('play', function(data) {
-			      $('.flexslider').flexslider("pause");
-			    });
-			    froogaloop.addEvent('pause', function(data) {
-			      $('.flexslider').flexslider("play");
-			    });
-			  }
-*/
-
-			  // Call fitVid before FlexSlider initializes, so the proper initial height can be retrieved.
-/*
-
-			  $(".flexslider")
-			    .fitVids()
-			    .flexslider({
-			      animation: "slide",
-			      useCSS: false,
-			      animationLoop: false,
-			      smoothHeight: true,
-			      controlNav: false,
-			      before: function(slider){
-			        $f(player).api('pause');
-			      }
-			  });
-*/
 
 //	For images only
 		    $('.flexslider').flexslider({

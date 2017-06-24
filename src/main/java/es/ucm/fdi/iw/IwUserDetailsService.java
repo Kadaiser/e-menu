@@ -29,14 +29,9 @@ public class IwUserDetailsService implements UserDetailsService {
 	        Profile u = entityManager.createQuery("from Profile where mail = :mail", Profile.class)
 	                            .setParameter("mail", username)
 	                            .getSingleResult();
-	        // build UserDetails object
 	        
 	        ArrayList<SimpleGrantedAuthority> roles = new ArrayList<>();
-	        /*for (String r : u.getRoles().split("[,]")) {
-	        	roles.add(new SimpleGrantedAuthority("ROLE_" + r));
-	        	*/
-		        log.info("Roles for " + username + " include " + u.getRoles());// roles.get(roles.size()-1));
-	        //}
+		        log.info("Roles for " + username + " include " + u.getRoles());
 		        roles.add(new SimpleGrantedAuthority("ROLE_" + u.getRoles()));
 		        
 		        
