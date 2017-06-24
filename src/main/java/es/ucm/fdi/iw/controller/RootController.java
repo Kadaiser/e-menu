@@ -426,7 +426,7 @@ public class RootController {
 	 * @return
 	 */
 	@RequestMapping(value="/photoUser/{id}", method=RequestMethod.POST)
-    public @ResponseBody String handleFileUpload(
+    public @ResponseBody String userHandleFileUpload(
     		@RequestParam("photo") MultipartFile photo,
     		@PathVariable("id") String id){
 		
@@ -437,7 +437,35 @@ public class RootController {
                 byte[] bytes = photo.getBytes();
                 log.info("bytes image: "+ bytes);
                 
-                File f=localData.getFile("img/user", "user"+id);
+                File f=LocalData.getFile("img/user", "user"+id);
+                BufferedOutputStream stream =
+                        new BufferedOutputStream(
+                        		new FileOutputStream(f));
+                stream.write(bytes);
+                stream.close();
+                return "You successfully uploaded " + id + 
+                		" into " + localData.getFile("user", id).getAbsolutePath() + "!";
+            } catch (Exception e) {
+                return "You failed to upload " + id + " => " + e.getMessage();
+            }
+        } else {
+            return "You failed to upload a photo for " + id + " because the file was empty.";
+        }
+	}
+	
+	@RequestMapping(value="/restUser/{id}", method=RequestMethod.POST)
+    public @ResponseBody String restaurantHandleFileUpload(
+    		@RequestParam("photo") MultipartFile photo,
+    		@PathVariable("id") String id){
+		
+		
+		
+        if (!photo.isEmpty()) {
+            try {
+                byte[] bytes = photo.getBytes();
+                log.info("bytes image: "+ bytes);
+                
+                File f=LocalData.getFile("img/restaurantes", "user"+id);
                 BufferedOutputStream stream =
                         new BufferedOutputStream(
                         		new FileOutputStream(f));
@@ -445,7 +473,35 @@ public class RootController {
                 stream.write(bytes);
                 stream.close();
                 return "You successfully uploaded " + id + 
-                		" into " + localData.getFile("user", id).getAbsolutePath() + "!";
+                		" into " + LocalData.getFile("user", id).getAbsolutePath() + "!";
+            } catch (Exception e) {
+                return "You failed to upload " + id + " => " + e.getMessage();
+            }
+        } else {
+            return "You failed to upload a photo for " + id + " because the file was empty.";
+        }
+	}
+	@RequestMapping(value="/dishUser/{id}", method=RequestMethod.POST)
+    public @ResponseBody String dishHandleFileUpload(
+    		@RequestParam("photo") MultipartFile photo,
+    		@PathVariable("id") String id){
+		
+		
+		
+        if (!photo.isEmpty()) {
+            try {
+                byte[] bytes = photo.getBytes();
+                log.info("bytes image: "+ bytes);
+                
+                File f=LocalData.getFile("img/platos", "d-"+id);
+                BufferedOutputStream stream =
+                        new BufferedOutputStream(
+                        		new FileOutputStream(f));
+                
+                stream.write(bytes);
+                stream.close();
+                return "You successfully uploaded " + id + 
+                		" into " + LocalData.getFile("d-", id).getAbsolutePath() + "!";
             } catch (Exception e) {
                 return "You failed to upload " + id + " => " + e.getMessage();
             }
@@ -463,7 +519,7 @@ public class RootController {
 	    	in = new BufferedInputStream(new FileInputStream(f));
 	    } else {
 	    	in = new BufferedInputStream(
-	    			this.getClass().getClassLoader().getResourceAsStream("d-" + dishID +".jpg"));
+	    			this.getClass().getClassLoader().getResourceAsStream("r-" + dishID +".jpg"));
 	    }
 	    
 	    return IOUtils.toByteArray(in);
@@ -486,13 +542,13 @@ public class RootController {
 	@ResponseBody
 	@RequestMapping(value="/user/photo", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
 	public byte[] userPhoto(@RequestParam("id") String dishID) throws IOException {
-	    File f = LocalData.getFile("img/restaurantes","d-" + dishID +".jpg");
+	    File f = LocalData.getFile("img/users","f" + dishID +".jpg");
 	    InputStream in = null;
 	    if (f.exists()) {
 	    	in = new BufferedInputStream(new FileInputStream(f));
 	    } else {
 	    	in = new BufferedInputStream(
-	    			this.getClass().getClassLoader().getResourceAsStream("d-" + dishID +".jpg"));
+	    			this.getClass().getClassLoader().getResourceAsStream("f" + dishID +".jpg"));
 	    }
 	    
 	    return IOUtils.toByteArray(in);
